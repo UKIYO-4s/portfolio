@@ -69,7 +69,7 @@
         <div class="max-w-xs mx-auto">
             <div class="aspect-square bg-gray-900 overflow-hidden group w-80 mx-auto">
                 @if($photo->image_path)
-                    <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 relative z-10">
                 @endif
             </div>
         </div>
