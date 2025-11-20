@@ -87,7 +87,7 @@
         return [
             'image_path' => asset('storage/' . $photo->image_path),
             'title' => $photo->title,
-            'description' => $photo->description,
+            'description' => $photo->description
         ];
     }));
 
