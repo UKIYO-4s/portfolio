@@ -64,10 +64,10 @@
                     </div>
 
                     <div class="text-right">
-                        <div class="text-xl font-light">${{ number_format($item->price, 2) }}</div>
+                        <div class="text-xl font-light">¥{{ number_format($item->price, 0) }}</div>
                         @if($item->quantity > 1)
                             <div class="text-sm text-gray-400 mt-1">
-                                ${{ number_format($item->price * $item->quantity, 2) }} total
+                                ¥{{ number_format($item->price * $item->quantity, 0) }} total
                             </div>
                         @endif
                     </div>
@@ -78,7 +78,7 @@
         <div class="border-t border-gray-800 pt-8">
             <div class="flex justify-between items-center mb-8">
                 <span class="text-2xl font-light">Total</span>
-                <span class="text-3xl font-light">${{ number_format($cart->total, 2) }}</span>
+                <span class="text-3xl font-light">¥{{ number_format($cart->total, 0) }}</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -51,7 +51,7 @@
                 </a>
 
                 <div class="flex items-center justify-between">
-                    <span class="text-2xl font-light">${{ number_format($product->price, 2) }}</span>
+                    <span class="text-2xl font-light">¥{{ number_format($product->price, 0) }}</span>
                     <form action="{{ route('cart.add', $product) }}" method="POST">
                         @csrf
                         <button type="submit"

@@ -24,7 +24,7 @@
                             <p class="text-sm text-gray-400">Qty: {{ $item->quantity }}</p>
                         </div>
                         <div class="text-right">
-                            <div class="text-lg">${{ number_format($item->price * $item->quantity, 2) }}</div>
+                            <div class="text-lg">¥{{ number_format($item->price * $item->quantity, 0) }}</div>
                         </div>
                     </div>
                 @endforeach
@@ -33,7 +33,7 @@
             <div class="border-t border-gray-800 pt-6">
                 <div class="flex justify-between items-center text-2xl font-light">
                     <span>Total</span>
-                    <span>${{ number_format($cart->total, 2) }}</span>
+                    <span>¥{{ number_format($cart->total, 0) }}</span>
                 </div>
             </div>
         </div>

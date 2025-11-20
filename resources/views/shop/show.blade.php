@@ -50,7 +50,7 @@
             <div class="flex flex-col">
                 <h1 class="text-4xl md:text-5xl font-thin tracking-wide mb-6">{{ $product->name }}</h1>
 
-                <div class="text-3xl font-light mb-8">${{ number_format($product->price, 2) }}</div>
+                <div class="text-3xl font-light mb-8">¥{{ number_format($product->price, 0) }}</div>
 
                 <div class="prose prose-invert max-w-none mb-12">
                     <p class="text-lg text-gray-400 font-light leading-relaxed">

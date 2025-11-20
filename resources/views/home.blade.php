@@ -94,7 +94,7 @@
                 @endif
             </div>
             <h3 class="text-xl font-light mb-2 group-hover:text-gray-400 transition-colors">{{ $product->name }}</h3>
-            <p class="text-lg text-gray-400 font-light">${{ number_format($product->price, 2) }}</p>
+            <p class="text-lg text-gray-400 font-light">¥{{ number_format($product->price, 0) }}</p>
         </a>
         @endforeach
     </div>

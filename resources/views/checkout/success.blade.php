@@ -29,7 +29,7 @@
             </div>
             <div class="flex justify-between text-sm">
                 <span class="text-gray-400">Total Amount</span>
-                <span>${{ number_format($order->total_amount, 2) }}</span>
+                <span>¥{{ number_format($order->total_amount, 0) }}</span>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
                 @foreach($order->items as $item)
                     <div class="flex justify-between items-center text-sm">
                         <span>{{ $item->product_name }} (x{{ $item->quantity }})</span>
-                        <span>${{ number_format($item->price * $item->quantity, 2) }}</span>
+                        <span>¥{{ number_format($item->price * $item->quantity, 0) }}</span>
                     </div>
                 @endforeach
             </div>
