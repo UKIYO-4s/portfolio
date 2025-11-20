@@ -31,6 +31,7 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
 Route::get('/download/{order}/{product}', [\App\Http\Controllers\DownloadController::class, 'download'])->name('download');
 
 Route::view('/terms', 'terms')->name('terms');
+Route::view('/legal', 'legal')->name('legal');
 
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;

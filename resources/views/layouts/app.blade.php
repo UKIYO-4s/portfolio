@@ -89,6 +89,7 @@
                 <div>
                     <h3 class="text-lg font-light mb-4">Legal</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="{{ route('legal') }}" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
                         <li><a href="{{ route('terms') }}" class="hover:text-white transition-colors">Terms of Service</a></li>
                     </ul>
                 </div>
