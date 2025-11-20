@@ -28,7 +28,7 @@
             @foreach($products as $product)
             <div class="group max-w-xs mx-auto">
                 <a href="{{ route('shop.show', $product) }}" class="block">
-                    <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
+                    <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
                         @if($product->image)
                             <img src="{{ asset('storage/' . $product->image) }}"
                                  alt="{{ $product->name }}"

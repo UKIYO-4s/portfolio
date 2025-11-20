@@ -15,7 +15,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             @foreach($projects as $project)
             <a href="{{ route('projects.show', $project) }}" class="group block max-w-xs mx-auto">
-                <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
+                <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
                     @if($project->thumbnail)
                         <img src="{{ asset('storage/' . $project->thumbnail) }}"
                              alt="{{ $project->title }}"

@@ -42,7 +42,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredProjects as $project)
         <a href="{{ route('projects.show', $project) }}" class="group block max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
+            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
                 @if($project->thumbnail)
                     <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                 @endif
@@ -67,7 +67,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredPhotos as $photo)
         <div class="max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 overflow-hidden group w-48 mx-auto">
+            <div class="aspect-square bg-gray-900 overflow-hidden group w-80 mx-auto">
                 @if($photo->image_path)
                     <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                 @endif
@@ -90,7 +90,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredProducts as $product)
         <a href="{{ route('shop.show', $product) }}" class="group block max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
+            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
                 @if($product->image)
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                 @endif
