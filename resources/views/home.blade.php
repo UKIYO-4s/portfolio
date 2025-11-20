@@ -85,16 +85,16 @@
         </a>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredProducts as $product)
-        <a href="{{ route('shop.show', $product) }}" class="group block">
-            <div class="aspect-square bg-gray-900 mb-3 overflow-hidden">
+        <a href="{{ route('shop.show', $product) }}" class="group block max-w-xs mx-auto">
+            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
                 @if($product->image)
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
-            <h3 class="text-sm font-light mb-1 group-hover:text-gray-400 transition-colors line-clamp-2">{{ $product->name }}</h3>
-            <p class="text-sm text-gray-400 font-light">¥{{ number_format($product->price, 0) }}</p>
+            <h3 class="text-lg font-light mb-2 group-hover:text-gray-400 transition-colors text-center">{{ $product->name }}</h3>
+            <p class="text-base text-gray-400 font-light text-center">¥{{ number_format($product->price, 0) }}</p>
         </a>
         @endforeach
     </div>
