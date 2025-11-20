@@ -13,7 +13,7 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
                     <a href="{{ route('home') }}" class="text-xl font-light tracking-wider hover:text-gray-400 transition-colors">
-                        Portfolio
+                        SD-create
                     </a>
                 </div>
 
@@ -73,9 +73,9 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-lg font-light mb-4">Portfolio</h3>
+                    <h3 class="text-lg font-light mb-4">SD-create</h3>
                     <p class="text-sm text-gray-400 font-light">
-                        Digital creator & developer
+                        後藤翔栄 - Digital creator & developer
                     </p>
                 </div>
                 <div>

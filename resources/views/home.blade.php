@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Home - Portfolio')
+@section('title', 'SD-create - デジタルクリエイター 後藤翔栄')
 
 @section('content')
 <div class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-80"></div>
     <div class="relative z-10 text-center px-6">
+        <p class="text-sm md:text-base font-light text-gray-400 mb-4 tracking-widest">SD-create</p>
         <h1 class="text-6xl md:text-8xl font-thin tracking-wide mb-6 animate-fade-in">
-            Crafting Digital
+            後藤翔栄
         </h1>
         <p class="text-xl md:text-2xl font-light text-gray-400 mb-12 tracking-wide">
-            Where code meets creativity
+            デジタルクリエイター | Digital Creator & Developer
         </p>
         <div class="flex justify-center gap-8">
             <a href="{{ route('projects.index') }}" class="px-8 py-3 border border-white hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-wider">
