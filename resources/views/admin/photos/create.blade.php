@@ -48,7 +48,23 @@
         </div>
 
         <div>
-            <label for="category" class="block text-sm text-gray-400 mb-2">Category</label>
+            <label for="category" class="block text-sm text-gray-400 mb-2">Category (タグ)</label>
+
+            @if($existingCategories->count() > 0)
+                <div class="mb-3">
+                    <label class="block text-xs text-gray-500 mb-2">既存のカテゴリーから選択</label>
+                    <select id="category-select"
+                            class="w-full bg-gray-900 border border-gray-700 px-4 py-3 text-white focus:border-gray-500 focus:outline-none"
+                            onchange="document.getElementById('category').value = this.value">
+                        <option value="">-- 選択してください --</option>
+                        @foreach($existingCategories as $cat)
+                            <option value="{{ $cat }}">{{ $cat }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
+
+            <label for="category" class="block text-xs text-gray-500 mb-2">または新しいカテゴリーを入力</label>
             <input type="text"
                    id="category"
                    name="category"
@@ -61,7 +77,7 @@
         </div>
 
         <div>
-            <label for="order" class="block text-sm text-gray-400 mb-2">Display Order</label>
+            <label for="order" class="block text-sm text-gray-400 mb-2">Display Order (表示順序)</label>
             <input type="number"
                    id="order"
                    name="order"
@@ -70,7 +86,7 @@
             @error('order')
                 <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
             @enderror
-            <p class="text-xs text-gray-500 mt-2">Lower numbers appear first</p>
+            <p class="text-xs text-gray-500 mt-2">数字が小さいほど先に表示されます (例: 1が最初、2が次)</p>
         </div>
 
         <div class="flex items-center">

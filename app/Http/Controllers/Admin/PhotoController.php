@@ -17,7 +17,14 @@ class PhotoController extends Controller
 
     public function create()
     {
-        return view('admin.photos.create');
+        $existingCategories = Photo::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->filter()
+            ->sort()
+            ->values();
+
+        return view('admin.photos.create', compact('existingCategories'));
     }
 
     public function store(Request $request)
@@ -45,7 +52,14 @@ class PhotoController extends Controller
 
     public function edit(Photo $photo)
     {
-        return view('admin.photos.edit', compact('photo'));
+        $existingCategories = Photo::whereNotNull('category')
+            ->distinct()
+            ->pluck('category')
+            ->filter()
+            ->sort()
+            ->values();
+
+        return view('admin.photos.edit', compact('photo', 'existingCategories'));
     }
 
     public function update(Request $request, Photo $photo)
