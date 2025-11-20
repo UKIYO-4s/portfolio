@@ -39,12 +39,12 @@
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredProjects as $project)
-        <a href="{{ route('projects.show', $project) }}" class="group block">
+        <a href="{{ route('projects.show', $project) }}" class="group block max-w-xs mx-auto">
             <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
                 @if($project->thumbnail)
-                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
             <h3 class="text-xl font-light mb-2 group-hover:text-gray-400 transition-colors">{{ $project->title }}</h3>
@@ -64,12 +64,14 @@
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         @foreach($featuredPhotos as $photo)
-        <div class="aspect-square bg-gray-900 overflow-hidden group w-48 mx-auto">
-            @if($photo->image_path)
-                <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-            @endif
+        <div class="max-w-xs mx-auto">
+            <div class="aspect-square bg-gray-900 overflow-hidden group w-48 mx-auto">
+                @if($photo->image_path)
+                    <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                @endif
+            </div>
         </div>
         @endforeach
     </div>

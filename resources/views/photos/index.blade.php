@@ -27,24 +27,26 @@
     @endif
 
     @if($photos->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12" id="photo-gallery">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto" id="photo-gallery">
             @foreach($photos as $photo)
-            <div class="group relative aspect-square overflow-hidden bg-gray-900 cursor-pointer w-48 mx-auto"
+            <div class="cursor-pointer max-w-xs mx-auto"
                  onclick="openLightbox({{ $loop->index }})">
-                @if($photo->image_path)
-                    <img src="{{ asset('storage/' . $photo->image_path) }}"
-                         alt="{{ $photo->title }}"
-                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                @endif
+                <div class="group relative aspect-square bg-gray-900 overflow-hidden w-48 mx-auto">
+                    @if($photo->image_path)
+                        <img src="{{ asset('storage/' . $photo->image_path) }}"
+                             alt="{{ $photo->title }}"
+                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    @endif
 
-                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-                    <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-6">
-                        @if($photo->title)
-                            <h3 class="text-lg font-light mb-2">{{ $photo->title }}</h3>
-                        @endif
-                        @if($photo->description)
-                            <p class="text-sm text-gray-300 font-light">{{ Str::limit($photo->description, 60) }}</p>
-                        @endif
+                    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-6">
+                            @if($photo->title)
+                                <h3 class="text-lg font-light mb-2">{{ $photo->title }}</h3>
+                            @endif
+                            @if($photo->description)
+                                <p class="text-sm text-gray-300 font-light">{{ Str::limit($photo->description, 60) }}</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

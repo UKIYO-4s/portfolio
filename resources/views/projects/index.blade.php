@@ -12,14 +12,14 @@
     </div>
 
     @if($projects->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             @foreach($projects as $project)
-            <a href="{{ route('projects.show', $project) }}" class="group block">
-                <div class="aspect-square bg-gray-900 mb-6 overflow-hidden w-48 mx-auto">
+            <a href="{{ route('projects.show', $project) }}" class="group block max-w-xs mx-auto">
+                <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
                     @if($project->thumbnail)
                         <img src="{{ asset('storage/' . $project->thumbnail) }}"
                              alt="{{ $project->title }}"
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                             class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
                     @else
                         <div class="w-full h-full flex items-center justify-center text-gray-600">
                             <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -24,15 +24,15 @@
     @endif
 
     @if($products->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             @foreach($products as $product)
-            <div class="group">
+            <div class="group max-w-xs mx-auto">
                 <a href="{{ route('shop.show', $product) }}" class="block">
-                    <div class="aspect-square bg-gray-900 mb-6 overflow-hidden w-48 mx-auto">
+                    <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-48 mx-auto">
                         @if($product->image)
                             <img src="{{ asset('storage/' . $product->image) }}"
                                  alt="{{ $product->name }}"
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-transform duration-700">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                         @else
                             <div class="w-full h-full flex items-center justify-center text-gray-600">
                                 <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
