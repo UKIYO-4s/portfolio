@@ -75,7 +75,7 @@
                 <div>
                     <h3 class="text-lg font-light mb-4">SD-create</h3>
                     <p class="text-sm text-gray-400 font-light">
-                        後藤翔栄 - Digital creator & developer
+                        Shoei Goto - Digital Creator & Developer
                     </p>
                 </div>
                 <div>
