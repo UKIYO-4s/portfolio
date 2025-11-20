@@ -39,11 +39,14 @@
 
         <section>
             <h2 class="text-3xl font-thin mb-4">4. Refund Policy</h2>
-            <p class="text-gray-400 font-light leading-relaxed">
-                Due to the nature of digital products, all sales are final. Refunds may be considered on a case-by-case basis
-                if there are technical issues preventing access to the purchased content. Please contact us within 7 days of
-                purchase if you experience any problems.
+            <p class="text-gray-400 font-light leading-relaxed mb-4">
+                Due to the nature of digital products, refunds are handled as follows:
             </p>
+            <ul class="list-disc list-inside text-gray-400 font-light space-y-2">
+                <li><strong>Before Download:</strong> Refunds are available within 24 hours of purchase if you contact customer support at support@sd-create.jp before downloading the product</li>
+                <li><strong>After Download:</strong> No refunds are available once the digital product has been downloaded</li>
+                <li><strong>Defective Products:</strong> If you experience technical issues with the product, please contact support@sd-create.jp for a refund or replacement</li>
+            </ul>
         </section>
 
         <section>
@@ -94,7 +97,7 @@
                 If you have any questions about these Terms of Service, please contact us at:
             </p>
             <p class="text-gray-400 font-light mt-4">
-                Email: <a href="mailto:contact@example.com" class="text-white hover:text-gray-400 transition-colors">contact@example.com</a>
+                Email: <a href="mailto:support@sd-create.jp" class="text-white hover:text-gray-400 transition-colors">support@sd-create.jp</a>
             </p>
         </section>
     </div>
