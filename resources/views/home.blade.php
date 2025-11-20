@@ -88,9 +88,9 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         @foreach($featuredProducts as $product)
         <a href="{{ route('shop.show', $product) }}" class="group block">
-            <div class="aspect-[4/3] bg-gray-900 mb-4 overflow-hidden">
+            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden">
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
             <h3 class="text-xl font-light mb-2 group-hover:text-gray-400 transition-colors">{{ $product->name }}</h3>
