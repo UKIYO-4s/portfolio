@@ -12,10 +12,10 @@
     </div>
 
     @if($projects->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             @foreach($projects as $project)
             <a href="{{ route('projects.show', $project) }}" class="group block">
-                <div class="aspect-[16/10] bg-gray-900 mb-6 overflow-hidden">
+                <div class="aspect-square bg-gray-900 mb-6 overflow-hidden w-48 mx-auto">
                     @if($project->thumbnail)
                         <img src="{{ asset('storage/' . $project->thumbnail) }}"
                              alt="{{ $project->title }}"

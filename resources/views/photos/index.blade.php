@@ -27,9 +27,9 @@
     @endif
 
     @if($photos->count() > 0)
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="photo-gallery">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12" id="photo-gallery">
             @foreach($photos as $photo)
-            <div class="group relative aspect-square overflow-hidden bg-gray-900 cursor-pointer"
+            <div class="group relative aspect-square overflow-hidden bg-gray-900 cursor-pointer w-48 mx-auto"
                  onclick="openLightbox({{ $loop->index }})">
                 @if($photo->image_path)
                     <img src="{{ asset('storage/' . $photo->image_path) }}"
