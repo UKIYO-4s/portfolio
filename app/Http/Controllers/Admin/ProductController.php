@@ -27,7 +27,8 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'image' => 'nullable|image|max:5120',
-            'file' => 'required|file|max:102400',
+            'product_type' => 'required|in:download,account',
+            'file' => 'required_if:product_type,download|nullable|file|max:102400',
             'is_active' => 'boolean',
         ]);
 

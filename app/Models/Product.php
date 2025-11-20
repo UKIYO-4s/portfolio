@@ -17,6 +17,7 @@ class Product extends Model
         'file_size',
         'is_active',
         'downloads',
+        'product_type',
     ];
 
     protected $casts = [

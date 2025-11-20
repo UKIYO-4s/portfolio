@@ -62,11 +62,26 @@
         </div>
 
         <div>
-            <label for="file" class="block text-sm text-gray-400 mb-2">Digital Product File *</label>
+            <label for="product_type" class="block text-sm text-gray-400 mb-2">Product Type *</label>
+            <select id="product_type"
+                    name="product_type"
+                    required
+                    onchange="toggleFileField()"
+                    class="w-full bg-gray-900 border border-gray-700 px-4 py-3 text-white focus:border-gray-500 focus:outline-none @error('product_type') border-red-500 @enderror">
+                <option value="download" {{ old('product_type', 'download') == 'download' ? 'selected' : '' }}>Download (ダウンロード型)</option>
+                <option value="account" {{ old('product_type') == 'account' ? 'selected' : '' }}>Account Access (アカウント発行型)</option>
+            </select>
+            @error('product_type')
+                <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
+            @enderror
+            <p class="text-xs text-gray-500 mt-2">ダウンロード型：ファイルをダウンロード提供 / アカウント発行型：システムへのアクセス権を提供</p>
+        </div>
+
+        <div id="file-field">
+            <label for="file" class="block text-sm text-gray-400 mb-2">Digital Product File <span id="file-required">*</span></label>
             <input type="file"
                    id="file"
                    name="file"
-                   required
                    class="w-full bg-gray-900 border border-gray-700 px-4 py-3 text-white focus:border-gray-500 focus:outline-none @error('file') border-red-500 @enderror">
             @error('file')
                 <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
@@ -94,4 +109,28 @@
         </div>
     </form>
 </div>
+
+<script>
+function toggleFileField() {
+    const productType = document.getElementById('product_type').value;
+    const fileField = document.getElementById('file-field');
+    const fileInput = document.getElementById('file');
+    const fileRequired = document.getElementById('file-required');
+
+    if (productType === 'account') {
+        fileField.style.display = 'none';
+        fileInput.removeAttribute('required');
+        fileRequired.style.display = 'none';
+    } else {
+        fileField.style.display = 'block';
+        fileInput.setAttribute('required', 'required');
+        fileRequired.style.display = 'inline';
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    toggleFileField();
+});
+</script>
 @endsection
