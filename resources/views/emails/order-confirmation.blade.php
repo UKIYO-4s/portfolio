@@ -1,32 +1,64 @@
 <x-mail::message>
-# Thank You for Your Purchase!
+# ご注文ありがとうございます
 
-Hi {{ $order->customer_name }},
+{{$order->customer_name}} 様
 
-Your order **{{ $order->order_number }}** has been confirmed and is ready for download.
+この度はSD-createをご利用いただき、誠にありがとうございます。
+ご注文を確認いたしましたのでお知らせいたします。
 
-## Order Summary
+## 注文詳細
+
+**注文番号:** {{ $order->order_number }}  
+**注文日時:** {{ $order->created_at->format('Y年m月d日 H:i') }}  
+**お支払い状況:** {{ $order->payment_status === 'paid' ? '支払い完了' : 'お支払い待ち' }}
+
+---
+
+### ご注文内容
 
 @foreach($order->items as $item)
-- {{ $item->product_name }} × {{ $item->quantity }} - ¥{{ number_format($item->price * $item->quantity, 0) }}
+**{{ $item->product_name }}**  
+数量: {{ $item->quantity }}  
+価格: ¥{{ number_format($item->price) }}
+
+@if($item->product && $item->product->product_type === 'download' && $item->download_link && $order->payment_status === 'paid')
+<x-mail::button :url="$item->download_link">
+ダウンロード
+</x-mail::button>
+
+ダウンロード回数: {{ $item->download_count }}回
+@endif
+
+---
 @endforeach
 
-**Total:** ¥{{ number_format($order->total_amount, 0) }}
+**合計金額:** ¥{{ number_format($order->total_amount) }}
 
-## Download Your Products
+@if($order->payment_status === 'paid')
+## ダウンロードについて
 
-Your digital products are ready for immediate download:
+デジタル商品のダウンロードは、上記のボタンまたは以下のリンクからアクセスできます。
 
 @foreach($order->items as $item)
-@if($item->product && $item->product->file_path)
-<x-mail::button :url="route('download', ['order' => $order->id, 'product' => $item->product->id])">
-Download {{ $item->product_name }}
-</x-mail::button>
+@if($item->product && $item->product->product_type === 'download' && $item->download_link)
+- [{{ $item->product_name }}]({{ $item->download_link }})
 @endif
 @endforeach
 
-Keep this email safe as you can use these links to download your products anytime.
+@endif
 
-Thank you for your business!<br>
-{{ config('app.name') }}
+## お問い合わせ
+
+ご不明な点がございましたら、お気軽にお問い合わせください。
+
+サポートメール: support@sd-create.jp
+
+<x-mail::button :url="config('app.url')">
+サイトに戻る
+</x-mail::button>
+
+今後ともSD-createをよろしくお願いいたします。
+
+SD-create  
+後藤翔栄
 </x-mail::message>
