@@ -24,26 +24,34 @@ class WebhookController extends Controller
         $sigHeader = $request->header('Stripe-Signature');
         $webhookSecret = config('services.stripe.webhook_secret');
 
-        try {
-            if ($webhookSecret) {
+        // Security: Require webhook secret in production
+        if (!$webhookSecret) {
+            Log::error('Stripe Webhook: Webhook secret not configured');
+
+            // In non-production environments, allow processing for testing
+            if (config('app.env') === 'production') {
+                return response('Webhook secret not configured', 500);
+            }
+
+            Log::warning('Stripe Webhook: Processing without signature verification (non-production only)');
+            $event = json_decode($payload, true);
+        } else {
+            // Verify webhook signature
+            try {
                 $event = Webhook::constructEvent(
                     $payload,
                     $sigHeader,
                     $webhookSecret
                 );
-            } else {
-                $event = json_decode($payload, true);
+            } catch (\UnexpectedValueException $e) {
+                Log::error('Stripe Webhook: Invalid payload', [
+                    'error' => $e->getMessage()
+                ]);
+                return response('Invalid payload', 400);
+            } catch (SignatureVerificationException $e) {
+                Log::error('Stripe Webhook: Invalid signature');
+                return response('Invalid signature', 400);
             }
-        } catch (\UnexpectedValueException $e) {
-            Log::error('Stripe Webhook: Invalid payload', [
-                'error' => $e->getMessage()
-            ]);
-            return response('Invalid payload', 400);
-        } catch (SignatureVerificationException $e) {
-            Log::error('Stripe Webhook: Invalid signature', [
-                'error' => $e->getMessage()
-            ]);
-            return response('Invalid signature', 400);
         }
 
         Log::info('Stripe Webhook received', [
@@ -114,12 +122,12 @@ class WebhookController extends Controller
             Mail::to($order->email)->send(new OrderConfirmation($order));
             Log::info('Stripe Webhook: Confirmation email sent', [
                 'order_id' => $order->id,
-                'email' => $order->email
+                'email_domain' => substr(strrchr($order->email, "@"), 1) // Log domain only for privacy
             ]);
         } catch (\Exception $e) {
             Log::error('Stripe Webhook: Failed to send confirmation email', [
                 'order_id' => $order->id,
-                'email' => $order->email,
+                'email_domain' => substr(strrchr($order->email, "@"), 1), // Log domain only
                 'error' => $e->getMessage()
             ]);
         }
