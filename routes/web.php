@@ -7,6 +7,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WebhookController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -29,6 +30,9 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('c
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
 Route::get('/download/{order}/{product}', [\App\Http\Controllers\DownloadController::class, 'download'])->name('download');
+
+// Stripe Webhook
+Route::post('/stripe/webhook', [WebhookController::class, 'handleStripeWebhook'])->name('stripe.webhook');
 
 Route::view('/terms', 'terms')->name('terms');
 Route::view('/legal', 'legal')->name('legal');

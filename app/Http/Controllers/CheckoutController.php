@@ -12,6 +12,13 @@ use Stripe\Checkout\Session as StripeSession;
 
 class CheckoutController extends Controller
 {
+    /**
+     * Apply rate limiting middleware to process method
+     */
+    public function __construct()
+    {
+        $this->middleware('throttle.email')->only('process');
+    }
     public function index()
     {
         $cart = $this->getCart();
@@ -25,9 +32,28 @@ class CheckoutController extends Controller
 
     public function process(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'customer_name' => 'required|string|max:255',
+        // Enhanced input validation
+        $validated = $request->validate([
+            'email' => [
+                'required',
+                'email:rfc,dns',
+                'max:255',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
+            ],
+            'customer_name' => [
+                'required',
+                'string',
+                'min:2',
+                'max:255',
+                'regex:/^[\p{L}\p{M}\s\-\'\.]+$/u'
+            ],
+        ], [
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => '有効なメールアドレスを入力してください。',
+            'email.regex' => 'メールアドレスの形式が正しくありません。',
+            'customer_name.required' => 'お名前を入力してください。',
+            'customer_name.min' => 'お名前は2文字以上で入力してください。',
+            'customer_name.regex' => 'お名前に使用できない文字が含まれています。',
         ]);
 
         $cart = $this->getCart();
@@ -36,9 +62,10 @@ class CheckoutController extends Controller
             return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
         }
 
+        // Use validated data to prevent injection attacks
         $order = Order::create([
-            'email' => $request->email,
-            'customer_name' => $request->customer_name,
+            'email' => $validated['email'],
+            'customer_name' => $validated['customer_name'],
             'total_amount' => $cart->total,
             'payment_status' => 'pending',
             'status' => 'pending',
@@ -76,7 +103,7 @@ class CheckoutController extends Controller
             'mode' => 'payment',
             'success_url' => route('checkout.success') . '?session_id={CHECKOUT_SESSION_ID}&order_id=' . $order->id,
             'cancel_url' => route('checkout.cancel') . '?order_id=' . $order->id,
-            'customer_email' => $request->email,
+            'customer_email' => $validated['email'],
             'metadata' => [
                 'order_id' => $order->id,
             ],
