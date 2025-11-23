@@ -12,13 +12,6 @@ use Stripe\Checkout\Session as StripeSession;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Apply rate limiting middleware to process method
-     */
-    public function __construct()
-    {
-        $this->middleware('throttle.email')->only('process');
-    }
     public function index()
     {
         $cart = $this->getCart();
