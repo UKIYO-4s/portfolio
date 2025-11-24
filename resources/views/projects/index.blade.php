@@ -103,7 +103,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.simple-hp.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">シンプルHP</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">15万円〜20万円</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
