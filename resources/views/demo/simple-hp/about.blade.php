@@ -4,79 +4,40 @@
 
 @section('content')
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-950 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-bold text-center">会社概要</h1>
-        <p class="text-center text-blue-100 mt-4">Company Profile</p>
+<section class="py-16 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-8 text-center">
+        <h1 class="text-5xl font-light text-gray-800 mb-4">会社概要</h1>
+        <p class="text-sm text-gray-500">Company Profile</p>
     </div>
 </section>
 
-<!-- Company Info -->
-<section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Company Details -->
-            <div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">企業情報</h2>
-                <dl class="space-y-4">
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">会社名</dt>
-                        <dd class="text-gray-900">{{ $company['name'] }}</dd>
-                        <dd class="text-sm text-gray-600">{{ $company['name_en'] }}</dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">設立</dt>
-                        <dd class="text-gray-900">{{ $company['established'] }}</dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">資本金</dt>
-                        <dd class="text-gray-900">{{ $company['capital'] }}</dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">従業員数</dt>
-                        <dd class="text-gray-900">{{ $company['employees'] }}</dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">代表取締役</dt>
-                        <dd class="text-gray-900">{{ $company['ceo'] }}</dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">所在地</dt>
-                        <dd class="text-gray-900">
-                            〒{{ $company['postal_code'] }}<br>
-                            {{ $company['address'] }}
-                        </dd>
-                    </div>
-                    <div class="border-b border-gray-200 pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">電話番号</dt>
-                        <dd class="text-gray-900">{{ $company['phone'] }}</dd>
-                    </div>
-                    <div class="pb-4">
-                        <dt class="text-sm font-medium text-gray-500 mb-1">メールアドレス</dt>
-                        <dd class="text-gray-900">{{ $company['email'] }}</dd>
-                    </div>
-                </dl>
+<!-- Profile Image Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-8">
+        <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+            <!-- Image -->
+            <div class="w-full h-[500px] bg-gray-300 flex items-center justify-center">
+                <span class="text-gray-500 text-sm">Profile Image (700x500px)</span>
             </div>
 
-            <!-- Business Content -->
+            <!-- Text Content -->
             <div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">事業内容</h2>
-                <ul class="space-y-3">
-                    @foreach($company['business'] as $business)
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="text-gray-700">{{ $business }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-
-                <div class="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-100">
-                    <h3 class="font-semibold text-gray-900 mb-3">企業理念</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        私たちは、最新のテクノロジーとクリエイティブな発想で、お客様のビジネスの成長をサポートします。
-                        常にお客様の視点に立ち、最適なソリューションを提供することで、社会に貢献してまいります。
+                <h2 class="text-4xl font-light text-gray-800 mb-8 tracking-wide">
+                    私たちについて
+                </h2>
+                <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-light">
+                    <p>
+                        私たちは、最新のテクノロジーとクリエイティブな発想で、
+                        お客様のビジネスの成長をサポートしています。
+                    </p>
+                    <p>
+                        デザインと旅が好きな、自然派な性格。
+                        様々なところで水彩画やふんわりふんわりとしたものが好きで、
+                        いつまでも未完と何年もかけていきたいとそう思います。
+                    </p>
+                    <p>
+                        常にお客様の視点に立ち、最適なソリューションを提供することで、
+                        社会に貢献してまいります。
                     </p>
                 </div>
             </div>
@@ -84,29 +45,99 @@
     </div>
 </section>
 
-<!-- Access Map -->
-<section class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">アクセス</h2>
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="aspect-w-16 aspect-h-9 h-96">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8274789816973!2d139.7638467!3d35.6812405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1234567890"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    class="w-full h-full">
-                </iframe>
+<!-- Company Info Section -->
+<section class="py-24 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-8">
+        <h2 class="text-3xl font-light text-gray-800 mb-16 text-center">企業情報</h2>
+
+        <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+            <!-- Left Column -->
+            <div class="space-y-8">
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">会社名</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['name'] }}</dd>
+                    <dd class="text-sm text-gray-600 font-light mt-1">{{ $company['name_en'] }}</dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">設立</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['established'] }}</dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">資本金</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['capital'] }}</dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">従業員数</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['employees'] }}</dd>
+                </div>
             </div>
-            <div class="p-6">
-                <h3 class="font-semibold text-gray-900 mb-2">電車でのアクセス</h3>
-                <ul class="text-gray-600 text-sm space-y-1">
-                    <li>• JR「東京駅」丸の内南口より徒歩3分</li>
-                    <li>• 東京メトロ丸ノ内線「東京駅」より徒歩1分</li>
-                    <li>• 東京メトロ千代田線「二重橋前駅」より徒歩5分</li>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">代表取締役</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['ceo'] }}</dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">所在地</dt>
+                    <dd class="text-gray-800 font-light">
+                        〒{{ $company['postal_code'] }}<br>
+                        {{ $company['address'] }}
+                    </dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">電話番号</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['phone'] }}</dd>
+                </div>
+                <div class="border-b border-gray-300 pb-6">
+                    <dt class="text-xs text-gray-500 mb-2 tracking-wider">メールアドレス</dt>
+                    <dd class="text-gray-800 font-light">{{ $company['email'] }}</dd>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Business Content Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-8">
+        <h2 class="text-3xl font-light text-gray-800 mb-12 text-center">事業内容</h2>
+
+        <ul class="space-y-4 mb-16">
+            @foreach($company['business'] as $business)
+                <li class="flex items-start text-sm">
+                    <span class="text-gray-400 mr-3">•</span>
+                    <span class="text-gray-700 font-light">{{ $business }}</span>
+                </li>
+            @endforeach
+        </ul>
+
+        <div class="p-12 bg-stone-50">
+            <h3 class="text-xl font-light text-gray-800 mb-6 text-center">企業理念</h3>
+            <p class="text-sm text-gray-700 leading-relaxed font-light text-center">
+                私たちは、最新のテクノロジーとクリエイティブな発想で、お客様のビジネスの成長をサポートします。<br>
+                常にお客様の視点に立ち、最適なソリューションを提供することで、社会に貢献してまいります。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Access Map Section -->
+<section class="py-24 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-8">
+        <h2 class="text-3xl font-light text-gray-800 mb-12 text-center">アクセス</h2>
+
+        <div class="bg-white overflow-hidden">
+            <div class="h-96 bg-gray-300 flex items-center justify-center">
+                <span class="text-gray-500 text-sm">Google Map (1200x400px)</span>
+            </div>
+
+            <div class="p-8">
+                <h3 class="font-light text-gray-800 mb-4 text-center">電車でのアクセス</h3>
+                <ul class="text-gray-600 text-sm space-y-2 font-light text-center">
+                    <li>JR「東京駅」丸の内南口より徒歩3分</li>
+                    <li>東京メトロ丸ノ内線「東京駅」より徒歩1分</li>
+                    <li>東京メトロ千代田線「二重橋前駅」より徒歩5分</li>
                 </ul>
             </div>
         </div>
