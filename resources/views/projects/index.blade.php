@@ -97,26 +97,26 @@
                         <table class="w-full border border-gray-800">
                             <thead>
                                 <tr class="border-b border-gray-800 bg-gray-900/50">
-                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-400">プラン名</th>
-                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-400">価格</th>
-                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-400">内容</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-300">プラン名</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-300">価格</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-300">内容</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                    <td class="px-6 py-4 text-sm font-light">シンプルHP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">15万円〜20万円</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">シンプルHP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">15万円〜20万円</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-300">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                    <td class="px-6 py-4 text-sm font-light">カスタムデザインHP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">50万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">オリジナルデザイン、5〜10ページ、アニメーション</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">カスタムデザインHP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">50万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-300">オリジナルデザイン、5〜10ページ、アニメーション</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                    <td class="px-6 py-4 text-sm font-light">フルカスタムHP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">80万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">カスタムデザイン＋システム機能</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">フルカスタムHP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">80万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-300">カスタムデザイン＋システム機能</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -130,42 +130,42 @@
                         <table class="w-full border border-gray-800">
                             <thead>
                                 <tr class="border-b border-gray-800 bg-gray-900/50">
-                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-400">機能</th>
-                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-400">価格</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-300">機能</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-300">価格</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">SHOP機能（EC）</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">15万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">SHOP機能（EC）</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">15万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">ダッシュボード</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">10万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">ダッシュボード</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">10万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">投稿機能</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">8万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">投稿機能</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">8万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">SNS連携</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">3万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">SNS連携</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">3万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">Google Map埋め込み</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">1万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">Google Map埋め込み</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">1万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">MEO対策</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">15万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">MEO対策</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">15万円〜</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">AIチャットBot</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">80万円〜（時期未定）</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">AIチャットBot</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">80万円〜（時期未定）</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light">HP用素材撮影</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-400">5万円/日（交通費別）</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">HP用素材撮影</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-200">5万円/日（交通費別）</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -179,31 +179,31 @@
                     <table class="w-full border border-gray-800">
                         <thead>
                             <tr class="border-b border-gray-800 bg-gray-900/50">
-                                <th class="px-6 py-4 text-left text-sm font-light text-gray-400">システム</th>
-                                <th class="px-6 py-4 text-left text-sm font-light text-gray-400">価格</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-300">システム</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-300">価格</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.open('https://kakeromamocca.com/transit/', '_blank')">
-                                <td class="px-6 py-4 text-sm font-light flex items-center gap-2">
+                                <td class="px-6 py-4 text-sm font-light text-white flex items-center gap-2">
                                     乗換案内システム
-                                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                     </svg>
                                 </td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">20万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">20万円</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">クラウドファンディング進捗報告アプリ</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">80万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">クラウドファンディング進捗報告アプリ</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">80万円</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">請求書作成システム</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">30万円〜</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">請求書作成システム</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">30万円〜</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">営業先企業自動リサーチシステム</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">40万円〜</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">営業先企業自動リサーチシステム</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">40万円〜</td>
                             </tr>
                         </tbody>
                     </table>
@@ -216,22 +216,22 @@
                     <table class="w-full border border-gray-800">
                         <thead>
                             <tr class="border-b border-gray-800 bg-gray-900/50">
-                                <th class="px-6 py-4 text-left text-sm font-light text-gray-400">ツール</th>
-                                <th class="px-6 py-4 text-left text-sm font-light text-gray-400">価格</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-300">ツール</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-300">価格</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">Instagram＆GMB投稿効率化アプリ</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">6万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">Instagram＆GMB投稿効率化アプリ</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">6万円</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">Instagram＆Shorts動画作成効率化アプリ</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">10万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">Instagram＆Shorts動画作成効率化アプリ</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">10万円</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light">2つセット</td>
-                                <td class="px-6 py-4 text-sm font-light text-gray-400">13万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">2つセット</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-200">13万円</td>
                             </tr>
                         </tbody>
                     </table>
