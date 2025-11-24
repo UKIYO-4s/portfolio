@@ -16,8 +16,14 @@
     <div class="max-w-6xl mx-auto px-8">
         <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
             <!-- Image -->
-            <div class="w-full h-[500px] bg-gray-300 flex items-center justify-center">
-                <span class="text-gray-500 text-sm">Profile Image (700x500px)</span>
+            <div class="w-full h-[500px] bg-gray-200 border-2 border-dashed border-gray-400 flex items-center justify-center">
+                <div class="text-center">
+                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="text-gray-600 text-sm font-medium">Profile Image</span>
+                    <p class="text-gray-400 text-xs mt-1">700 x 500px</p>
+                </div>
             </div>
 
             <!-- Text Content -->
@@ -127,12 +133,21 @@
     <div class="max-w-6xl mx-auto px-8">
         <h2 class="text-3xl font-light text-gray-800 mb-12 text-center">アクセス</h2>
 
-        <div class="bg-white overflow-hidden">
-            <div class="h-96 bg-gray-300 flex items-center justify-center">
-                <span class="text-gray-500 text-sm">Google Map (1200x400px)</span>
+        <div class="bg-white overflow-hidden shadow-sm">
+            <div class="h-96">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8274789816973!2d139.7638467!3d35.6812405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full h-full">
+                </iframe>
             </div>
 
-            <div class="p-8">
+            <div class="p-8 border-t border-gray-100">
                 <h3 class="font-light text-gray-800 mb-4 text-center">電車でのアクセス</h3>
                 <ul class="text-gray-600 text-sm space-y-2 font-light text-center">
                     <li>JR「東京駅」丸の内南口より徒歩3分</li>
