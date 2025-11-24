@@ -39,6 +39,33 @@ Route::post('/stripe/webhook', [WebhookController::class, 'handleStripeWebhook']
 Route::view('/terms', 'terms')->name('terms');
 Route::view('/legal', 'legal')->name('legal');
 
+// Invoice Demo Routes
+use App\Http\Controllers\Demo\InvoiceDemoController;
+
+Route::prefix('projects/demo/invoice')->name('demo.invoice.')->group(function () {
+    Route::get('/login', [InvoiceDemoController::class, 'login'])->name('login');
+    Route::get('/dashboard', [InvoiceDemoController::class, 'dashboard'])->name('dashboard');
+
+    // Invoices
+    Route::get('/invoices', [InvoiceDemoController::class, 'invoices'])->name('invoices.index');
+    Route::get('/invoices/create', [InvoiceDemoController::class, 'invoicesCreate'])->name('invoices.create');
+    Route::get('/invoices/{id}', [InvoiceDemoController::class, 'invoicesShow'])->name('invoices.show');
+
+    // Quotes
+    Route::get('/quotes', [InvoiceDemoController::class, 'quotes'])->name('quotes.index');
+    Route::get('/quotes/create', [InvoiceDemoController::class, 'quotesCreate'])->name('quotes.create');
+
+    // Customers
+    Route::get('/customers', [InvoiceDemoController::class, 'customers'])->name('customers.index');
+    Route::get('/customers/create', [InvoiceDemoController::class, 'customersCreate'])->name('customers.create');
+
+    // Items
+    Route::get('/items', [InvoiceDemoController::class, 'items'])->name('items.index');
+
+    // Settings
+    Route::get('/settings', [InvoiceDemoController::class, 'settings'])->name('settings');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
