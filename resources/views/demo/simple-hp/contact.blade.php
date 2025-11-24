@@ -5,9 +5,9 @@
 @section('content')
 <!-- Page Header -->
 <section class="py-16 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-8 text-center">
-        <h1 class="text-5xl font-light text-gray-800 mb-4">お問い合わせ</h1>
-        <p class="text-sm text-gray-500">Contact Us</p>
+    <div class="max-w-5xl mx-auto px-8">
+        <h1 class="text-5xl font-light text-gray-800 mb-4 text-center">お問い合わせ</h1>
+        <p class="text-sm text-gray-500 text-center">Contact Us</p>
     </div>
 </section>
 
@@ -126,7 +126,7 @@
 
 <!-- Contact Info Section -->
 <section class="py-24 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-5xl mx-auto px-8">
         <h2 class="text-3xl font-light text-gray-800 text-center mb-16">その他のお問い合わせ方法</h2>
 
         <div class="grid md:grid-cols-3 gap-12">

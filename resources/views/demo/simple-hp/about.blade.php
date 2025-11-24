@@ -5,29 +5,29 @@
 @section('content')
 <!-- Page Header -->
 <section class="py-16 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-8 text-center">
-        <h1 class="text-5xl font-light text-gray-800 mb-4">会社概要</h1>
-        <p class="text-sm text-gray-500">Company Profile</p>
+    <div class="max-w-5xl mx-auto px-8">
+        <h1 class="text-5xl font-light text-gray-800 mb-4 text-center">会社概要</h1>
+        <p class="text-sm text-gray-500 text-center">Company Profile</p>
     </div>
 </section>
 
 <!-- Profile Image Section -->
 <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-8">
-        <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+    <div class="max-w-5xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row gap-16 items-center mb-24">
             <!-- Image -->
-            <div class="w-full h-[500px] bg-gray-200 border-2 border-dashed border-gray-400 flex items-center justify-center">
+            <div class="w-[700px] h-[500px] bg-gray-200 border-2 border-dashed border-gray-400 flex items-center justify-center flex-shrink-0">
                 <div class="text-center">
                     <svg class="w-16 h-16 mx-auto text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
                     <span class="text-gray-600 text-sm font-medium">Profile Image</span>
-                    <p class="text-gray-400 text-xs mt-1">700 x 500px</p>
+                    <p class="text-gray-400 text-xs mt-1">700 × 500px</p>
                 </div>
             </div>
 
             <!-- Text Content -->
-            <div>
+            <div class="flex-1">
                 <h2 class="text-4xl font-light text-gray-800 mb-8 tracking-wide">
                     私たちについて
                 </h2>
@@ -53,7 +53,7 @@
 
 <!-- Company Info Section -->
 <section class="py-24 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-5xl mx-auto px-8">
         <h2 class="text-3xl font-light text-gray-800 mb-16 text-center">企業情報</h2>
 
         <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
@@ -130,7 +130,7 @@
 
 <!-- Access Map Section -->
 <section class="py-24 bg-stone-50">
-    <div class="max-w-6xl mx-auto px-8">
+    <div class="max-w-5xl mx-auto px-8">
         <h2 class="text-3xl font-light text-gray-800 mb-12 text-center">アクセス</h2>
 
         <div class="bg-white overflow-hidden shadow-sm">
