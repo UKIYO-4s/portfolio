@@ -66,6 +66,16 @@ Route::prefix('projects/demo/invoice')->name('demo.invoice.')->group(function ()
     Route::get('/settings', [InvoiceDemoController::class, 'settings'])->name('settings');
 });
 
+// Simple HP Demo Routes
+use App\Http\Controllers\Demo\SimpleHpDemoController;
+
+Route::prefix('projects/demo/simple-hp')->name('demo.simple-hp.')->group(function () {
+    Route::get('/', [SimpleHpDemoController::class, 'index'])->name('index');
+    Route::get('/about', [SimpleHpDemoController::class, 'about'])->name('about');
+    Route::get('/service', [SimpleHpDemoController::class, 'service'])->name('service');
+    Route::get('/contact', [SimpleHpDemoController::class, 'contact'])->name('contact');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
