@@ -19,18 +19,21 @@
                 </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8">
+                <nav class="hidden md:flex items-center space-x-8">
                     <a href="{{ route('demo.simple-hp.index') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.index') ? 'text-gray-900' : '' }}">
                         ホーム
                     </a>
                     <a href="{{ route('demo.simple-hp.about') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.about') ? 'text-gray-900' : '' }}">
-                        会社概要
+                        私について
                     </a>
                     <a href="{{ route('demo.simple-hp.service') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.service') ? 'text-gray-900' : '' }}">
                         サービス
                     </a>
                     <a href="{{ route('demo.simple-hp.contact') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.contact') ? 'text-gray-900' : '' }}">
                         お問い合わせ
+                    </a>
+                    <a href="{{ route('demo.simple-hp.contact') }}" class="bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-colors">
+                        ご相談
                     </a>
                 </nav>
 
@@ -52,13 +55,16 @@
                     ホーム
                 </a>
                 <a href="{{ route('demo.simple-hp.about') }}" class="block py-3 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-4 rounded-lg transition-colors {{ request()->routeIs('demo.simple-hp.about') ? 'text-gray-900 bg-gray-50' : '' }}">
-                    会社概要
+                    私について
                 </a>
                 <a href="{{ route('demo.simple-hp.service') }}" class="block py-3 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-4 rounded-lg transition-colors {{ request()->routeIs('demo.simple-hp.service') ? 'text-gray-900 bg-gray-50' : '' }}">
                     サービス
                 </a>
                 <a href="{{ route('demo.simple-hp.contact') }}" class="block py-3 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-4 rounded-lg transition-colors {{ request()->routeIs('demo.simple-hp.contact') ? 'text-gray-900 bg-gray-50' : '' }}">
                     お問い合わせ
+                </a>
+                <a href="{{ route('demo.simple-hp.contact') }}" class="block py-3 text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-4 rounded-lg transition-colors text-center">
+                    ご相談
                 </a>
             </div>
         </div>
@@ -82,13 +88,13 @@
     <footer class="bg-gray-900 text-gray-300 mt-24">
         <div class="max-w-7xl mx-auto px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Company Info -->
+                <!-- Portfolio Info -->
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">サンプル株式会社</h3>
+                    <h3 class="text-lg font-semibold text-white mb-6">後藤 翔英</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        〒100-0005<br>
-                        東京都千代田区丸の内1-1-1<br>
-                        TEL: 03-1234-5678
+                        Webデザイナー / フロントエンド開発者<br>
+                        Email: info@sample-corp.jp<br>
+                        営業時間: 平日 9:00-18:00
                     </p>
                 </div>
 
@@ -97,25 +103,27 @@
                     <h3 class="text-lg font-semibold text-white mb-6">サイトマップ</h3>
                     <ul class="space-y-3 text-sm">
                         <li><a href="{{ route('demo.simple-hp.index') }}" class="text-gray-400 hover:text-white transition-colors">ホーム</a></li>
-                        <li><a href="{{ route('demo.simple-hp.about') }}" class="text-gray-400 hover:text-white transition-colors">会社概要</a></li>
+                        <li><a href="{{ route('demo.simple-hp.about') }}" class="text-gray-400 hover:text-white transition-colors">私について</a></li>
                         <li><a href="{{ route('demo.simple-hp.service') }}" class="text-gray-400 hover:text-white transition-colors">サービス</a></li>
                         <li><a href="{{ route('demo.simple-hp.contact') }}" class="text-gray-400 hover:text-white transition-colors">お問い合わせ</a></li>
                     </ul>
                 </div>
 
-                <!-- Business Hours -->
+                <!-- Quick Contact -->
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">営業時間</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        平日 9:00 - 18:00<br>
-                        （土日祝日は休業）
+                    <h3 class="text-lg font-semibold text-white mb-6">お問い合わせ</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        お気軽にご相談ください
                     </p>
+                    <a href="{{ route('demo.simple-hp.contact') }}" class="inline-block bg-emerald-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors">
+                        お問い合わせフォーム
+                    </a>
                 </div>
             </div>
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-500 text-sm">
-                    &copy; 2025 Sample Corporation. All rights reserved.
+                    &copy; 2025 Shoeigoto Portfolio. All rights reserved.
                 </p>
             </div>
         </div>

@@ -1,158 +1,264 @@
 @extends('demo.simple-hp.layouts.app')
 
-@section('title', '会社概要')
+@section('title', '私について')
 
 @section('content')
 <!-- Page Header -->
-<section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+<section class="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50">
     <div class="max-w-6xl mx-auto px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">会社概要</h1>
-        <p class="text-gray-600">Company Profile</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">私について</h1>
+        <p class="text-gray-600">About Me</p>
     </div>
 </section>
 
-<!-- Profile Section -->
+<!-- Block 1: Philosophy -->
 <section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Image Placeholder -->
-            <div>
-                <div class="w-full aspect-[8/5] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-lg border border-gray-200 flex items-center justify-center">
-                    <div class="text-center">
-                        <svg class="w-16 h-16 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+    <div class="max-w-4xl mx-auto px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">制作への想い</h2>
+            <div class="w-16 h-1 bg-emerald-600 mx-auto mb-8"></div>
+        </div>
+
+        <div class="space-y-8">
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl border border-gray-200">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
-                        <p class="text-gray-600 text-sm">Company Image</p>
-                        <p class="text-gray-400 text-xs mt-1">800 × 500</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">ユーザー視点のデザイン</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Webサイトは企業とユーザーをつなぐ重要な接点です。ユーザーが快適に目的を達成できるよう、使いやすさと美しさを両立したデザインを心がけています。
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Text Content -->
-            <div>
-                <h2 class="text-3xl font-semibold text-gray-900 mb-6">私たちについて</h2>
-                <p class="text-gray-600 leading-relaxed mb-6">
-                    私たちは、最新のテクノロジーとクリエイティブな発想で、お客様のビジネスの成長をサポートしています。
-                </p>
-                <p class="text-gray-600 leading-relaxed mb-6">
-                    デザインと技術の力で、お客様のビジョンを実現し、ビジネスの成功に貢献することを使命としています。
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    常にお客様の視点に立ち、最適なソリューションを提供することで、社会に貢献してまいります。
-                </p>
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl border border-gray-200">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">ビジネス成果へのコミット</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            見た目の美しさだけでなく、コンバージョン率向上や業務効率化など、具体的なビジネス成果につながる制作を重視しています。データに基づいた改善提案も行います。
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- Company Info Section -->
-<section class="py-24 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-8">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-12 text-center">企業情報</h2>
-
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
-            <div class="divide-y divide-gray-200">
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">会社名</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">
-                        {{ $company['name'] }}<br>
-                        <span class="text-sm text-gray-600">{{ $company['name_en'] }}</span>
-                    </dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">設立</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['established'] }}</dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">代表取締役</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['ceo'] }}</dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">資本金</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['capital'] }}</dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">従業員数</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['employees'] }}</dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">所在地</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">
-                        〒{{ $company['postal_code'] }}<br>
-                        {{ $company['address'] }}
-                    </dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">電話番号</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['phone'] }}</dd>
-                </div>
-
-                <div class="grid md:grid-cols-3 py-6 px-8">
-                    <dt class="text-sm text-gray-600 font-medium">メールアドレス</dt>
-                    <dd class="md:col-span-2 text-gray-900 mt-2 md:mt-0">{{ $company['email'] }}</dd>
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl border border-gray-200">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">長期的なパートナーシップ</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            納品して終わりではなく、その後の運用やサポートも含めた長期的な関係を大切にしています。お客様の成長を一緒に支えるパートナーでありたいと考えています。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Business Content Section -->
-<section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-8">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-12 text-center">事業内容</h2>
-
-        <ul class="space-y-4 mb-16 bg-gray-50 p-8 rounded-2xl">
-            @foreach($company['business'] as $business)
-                <li class="flex items-start">
-                    <span class="text-gray-400 mr-4 mt-1 text-xl">•</span>
-                    <span class="text-gray-700">{{ $business }}</span>
-                </li>
-            @endforeach
-        </ul>
-
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-12 rounded-2xl shadow-xl">
-            <h3 class="text-2xl font-semibold text-white mb-6 text-center">企業理念</h3>
-            <p class="text-gray-100 leading-relaxed text-center">
-                私たちは、最新のテクノロジーとクリエイティブな発想で、お客様のビジネスの成長をサポートします。<br>
-                常にお客様の視点に立ち、最適なソリューションを提供することで、社会に貢献してまいります。
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- Access Map Section -->
-<section class="py-24 bg-gray-50">
+<!-- Block 2: Process -->
+<section class="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50">
     <div class="max-w-6xl mx-auto px-8">
-        <h2 class="text-3xl font-semibold text-gray-900 mb-12 text-center">アクセス</h2>
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">制作フロー</h2>
+            <div class="w-16 h-1 bg-emerald-600 mx-auto mb-8"></div>
+            <p class="text-gray-600">丁寧なヒアリングから納品後のサポートまで</p>
+        </div>
 
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div class="h-96">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8274789816973!2d139.7638467!3d35.6812405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1234567890"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="relative">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">ヒアリング</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        ご要望や課題を丁寧にヒアリングし、最適なソリューションをご提案します
+                    </p>
+                </div>
+                <!-- Arrow for desktop -->
+                <div class="hidden md:block absolute top-12 -right-4 text-emerald-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
             </div>
 
-            <div class="p-8 bg-white border-t border-gray-100">
-                <h3 class="font-semibold text-gray-900 mb-4 text-center">電車でのアクセス</h3>
-                <ul class="text-gray-700 text-sm space-y-2 text-center">
-                    <li>JR「東京駅」丸の内南口より徒歩3分</li>
-                    <li>東京メトロ丸ノ内線「東京駅」より徒歩1分</li>
-                    <li>東京メトロ千代田線「二重橋前駅」より徒歩5分</li>
+            <!-- Step 2 -->
+            <div class="relative">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">企画・設計</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        サイト構成やデザインコンセプトを企画し、ワイヤーフレームを作成します
+                    </p>
+                </div>
+                <!-- Arrow for desktop -->
+                <div class="hidden md:block absolute top-12 -right-4 text-emerald-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">デザイン・開発</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        デザインを仕上げ、コーディング・システム開発を行います
+                    </p>
+                </div>
+                <!-- Arrow for desktop -->
+                <div class="hidden md:block absolute top-12 -right-4 text-emerald-600">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                        4
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">納品・サポート</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        テストを経て納品。その後の運用サポートも対応します
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Block 3: Expertise -->
+<section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">得意な領域</h2>
+            <div class="w-16 h-1 bg-emerald-600 mx-auto mb-8"></div>
+            <p class="text-gray-600">これまでの経験を活かし、幅広い案件に対応いたします</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Expertise 1 -->
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl shadow-md border-l-4 border-emerald-600 hover:shadow-xl transition-shadow duration-300">
+                <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">レスポンシブWebデザイン</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    PC・タブレット・スマートフォンすべてのデバイスで最適に表示されるレスポンシブデザインを得意としています。
+                </p>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        モバイルファーストデザイン
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        アクセシビリティ対応
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        SEO最適化
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Expertise 2 -->
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl shadow-md border-l-4 border-emerald-600 hover:shadow-xl transition-shadow duration-300">
+                <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Laravel開発</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    PHPフレームワークLaravelを用いた高品質なWebアプリケーション開発を行います。
+                </p>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        CMSサイト構築
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        業務システム開発
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        API開発
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Expertise 3 -->
+            <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 p-8 rounded-2xl shadow-md border-l-4 border-emerald-600 hover:shadow-xl transition-shadow duration-300">
+                <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">UI/UXデザイン</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    ユーザー体験を重視したUI/UXデザインで、使いやすく成果につながるサイトを設計します。
+                </p>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        ユーザーリサーチ
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        プロトタイピング
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        ユーザビリティテスト
+                    </li>
                 </ul>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50">
+    <div class="max-w-4xl mx-auto px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">お気軽にご相談ください</h2>
+        <p class="text-gray-600 leading-relaxed mb-10">
+            ご質問やお見積もりのご依頼など、<br>
+            お気軽にお問い合わせください。
+        </p>
+        <a href="{{ route('demo.simple-hp.contact') }}" class="inline-block bg-emerald-600 text-white text-base px-10 py-4 rounded-lg hover:bg-emerald-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 font-semibold">
+            お問い合わせフォーム
+        </a>
     </div>
 </section>
 @endsection

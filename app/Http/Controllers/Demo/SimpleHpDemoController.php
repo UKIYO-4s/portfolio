@@ -8,7 +8,31 @@ class SimpleHpDemoController extends Controller
 {
     public function index()
     {
-        return view('demo.simple-hp.index');
+        return view('demo.simple-hp.index', [
+            'portfolios' => [
+                [
+                    'title' => 'コーポレートサイトリニューアル',
+                    'role' => 'デザイン・フロントエンド開発',
+                    'result' => 'CVR 2.3倍向上（3ヶ月比較）',
+                    'demo_url' => route('demo.custom-hp.index'),
+                    'gradient' => 'from-gray-100 to-gray-200'
+                ],
+                [
+                    'title' => 'ECサイト構築',
+                    'role' => 'UI/UXデザイン・Laravel開発',
+                    'result' => '初月売上目標達成率 150%',
+                    'demo_url' => route('demo.full-custom-hp.index'),
+                    'gradient' => 'from-gray-200 to-gray-300'
+                ],
+                [
+                    'title' => '業務効率化システム',
+                    'role' => 'フルスタック開発',
+                    'result' => '業務時間 40%削減',
+                    'demo_url' => route('demo.invoice.index'),
+                    'gradient' => 'from-gray-100 to-gray-200'
+                ]
+            ]
+        ]);
     }
 
     public function about()
@@ -41,36 +65,42 @@ class SimpleHpDemoController extends Controller
             'services' => [
                 [
                     'title' => 'Webサイト制作',
-                    'description' => '企業サイトからECサイトまで、お客様のニーズに合わせたWebサイトを制作いたします。',
+                    'description' => 'レスポンシブ対応の美しいWebサイトを制作します。WordPress/Laravelを使った運用しやすいサイトをご提供いたします。',
                     'features' => [
-                        'レスポンシブデザイン対応',
+                        'レスポンシブWebデザイン',
+                        'WordPress / Laravel開発',
                         'SEO最適化',
-                        'CMSによる更新システム',
-                        'アクセス解析設定'
+                        '保守・運用サポート'
                     ],
-                    'price' => '30万円〜'
+                    'price' => '15万円〜80万円',
+                    'duration' => '1〜3ヶ月',
+                    'gradient' => 'from-gray-100 to-gray-200'
                 ],
                 [
                     'title' => 'システム開発',
-                    'description' => '業務効率化を実現するカスタムシステムを開発いたします。',
+                    'description' => '業務効率化を実現するWebシステムを開発します。Laravel/PHPを使った高品質なシステムをご提供いたします。',
                     'features' => [
-                        '要件定義から保守まで一貫対応',
-                        'クラウド・オンプレミス対応',
-                        'API連携',
-                        '既存システムとの統合'
+                        '業務効率化ツール開発',
+                        'Laravel/PHP開発',
+                        'データベース設計',
+                        'API開発・連携'
                     ],
-                    'price' => '100万円〜'
+                    'price' => '20万円〜80万円',
+                    'duration' => '1〜4ヶ月',
+                    'gradient' => 'from-gray-200 to-gray-300'
                 ],
                 [
-                    'title' => 'デジタルマーケティング',
-                    'description' => 'Web広告運用からSNSマーケティングまで、総合的にサポートいたします。',
+                    'title' => 'UI/UXデザイン',
+                    'description' => 'ユーザー体験を重視したデザインで、使いやすく成果につながるサイト設計を行います。',
                     'features' => [
-                        'Web広告運用（Google/Yahoo/SNS）',
-                        'SEO・コンテンツマーケティング',
-                        'アクセス解析・改善提案',
-                        'SNS運用代行'
+                        'デザイン改善提案',
+                        'プロトタイピング',
+                        'ユーザーリサーチ',
+                        'ユーザビリティテスト'
                     ],
-                    'price' => '月額10万円〜'
+                    'price' => '10万円〜',
+                    'duration' => '2週間〜2ヶ月',
+                    'gradient' => 'from-gray-100 to-gray-200'
                 ]
             ]
         ]);
