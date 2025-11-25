@@ -8,7 +8,7 @@
     <div class="max-w-5xl mx-auto text-center">
         <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">News</span>
         <h1 class="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">お知らせ</h1>
-        <p class="text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-lg text-[#1F1F1F] font-light leading-relaxed max-w-2xl mx-auto">
             最新のニュースやお知らせをお届けします。
         </p>
     </div>
@@ -21,16 +21,16 @@
             <button class="glass-button-primary px-6 py-2 rounded-full text-xs font-light">
                 すべて
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 お知らせ
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 プレスリリース
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 受賞
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 採用
             </button>
         </div>
@@ -51,7 +51,7 @@
                                     <time class="text-sm font-light text-gray-900">
                                         {{ \Carbon\Carbon::parse($news['date'])->format('Y.m.d') }}
                                     </time>
-                                    <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-gray-600">
+                                    <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-[#1F1F1F]">
                                         {{ $news['category'] }}
                                     </span>
                                 </div>
@@ -59,10 +59,10 @@
 
                             <!-- Content -->
                             <div class="flex-1">
-                                <h2 class="text-xl font-light text-gray-900 mb-3 group-hover:text-gray-700 transition-colors">
+                                <h2 class="text-xl font-light text-gray-900 mb-3 group-hover:text-[#1F1F1F] transition-colors">
                                     {{ $news['title'] }}
                                 </h2>
-                                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                                     {{ $news['excerpt'] }}
                                 </p>
                             </div>
@@ -84,13 +84,13 @@
             <button class="glass-button-primary w-10 h-10 rounded-full flex items-center justify-center text-sm font-light">
                 1
             </button>
-            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-gray-700">
+            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-[#1F1F1F]">
                 2
             </button>
-            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-gray-700">
+            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-[#1F1F1F]">
                 3
             </button>
-            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-gray-700">
+            <button class="glass-button w-10 h-10 rounded-full flex items-center justify-center text-sm font-light text-[#1F1F1F]">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -109,7 +109,7 @@
                 </svg>
             </div>
             <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-6">ニュースレター購読</h2>
-            <p class="text-gray-600 font-light leading-relaxed mb-10">
+            <p class="text-[#1F1F1F] font-light leading-relaxed mb-10">
                 最新のニュースやお役立ち情報を定期的にお届けします。<br class="hidden md:block">
                 ぜひご登録ください。
             </p>
@@ -146,9 +146,9 @@
                     <ul class="space-y-2">
                         @foreach(['12月', '11月', '10月', '9月'] as $month)
                             <li>
-                                <a href="#" class="text-sm text-gray-600 font-light hover:text-gray-900 transition-colors flex items-center justify-between group">
+                                <a href="#" class="text-sm text-[#1F1F1F] font-light hover:text-gray-900 transition-colors flex items-center justify-between group">
                                     <span>{{ $month }}</span>
-                                    <span class="text-xs text-gray-400 group-hover:text-gray-600">({{ rand(1, 10) }})</span>
+                                    <span class="text-xs text-gray-400 group-hover:text-[#1F1F1F]">({{ rand(1, 10) }})</span>
                                 </a>
                             </li>
                         @endforeach

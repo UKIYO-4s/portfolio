@@ -13,7 +13,7 @@
         }
 
         body {
-            background: #fafafa;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #fafafa 100%);
             overflow-x: hidden;
             position: relative;
         }
@@ -21,6 +21,20 @@
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Noise texture on body */
+        .noise-texture::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
         }
 
         /* Background Abstract Objects */
@@ -35,110 +49,116 @@
             overflow: hidden;
         }
 
-        .abstract-shape {
+        /* 主役オブジェクト3つ（前面） */
+        .bg-shape:nth-child(1) {
             position: absolute;
+            top: 5rem;
+            left: 5rem;
+            width: 24rem;
+            height: 24rem;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.3), rgba(251, 207, 232, 0.3));
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.7;
-            animation: float 20s infinite ease-in-out;
+            filter: blur(80px);
+            animation: float 20s ease-in-out infinite;
         }
 
-        .abstract-shape-1 {
-            width: 800px;
-            height: 800px;
-            background: linear-gradient(135deg, rgba(232, 161, 69, 0.6), rgba(232, 161, 69, 0.3));
-            top: -200px;
-            left: -200px;
-            animation-delay: 0s;
+        .bg-shape:nth-child(2) {
+            position: absolute;
+            bottom: 10rem;
+            right: 5rem;
+            width: 24rem;
+            height: 24rem;
+            background: linear-gradient(135deg, rgba(251, 207, 232, 0.3), rgba(196, 181, 253, 0.3));
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 25s ease-in-out infinite;
+            animation-delay: 2s;
         }
 
-        .abstract-shape-2 {
-            width: 700px;
-            height: 700px;
-            background: linear-gradient(135deg, rgba(255, 153, 153, 0.6), rgba(255, 153, 153, 0.3));
-            top: 15%;
-            right: -250px;
-            animation-delay: 5s;
-        }
-
-        .abstract-shape-3 {
-            width: 650px;
-            height: 650px;
-            background: linear-gradient(135deg, rgba(232, 161, 69, 0.5), rgba(255, 153, 153, 0.3));
-            bottom: 5%;
-            left: 5%;
-            animation-delay: 10s;
-        }
-
-        .abstract-shape-4 {
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, rgba(255, 153, 153, 0.5), rgba(232, 161, 69, 0.3));
-            bottom: -150px;
-            right: 15%;
-            animation-delay: 15s;
-        }
-
-        .abstract-shape-5 {
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(255, 153, 153, 0.5), rgba(232, 161, 69, 0.2));
+        .bg-shape:nth-child(3) {
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation-delay: 7s;
+            width: 24rem;
+            height: 24rem;
+            background: linear-gradient(135deg, rgba(196, 181, 253, 0.3), rgba(251, 146, 60, 0.3));
+            border-radius: 50%;
+            filter: blur(70px);
+            animation: float 30s ease-in-out infinite;
+            animation-delay: 4s;
+        }
+
+        /* 奥行きオブジェクト2つ（背面） */
+        .bg-shape:nth-child(4) {
+            position: absolute;
+            top: 2.5rem;
+            right: 10rem;
+            width: 16rem;
+            height: 16rem;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(251, 207, 232, 0.15));
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: float-slow 30s ease-in-out infinite;
+        }
+
+        .bg-shape:nth-child(5) {
+            position: absolute;
+            bottom: 5rem;
+            left: 10rem;
+            width: 16rem;
+            height: 16rem;
+            background: linear-gradient(135deg, rgba(251, 207, 232, 0.15), rgba(196, 181, 253, 0.15));
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: float-slow 35s ease-in-out infinite;
+            animation-delay: 3s;
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(30px, -30px) scale(1.05);
-            }
-            50% {
-                transform: translate(-20px, 20px) scale(0.95);
-            }
-            75% {
-                transform: translate(20px, 30px) scale(1.02);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* Noise texture overlay */
-        .bg-abstract::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
         }
 
         /* Glassmorphism card styles */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: scale(1.01) translateY(-2px);
         }
 
         .glass-card-strong {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
         }
 
         /* Glassmorphism navigation */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
         }
 
@@ -154,9 +174,9 @@
         }
 
         .glass-card-hover:hover {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.75);
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
         }
 
         /* Button styles */
@@ -174,26 +194,51 @@
         }
 
         .glass-button-primary {
-            background: rgba(232, 161, 69, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(232, 161, 69, 0.5);
+            background: rgba(249, 115, 22, 1);
             color: white;
+            transition: all 0.3s ease;
         }
 
         .glass-button-primary:hover {
-            background: rgba(232, 161, 69, 0.85);
+            background: rgba(234, 88, 12, 1);
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            /* 背面オブジェクト4, 5を非表示 */
+            .bg-shape:nth-child(4),
+            .bg-shape:nth-child(5) {
+                display: none;
+            }
+
+            /* ブラー軽減 */
+            .glass-card {
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+
+            .glass-nav {
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+
+            /* 主役オブジェクトのblurも軽減 */
+            .bg-shape:nth-child(1),
+            .bg-shape:nth-child(2),
+            .bg-shape:nth-child(3) {
+                filter: blur(40px);
+            }
         }
     </style>
 </head>
-<body>
+<body class="noise-texture">
     <!-- Background Abstract Objects -->
     <div class="bg-abstract">
-        <div class="abstract-shape abstract-shape-1"></div>
-        <div class="abstract-shape abstract-shape-2"></div>
-        <div class="abstract-shape abstract-shape-3"></div>
-        <div class="abstract-shape abstract-shape-4"></div>
-        <div class="abstract-shape abstract-shape-5"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
+        <div class="bg-shape"></div>
     </div>
 
     <!-- Content Wrapper -->
@@ -211,22 +256,22 @@
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-12 lg:space-x-16">
-                        <a href="{{ route('demo.custom-hp.index') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.index') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.index') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.index') ? 'text-gray-900 font-normal' : '' }}">
                             ホーム
                         </a>
-                        <a href="{{ route('demo.custom-hp.about') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.about') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.about') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.about') ? 'text-gray-900 font-normal' : '' }}">
                             会社概要
                         </a>
-                        <a href="{{ route('demo.custom-hp.service') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.service') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.service') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.service') ? 'text-gray-900 font-normal' : '' }}">
                             サービス
                         </a>
-                        <a href="{{ route('demo.custom-hp.works') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.works') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.works') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.works') ? 'text-gray-900 font-normal' : '' }}">
                             実績
                         </a>
-                        <a href="{{ route('demo.custom-hp.news') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.news*') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.news') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.news*') ? 'text-gray-900 font-normal' : '' }}">
                             お知らせ
                         </a>
-                        <a href="{{ route('demo.custom-hp.contact') }}" class="text-sm font-light text-gray-700 hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.contact') ? 'text-gray-900 font-normal' : '' }}">
+                        <a href="{{ route('demo.custom-hp.contact') }}" class="text-sm font-light text-[#1F1F1F] hover:text-gray-900 transition-colors {{ request()->routeIs('demo.custom-hp.contact') ? 'text-gray-900 font-normal' : '' }}">
                             お問い合わせ
                         </a>
                     </nav>
@@ -245,22 +290,22 @@
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-white/30">
                 <div class="px-6 py-4 space-y-3">
-                    <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.index') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.index') ? 'text-gray-900 font-normal' : '' }}">
                         ホーム
                     </a>
-                    <a href="{{ route('demo.custom-hp.about') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.about') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.about') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.about') ? 'text-gray-900 font-normal' : '' }}">
                         会社概要
                     </a>
-                    <a href="{{ route('demo.custom-hp.service') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.service') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.service') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.service') ? 'text-gray-900 font-normal' : '' }}">
                         サービス
                     </a>
-                    <a href="{{ route('demo.custom-hp.works') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.works') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.works') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.works') ? 'text-gray-900 font-normal' : '' }}">
                         実績
                     </a>
-                    <a href="{{ route('demo.custom-hp.news') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.news*') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.news') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.news*') ? 'text-gray-900 font-normal' : '' }}">
                         お知らせ
                     </a>
-                    <a href="{{ route('demo.custom-hp.contact') }}" class="block py-2 text-sm font-light text-gray-700 hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.contact') ? 'text-gray-900 font-normal' : '' }}">
+                    <a href="{{ route('demo.custom-hp.contact') }}" class="block py-2 text-sm font-light text-[#1F1F1F] hover:text-gray-900 {{ request()->routeIs('demo.custom-hp.contact') ? 'text-gray-900 font-normal' : '' }}">
                         お問い合わせ
                     </a>
                 </div>
@@ -270,7 +315,7 @@
         <!-- Demo Notice -->
         <div class="glass-card border-t-0 rounded-none">
             <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3">
-                <p class="text-xs text-gray-700 text-center font-light">
+                <p class="text-xs text-[#1F1F1F] text-center font-light">
                     <span class="font-normal">デモモード:</span> これはデモ用のモックアップです。グラスモーフィズム × アーティスティックなデザインをご体験ください。
                 </p>
             </div>
@@ -288,11 +333,11 @@
                     <!-- Company Info -->
                     <div class="md:col-span-2">
                         <h3 class="text-xl font-light text-gray-900 mb-6">Creative Corporation</h3>
-                        <p class="text-gray-700 text-sm font-light leading-relaxed mb-4">
+                        <p class="text-[#1F1F1F] text-sm font-light leading-relaxed mb-4">
                             デザインとテクノロジーの力で、<br>
                             新しい価値を創造し、社会に貢献する。
                         </p>
-                        <p class="text-gray-600 text-sm font-light leading-relaxed">
+                        <p class="text-[#1F1F1F] text-sm font-light leading-relaxed">
                             〒150-0013<br>
                             東京都渋谷区恵比寿1-1-1<br>
                             TEL: 03-1234-5678<br>
@@ -304,19 +349,19 @@
                     <div>
                         <h3 class="text-sm font-normal text-gray-900 mb-6">サイトマップ</h3>
                         <ul class="space-y-3 text-sm font-light">
-                            <li><a href="{{ route('demo.custom-hp.index') }}" class="text-gray-700 hover:text-gray-900 transition-colors">ホーム</a></li>
-                            <li><a href="{{ route('demo.custom-hp.about') }}" class="text-gray-700 hover:text-gray-900 transition-colors">会社概要</a></li>
-                            <li><a href="{{ route('demo.custom-hp.service') }}" class="text-gray-700 hover:text-gray-900 transition-colors">サービス</a></li>
-                            <li><a href="{{ route('demo.custom-hp.works') }}" class="text-gray-700 hover:text-gray-900 transition-colors">実績</a></li>
-                            <li><a href="{{ route('demo.custom-hp.news') }}" class="text-gray-700 hover:text-gray-900 transition-colors">お知らせ</a></li>
-                            <li><a href="{{ route('demo.custom-hp.contact') }}" class="text-gray-700 hover:text-gray-900 transition-colors">お問い合わせ</a></li>
+                            <li><a href="{{ route('demo.custom-hp.index') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">ホーム</a></li>
+                            <li><a href="{{ route('demo.custom-hp.about') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">会社概要</a></li>
+                            <li><a href="{{ route('demo.custom-hp.service') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">サービス</a></li>
+                            <li><a href="{{ route('demo.custom-hp.works') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">実績</a></li>
+                            <li><a href="{{ route('demo.custom-hp.news') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">お知らせ</a></li>
+                            <li><a href="{{ route('demo.custom-hp.contact') }}" class="text-[#1F1F1F] hover:text-gray-900 transition-colors">お問い合わせ</a></li>
                         </ul>
                     </div>
 
                     <!-- Business Hours -->
                     <div>
                         <h3 class="text-sm font-normal text-gray-900 mb-6">営業時間</h3>
-                        <p class="text-gray-700 text-sm font-light leading-relaxed">
+                        <p class="text-[#1F1F1F] text-sm font-light leading-relaxed">
                             平日 9:00 - 18:00<br>
                             （土日祝日は休業）
                         </p>

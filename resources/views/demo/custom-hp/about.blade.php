@@ -8,7 +8,7 @@
     <div class="max-w-5xl mx-auto text-center">
         <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">About Us</span>
         <h1 class="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">会社概要</h1>
-        <p class="text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-lg text-[#1F1F1F] font-light leading-relaxed max-w-2xl mx-auto">
             私たちのビジョン、ミッション、そして会社情報をご紹介します。
         </p>
     </div>
@@ -29,7 +29,7 @@
                     </div>
                     <h2 class="text-2xl font-light text-gray-900">Vision</h2>
                 </div>
-                <p class="text-gray-700 font-light leading-relaxed text-lg">
+                <p class="text-[#1F1F1F] font-light leading-relaxed text-lg">
                     {{ $company['vision'] }}
                 </p>
             </div>
@@ -46,7 +46,7 @@
                 </div>
                 <ul class="space-y-4">
                     @foreach($company['mission'] as $item)
-                        <li class="flex items-start gap-3 text-gray-700 font-light leading-relaxed">
+                        <li class="flex items-start gap-3 text-[#1F1F1F] font-light leading-relaxed">
                             <svg class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
@@ -70,7 +70,7 @@
                 <div class="border-b border-gray-200/50 pb-6">
                     <dt class="text-xs font-normal text-gray-500 mb-2 tracking-wide">会社名</dt>
                     <dd class="text-gray-900 font-light text-lg">{{ $company['name'] }}</dd>
-                    <dd class="text-gray-600 font-light text-sm mt-1">{{ $company['name_en'] }}</dd>
+                    <dd class="text-[#1F1F1F] font-light text-sm mt-1">{{ $company['name_en'] }}</dd>
                 </div>
 
                 <!-- Established -->
@@ -127,7 +127,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">私たちの価値観</h2>
-            <p class="text-gray-600 font-light max-w-2xl mx-auto">
+            <p class="text-[#1F1F1F] font-light max-w-2xl mx-auto">
                 私たちが大切にしている3つの価値観
             </p>
         </div>
@@ -141,7 +141,7 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-light text-gray-900 mb-4">Innovation</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                     常に新しい技術とアイデアを追求し、革新的なソリューションを提供します。
                 </p>
             </div>
@@ -154,7 +154,7 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-light text-gray-900 mb-4">Partnership</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                     お客様との信頼関係を大切にし、共に成長していくパートナーシップを築きます。
                 </p>
             </div>
@@ -167,7 +167,7 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-light text-gray-900 mb-4">Quality</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                     妥協のない品質へのこだわりで、お客様の期待を超える価値を提供します。
                 </p>
             </div>
@@ -180,7 +180,7 @@
     <div class="max-w-4xl mx-auto">
         <div class="glass-card rounded-3xl p-12 text-center">
             <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-6">一緒に働きませんか？</h2>
-            <p class="text-gray-600 font-light leading-relaxed mb-8">
+            <p class="text-[#1F1F1F] font-light leading-relaxed mb-8">
                 私たちと一緒に新しい価値を創造していく仲間を募集しています。
             </p>
             <a href="{{ route('demo.custom-hp.contact') }}" class="glass-button-primary px-10 py-4 rounded-full text-sm font-light inline-block">

@@ -8,7 +8,7 @@
     <div class="max-w-5xl mx-auto text-center">
         <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">Our Works</span>
         <h1 class="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">実績</h1>
-        <p class="text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-lg text-[#1F1F1F] font-light leading-relaxed max-w-2xl mx-auto">
             私たちが手がけたプロジェクトの一部をご紹介します。
         </p>
     </div>
@@ -21,16 +21,16 @@
             <button class="glass-button-primary px-6 py-2 rounded-full text-xs font-light">
                 すべて
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 Webデザイン
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 Web開発
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 アプリデザイン
             </button>
-            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-gray-700">
+            <button class="glass-button px-6 py-2 rounded-full text-xs font-light text-[#1F1F1F]">
                 マーケティング
             </button>
         </div>
@@ -57,7 +57,7 @@
                     <!-- Content -->
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-gray-600">
+                            <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-[#1F1F1F]">
                                 {{ $work['category'] }}
                             </span>
                             <span class="text-xs font-light text-gray-500">{{ $work['year'] }}</span>
@@ -65,14 +65,14 @@
 
                         <h3 class="text-xl font-light text-gray-900 mb-2">{{ $work['title'] }}</h3>
                         <p class="text-xs text-gray-500 font-light mb-3">{{ $work['client'] }}</p>
-                        <p class="text-sm text-gray-600 font-light leading-relaxed mb-4">
+                        <p class="text-sm text-[#1F1F1F] font-light leading-relaxed mb-4">
                             {{ $work['description'] }}
                         </p>
 
                         <!-- Tags -->
                         <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-200/50">
                             @foreach($work['tags'] as $tag)
-                                <span class="text-xs font-light px-2 py-1 rounded bg-white/40 text-gray-600">
+                                <span class="text-xs font-light px-2 py-1 rounded bg-white/40 text-[#1F1F1F]">
                                     {{ $tag }}
                                 </span>
                             @endforeach
@@ -90,7 +90,7 @@
         <div class="glass-card-strong rounded-3xl p-12 md:p-16">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">実績数</h2>
-                <p class="text-gray-600 font-light">
+                <p class="text-[#1F1F1F] font-light">
                     これまでの実績を数字でご紹介
                 </p>
             </div>
@@ -99,25 +99,25 @@
                 <!-- Stat 1 -->
                 <div class="text-center">
                     <div class="text-5xl md:text-6xl font-light text-gray-900 mb-3">200+</div>
-                    <p class="text-sm text-gray-600 font-light">プロジェクト実績</p>
+                    <p class="text-sm text-[#1F1F1F] font-light">プロジェクト実績</p>
                 </div>
 
                 <!-- Stat 2 -->
                 <div class="text-center">
                     <div class="text-5xl md:text-6xl font-light text-gray-900 mb-3">98%</div>
-                    <p class="text-sm text-gray-600 font-light">顧客満足度</p>
+                    <p class="text-sm text-[#1F1F1F] font-light">顧客満足度</p>
                 </div>
 
                 <!-- Stat 3 -->
                 <div class="text-center">
                     <div class="text-5xl md:text-6xl font-light text-gray-900 mb-3">15</div>
-                    <p class="text-sm text-gray-600 font-light">受賞歴</p>
+                    <p class="text-sm text-[#1F1F1F] font-light">受賞歴</p>
                 </div>
 
                 <!-- Stat 4 -->
                 <div class="text-center">
                     <div class="text-5xl md:text-6xl font-light text-gray-900 mb-3">5年</div>
-                    <p class="text-sm text-gray-600 font-light">平均継続期間</p>
+                    <p class="text-sm text-[#1F1F1F] font-light">平均継続期間</p>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">取引先企業</h2>
-            <p class="text-gray-600 font-light">
+            <p class="text-[#1F1F1F] font-light">
                 信頼いただいている企業様の一部
             </p>
         </div>
@@ -156,7 +156,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">お客様の声</h2>
-            <p class="text-gray-600 font-light">
+            <p class="text-[#1F1F1F] font-light">
                 実際にご利用いただいたお客様からのフィードバック
             </p>
         </div>
@@ -169,7 +169,7 @@
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                     </svg>
                 </div>
-                <p class="text-gray-700 font-light leading-relaxed mb-6">
+                <p class="text-[#1F1F1F] font-light leading-relaxed mb-6">
                     「デザインのクオリティが非常に高く、ブランドイメージを完璧に表現していただきました。チームの対応も素晴らしく、安心してプロジェクトを任せられました。」
                 </p>
                 <div class="flex items-center gap-4">
@@ -188,7 +188,7 @@
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                     </svg>
                 </div>
-                <p class="text-gray-700 font-light leading-relaxed mb-6">
+                <p class="text-[#1F1F1F] font-light leading-relaxed mb-6">
                     「技術力が高く、複雑な要件にも柔軟に対応していただきました。納期もしっかり守っていただき、とても満足しています。今後も長くお付き合いしたいパートナーです。」
                 </p>
                 <div class="flex items-center gap-4">
@@ -208,7 +208,7 @@
     <div class="max-w-4xl mx-auto">
         <div class="glass-card-strong rounded-3xl p-12 md:p-16 text-center">
             <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-6">プロジェクトのご相談</h2>
-            <p class="text-gray-600 font-light leading-relaxed mb-10">
+            <p class="text-[#1F1F1F] font-light leading-relaxed mb-10">
                 あなたのプロジェクトについてお聞かせください。<br class="hidden md:block">
                 最適なソリューションをご提案いたします。
             </p>

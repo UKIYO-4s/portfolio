@@ -8,7 +8,7 @@
     <div class="max-w-5xl mx-auto text-center">
         <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">Contact</span>
         <h1 class="text-5xl md:text-6xl font-light text-gray-900 mb-8 leading-tight">お問い合わせ</h1>
-        <p class="text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+        <p class="text-lg text-[#1F1F1F] font-light leading-relaxed max-w-2xl mx-auto">
             サービスに関するご質問やお見積もりのご依頼など、<br class="hidden md:block">
             お気軽にお問い合わせください。
         </p>
@@ -28,7 +28,7 @@
                 </div>
                 <h3 class="text-lg font-light text-gray-900 mb-3">お電話</h3>
                 <p class="text-2xl font-light text-gray-900 mb-2">03-1234-5678</p>
-                <p class="text-xs text-gray-600 font-light">平日 9:00 - 18:00</p>
+                <p class="text-xs text-[#1F1F1F] font-light">平日 9:00 - 18:00</p>
             </div>
 
             <!-- Email -->
@@ -40,7 +40,7 @@
                 </div>
                 <h3 class="text-lg font-light text-gray-900 mb-3">メール</h3>
                 <p class="text-lg font-light text-gray-900 mb-2">info@creative-corp.jp</p>
-                <p class="text-xs text-gray-600 font-light">24時間受付</p>
+                <p class="text-xs text-[#1F1F1F] font-light">24時間受付</p>
             </div>
 
             <!-- Location -->
@@ -53,7 +53,7 @@
                 </div>
                 <h3 class="text-lg font-light text-gray-900 mb-3">オフィス</h3>
                 <p class="text-sm font-light text-gray-900 mb-1">東京都渋谷区恵比寿1-1-1</p>
-                <p class="text-xs text-gray-600 font-light">恵比寿駅 徒歩5分</p>
+                <p class="text-xs text-[#1F1F1F] font-light">恵比寿駅 徒歩5分</p>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
         <div class="glass-card-strong rounded-3xl p-12 md:p-16">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-4">お問い合わせフォーム</h2>
-                <p class="text-sm text-gray-600 font-light">
+                <p class="text-sm text-[#1F1F1F] font-light">
                     以下のフォームにご記入の上、送信してください。<br class="hidden md:block">
                     2営業日以内に担当者よりご連絡いたします。
                 </p>
@@ -168,7 +168,7 @@
                 <div>
                     <label class="flex items-start gap-3 cursor-pointer">
                         <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300">
-                        <span class="text-sm font-light text-gray-700 leading-relaxed">
+                        <span class="text-sm font-light text-[#1F1F1F] leading-relaxed">
                             <a href="#" class="text-orange-600 hover:text-orange-700 underline">プライバシーポリシー</a>に同意します
                         </span>
                     </label>
@@ -196,7 +196,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-4">アクセス</h2>
-            <p class="text-sm text-gray-600 font-light">お気軽にお越しください</p>
+            <p class="text-sm text-[#1F1F1F] font-light">お気軽にお越しください</p>
         </div>
 
         <div class="glass-card rounded-3xl overflow-hidden">
@@ -205,7 +205,7 @@
                     <svg class="w-20 h-20 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
                     </svg>
-                    <p class="text-gray-600 font-light">Map Placeholder</p>
+                    <p class="text-[#1F1F1F] font-light">Map Placeholder</p>
                     <p class="text-gray-500 text-sm font-light mt-2">東京都渋谷区恵比寿1-1-1</p>
                 </div>
             </div>
@@ -214,14 +214,14 @@
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-lg font-light text-gray-900 mb-4">電車でお越しの場合</h3>
-                        <ul class="space-y-2 text-sm text-gray-700 font-light">
+                        <ul class="space-y-2 text-sm text-[#1F1F1F] font-light">
                             <li>• JR山手線・埼京線 恵比寿駅 東口より徒歩5分</li>
                             <li>• 東京メトロ日比谷線 恵比寿駅 1番出口より徒歩5分</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-lg font-light text-gray-900 mb-4">お車でお越しの場合</h3>
-                        <p class="text-sm text-gray-700 font-light leading-relaxed">
+                        <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                             近隣のコインパーキングをご利用ください。<br>
                             ※ 専用駐車場はございません。
                         </p>
@@ -237,27 +237,27 @@
     <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-2xl md:text-3xl font-light text-gray-900 mb-4">よくあるご質問</h2>
-            <p class="text-sm text-gray-600 font-light">お問い合わせの前にご確認ください</p>
+            <p class="text-sm text-[#1F1F1F] font-light">お問い合わせの前にご確認ください</p>
         </div>
 
         <div class="space-y-4">
             <div class="glass-card rounded-2xl p-6">
                 <h3 class="text-base font-light text-gray-900 mb-2">Q. 対応エリアを教えてください</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed pl-6">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed pl-6">
                     A. 全国対応しております。オンラインでのお打ち合わせも可能です。
                 </p>
             </div>
 
             <div class="glass-card rounded-2xl p-6">
                 <h3 class="text-base font-light text-gray-900 mb-2">Q. 見積もりは無料ですか？</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed pl-6">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed pl-6">
                     A. はい、お見積もりは無料です。お気軽にお問い合わせください。
                 </p>
             </div>
 
             <div class="glass-card rounded-2xl p-6">
                 <h3 class="text-base font-light text-gray-900 mb-2">Q. 返信までどのくらいかかりますか？</h3>
-                <p class="text-sm text-gray-600 font-light leading-relaxed pl-6">
+                <p class="text-sm text-[#1F1F1F] font-light leading-relaxed pl-6">
                     A. 通常2営業日以内にご返信いたします。お急ぎの場合はお電話にてお問い合わせください。
                 </p>
             </div>

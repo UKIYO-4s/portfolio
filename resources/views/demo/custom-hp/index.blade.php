@@ -11,7 +11,7 @@
                 Design meets<br>
                 Technology
             </h1>
-            <p class="text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            <p class="text-lg md:text-xl text-[#1F1F1F] font-light leading-relaxed max-w-2xl mx-auto mb-12">
                 デザインとテクノロジーの力で、新しい価値を創造し、<br class="hidden md:block">
                 社会に貢献する。
             </p>
@@ -40,7 +40,7 @@
         <div class="text-center mb-20">
             <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">Our Services</span>
             <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-6">サービス</h2>
-            <p class="text-gray-600 font-light max-w-2xl mx-auto">
+            <p class="text-[#1F1F1F] font-light max-w-2xl mx-auto">
                 私たちは、幅広いクリエイティブソリューションを提供しています。
             </p>
         </div>
@@ -55,7 +55,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-light text-gray-900 mb-4">Webデザイン</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed mb-6">
+                    <p class="text-sm text-[#1F1F1F] font-light leading-relaxed mb-6">
                         美しく使いやすいWebサイトをデザインします。ユーザー体験を重視した設計で、ビジネスの成果につながるサイトを実現します。
                     </p>
                 </div>
@@ -74,7 +74,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-light text-gray-900 mb-4">Web開発</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed mb-6">
+                    <p class="text-sm text-[#1F1F1F] font-light leading-relaxed mb-6">
                         最新技術を使った高品質なWebアプリケーション開発。安全で使いやすいシステムを提供します。
                     </p>
                 </div>
@@ -93,7 +93,7 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-light text-gray-900 mb-4">デジタルマーケティング</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed mb-6">
+                    <p class="text-sm text-[#1F1F1F] font-light leading-relaxed mb-6">
                         データドリブンなマーケティング戦略。SEO対策からSNS運用まで、総合的にサポートします。
                     </p>
                 </div>
@@ -118,7 +118,7 @@
         <div class="text-center mb-20">
             <span class="text-xs font-normal text-gray-500 tracking-widest uppercase mb-4 block">Our Works</span>
             <h2 class="text-4xl md:text-5xl font-light text-gray-900 mb-6">実績</h2>
-            <p class="text-gray-600 font-light max-w-2xl mx-auto">
+            <p class="text-[#1F1F1F] font-light max-w-2xl mx-auto">
                 私たちが手がけたプロジェクトの一部をご紹介します。
             </p>
         </div>
@@ -136,11 +136,11 @@
                 </div>
                 <div class="p-8">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-gray-600">Web開発</span>
+                        <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-[#1F1F1F]">Web開発</span>
                         <span class="text-xs font-light text-gray-500">2024</span>
                     </div>
                     <h3 class="text-xl font-light text-gray-900 mb-3">ECサイトリニューアル</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">
+                    <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                         老舗アパレルブランドのECサイトを全面リニューアル。モダンなUIと高速なパフォーマンスを実現しました。
                     </p>
                 </div>
@@ -158,11 +158,11 @@
                 </div>
                 <div class="p-8">
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-gray-600">Webデザイン</span>
+                        <span class="text-xs font-light px-3 py-1 rounded-full bg-white/60 text-[#1F1F1F]">Webデザイン</span>
                         <span class="text-xs font-light text-gray-500">2024</span>
                     </div>
                     <h3 class="text-xl font-light text-gray-900 mb-3">コーポレートサイト制作</h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">
+                    <p class="text-sm text-[#1F1F1F] font-light leading-relaxed">
                         IT企業のコーポレートサイトをゼロから制作。ブランドイメージを体現したデザインが高評価を得ました。
                     </p>
                 </div>
@@ -182,23 +182,23 @@
     <div class="max-w-4xl mx-auto">
         <div class="glass-card-strong rounded-3xl p-12 md:p-16 text-center">
             <h2 class="text-3xl md:text-4xl font-light text-gray-900 mb-6">お気軽にご相談ください</h2>
-            <p class="text-gray-600 font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p class="text-[#1F1F1F] font-light leading-relaxed mb-10 max-w-2xl mx-auto">
                 サービスに関するご質問、お見積もりのご依頼など、<br class="hidden md:block">
                 お気軽にお問い合わせください。担当者より2営業日以内にご連絡いたします。
             </p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
-                <div class="flex items-center gap-3 text-gray-700">
+                <div class="flex items-center gap-3 text-[#1F1F1F]">
                     <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#1F1F1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
                     </div>
                     <span class="font-light">03-1234-5678</span>
                 </div>
                 <span class="hidden sm:block text-gray-300">|</span>
-                <div class="flex items-center gap-3 text-gray-700">
+                <div class="flex items-center gap-3 text-[#1F1F1F]">
                     <div class="w-8 h-8 rounded-full bg-white/60 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-[#1F1F1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
                     </div>
