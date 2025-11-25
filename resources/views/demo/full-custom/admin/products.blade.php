@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Admin Header -->
-<div class="bg-gradient-to-r from-orange-400 to-orange-300 py-12 border-b-4 border-gray-800">
+<div class="gradient-retro-orange py-12 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Product Management
@@ -134,7 +134,7 @@
 </div>
 
 <!-- Bulk Actions -->
-<section class="bg-gradient-to-r from-cyan-400 to-cyan-300 py-12 border-t-4 border-gray-800">
+<section class="gradient-retro-cyan py-12 border-t-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Bulk Actions</h2>
 

@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Page Header -->
-<div class="bg-gradient-to-r from-orange-400 to-orange-300 py-16 border-b-4 border-gray-800">
+<div class="gradient-retro-orange py-16 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             Get in Touch!
@@ -115,7 +115,7 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="bg-gradient-to-r from-pink-400 to-pink-300 py-20 border-t-4 border-gray-800">
+<div class="gradient-retro-pink py-20 border-t-4 border-gray-800">
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
             FAQ

@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Page Header -->
-<div class="bg-gradient-to-r from-pink-400 to-pink-300 py-16 border-b-4 border-gray-800">
+<div class="gradient-retro-pink py-16 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             About Funky Co!
@@ -17,7 +17,7 @@
 
 <!-- Company Story -->
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-    <div class="bg-gradient-to-r from-orange-400 to-orange-300 p-12 rounded-3xl border-4 border-gray-800 retro-shadow mb-20">
+    <div class="gradient-retro-orange p-12 rounded-3xl border-4 border-gray-800 retro-shadow mb-20">
         <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">Our Story</h2>
         <p class="text-xl text-gray-800 leading-relaxed text-center max-w-4xl mx-auto">
             {{ $company['description'] }}
@@ -58,7 +58,7 @@
 </div>
 
 <!-- Team Section -->
-<div class="bg-gradient-to-r from-cyan-400 to-cyan-300 py-20 border-t-4 border-b-4 border-gray-800">
+<div class="gradient-retro-cyan py-20 border-t-4 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
             Meet Our Team!
@@ -106,7 +106,7 @@
 
 <!-- CTA Section -->
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-    <div class="bg-gradient-to-r from-orange-400 to-orange-300 p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
+    <div class="gradient-retro-orange p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
         <h2 class="text-4xl font-bold text-gray-800 mb-6">
             Want to Join Us?
         </h2>

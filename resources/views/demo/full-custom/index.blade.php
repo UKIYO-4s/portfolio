@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="bg-gradient-to-r from-orange-400 to-orange-300 py-20 md:py-32 border-b-4 border-gray-800">
+<div class="gradient-retro-orange py-20 md:py-32 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-800 mb-6 leading-tight">
             Welcome to<br>Funky Co!
@@ -62,7 +62,7 @@
 </div>
 
 <!-- Popular Products Section -->
-<div class="bg-gradient-to-r from-cyan-400 to-cyan-300 py-20 border-t-4 border-b-4 border-gray-800">
+<div class="gradient-retro-cyan py-20 border-t-4 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
             Popular Products!
@@ -120,7 +120,7 @@
 
 <!-- CTA Section -->
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-    <div class="bg-gradient-to-r from-orange-400 to-orange-300 p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
+    <div class="gradient-retro-orange p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Ready to Get Funky?
         </h2>

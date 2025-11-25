@@ -15,7 +15,7 @@
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
     <div class="grid md:grid-cols-2 gap-12">
         <!-- Product Image -->
-        <div class="bg-gradient-to-br from-orange-400 to-pink-400 p-8 rounded-3xl border-4 border-gray-800 retro-shadow">
+        <div class="gradient-retro-orange p-8 rounded-3xl border-4 border-gray-800 retro-shadow">
             <div class="aspect-square bg-white rounded-2xl border-4 border-gray-800 flex items-center justify-center">
                 <div class="text-center text-gray-400">
                     @php
@@ -90,7 +90,7 @@
 </div>
 
 <!-- Related Products -->
-<div class="bg-gradient-to-r from-cyan-400 to-cyan-300 py-20 border-t-4 border-gray-800 mt-20">
+<div class="gradient-retro-cyan py-20 border-t-4 border-gray-800 mt-20">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
             You Might Also Like

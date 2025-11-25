@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Page Header -->
-<div class="bg-gradient-to-r from-pink-400 to-pink-300 py-16 border-b-4 border-gray-800">
+<div class="gradient-retro-pink py-16 border-b-4 border-gray-800">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             Our Funky Products!
@@ -64,7 +64,7 @@
 
 <!-- CTA Section -->
 <div class="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-    <div class="bg-gradient-to-r from-orange-400 to-orange-300 p-12 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
+    <div class="gradient-retro-orange p-12 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
         <h2 class="text-4xl font-bold text-gray-800 mb-4">
             Can't Find What You're Looking For?
         </h2>

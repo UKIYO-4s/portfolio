@@ -96,17 +96,17 @@
             }
         }
 
-        /* カラフルなグラデーション背景（3色ベース） */
+        /* カラフルなグラデーション背景（同系2色） */
         .gradient-retro-orange {
-            background: linear-gradient(135deg, var(--retro-orange) 0%, #FFAA66 100%);
+            background: linear-gradient(135deg, #FF9A3E 0%, #FF7A1A 100%);
         }
 
         .gradient-retro-cyan {
-            background: linear-gradient(135deg, var(--retro-cyan) 0%, #86F0FB 100%);
+            background: linear-gradient(135deg, #06AED5 0%, #059BBF 100%);
         }
 
         .gradient-retro-pink {
-            background: linear-gradient(135deg, var(--retro-pink) 0%, #FFC6D9 100%);
+            background: linear-gradient(135deg, #FF6B9D 0%, #FF4F88 100%);
         }
 
         /* ポップなボタンスタイル */
@@ -143,14 +143,6 @@
             max-height: 500px;
         }
 
-        /* === ガーランド風装飾 === */
-        .garland {
-            width: 100%;
-            height: 40px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cline x1='0' y1='5' x2='120' y2='5' stroke='%231F2937' stroke-width='3'/%3E%3Cpolygon points='10,5 20,30 0,30' fill='%23FF8C42' stroke='%231F2937' stroke-width='2'/%3E%3Cpolygon points='50,5 60,30 40,30' fill='%2306AED5' stroke='%231F2937' stroke-width='2'/%3E%3Cpolygon points='90,5 100,30 80,30' fill='%23FF6B9D' stroke='%231F2937' stroke-width='2'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            background-position: center top;
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -224,9 +216,6 @@
             </p>
         </div>
     </div>
-
-    <!-- Garland Decoration -->
-    <div class="garland"></div>
 
     <!-- Main Content -->
     <main class="flex-1">
