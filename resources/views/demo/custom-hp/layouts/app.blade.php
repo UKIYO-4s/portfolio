@@ -19,8 +19,8 @@
             --text-secondary: #6B6B6B;
 
             /* アクセントカラー（1色のみ） */
-            --accent-deep-green: #1F3A2E;
-            --accent-deep-green-hover: #152821;
+            --accent-deep-green: #357A63;
+            --accent-deep-green-hover: #2A6350;
 
             /* ガラス要素 */
             --glass-bg: rgba(255, 255, 255, 0.65);
@@ -28,8 +28,8 @@
             --glass-shadow: rgba(0, 0, 0, 0.06);
 
             /* ラインアート */
-            --line-color: rgba(0, 0, 0, 0.08);
-            --line-glow: rgba(31, 58, 46, 0.15);
+            --line-color: rgba(0, 0, 0, 0.12);
+            --line-glow: rgba(53, 122, 99, 0.15);
         }
 
         * {
@@ -109,7 +109,7 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            background: rgba(31, 58, 46, 0.1);
+            background: rgba(53, 122, 99, 0.1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -138,15 +138,15 @@
             <!-- 線1: 左上から右下へ緩やかな曲線 -->
             <path
                 d="M -200 200 Q 400 400, 1200 600 T 2400 1000"
-                stroke="rgba(0, 0, 0, 0.08)"
-                stroke-width="0.5"
+                stroke="rgba(0, 0, 0, 0.12)"
+                stroke-width="1"
                 fill="none"
             />
 
             <!-- 線2: 右上から左下へ -->
             <path
                 d="M 1800 -100 Q 1200 300, 600 700 T -200 1200"
-                stroke="rgba(0, 0, 0, 0.08)"
+                stroke="rgba(0, 0, 0, 0.12)"
                 stroke-width="1"
                 fill="none"
             />
@@ -154,8 +154,36 @@
             <!-- 線3: 中央を横断 -->
             <path
                 d="M -100 500 Q 600 450, 1200 520 T 2400 500"
-                stroke="rgba(0, 0, 0, 0.08)"
-                stroke-width="0.75"
+                stroke="rgba(0, 0, 0, 0.12)"
+                stroke-width="1"
+                fill="none"
+            />
+
+            <!-- 円アウトライン1（左上寄り） -->
+            <circle
+                cx="400"
+                cy="300"
+                r="250"
+                stroke="rgba(0, 0, 0, 0.06)"
+                stroke-width="1"
+                fill="none"
+            />
+
+            <!-- 円アウトライン2（右下寄り・少し小さめ） -->
+            <circle
+                cx="1400"
+                cy="800"
+                r="180"
+                stroke="rgba(0, 0, 0, 0.06)"
+                stroke-width="1"
+                fill="none"
+            />
+
+            <!-- 六角形アウトライン（中央やや右） -->
+            <polygon
+                points="1100,400 1200,460 1200,580 1100,640 1000,580 1000,460"
+                stroke="rgba(0, 0, 0, 0.06)"
+                stroke-width="1"
                 fill="none"
             />
 
@@ -164,7 +192,7 @@
                 cx="900"
                 cy="550"
                 r="120"
-                fill="rgba(31, 58, 46, 0.15)"
+                fill="rgba(53, 122, 99, 0.15)"
                 style="filter: blur(60px);"
             />
 
@@ -173,7 +201,7 @@
                 cx="1400"
                 cy="400"
                 r="100"
-                fill="rgba(31, 58, 46, 0.12)"
+                fill="rgba(53, 122, 99, 0.12)"
                 style="filter: blur(50px);"
             />
         </svg>
