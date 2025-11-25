@@ -113,7 +113,7 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">50万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">オリジナルデザイン、5〜10ページ、アニメーション</td>
                                 </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.full-custom.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">フルカスタムHP</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">80万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">カスタムデザイン＋システム機能</td>
