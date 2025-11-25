@@ -89,9 +89,11 @@
     </div>
 </div>
 
-<!-- Related Products -->
-<div class="bg-gradient-to-r from-cyan-400 to-pink-400 py-20 border-t-4 border-gray-800 mt-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Related Products - デュオトーン水平分割 -->
+<section class="py-20 relative overflow-hidden border-t-4 border-gray-800 mt-20">
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, #06AED5 0%, #06AED5 50%, #FF6B9D 50%, #FF6B9D 100%);"></div>
+    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
             You Might Also Like
         </h2>
@@ -102,5 +104,5 @@
             </a>
         </div>
     </div>
-</div>
+</section>
 @endsection

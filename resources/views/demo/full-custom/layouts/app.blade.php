@@ -10,6 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ===== Full Custom HP カラールール ===== */
+        /*
+          配色: オレンジ(#FF8C42) / ターコイズ(#06AED5) / ピンク(#FF6B9D) の3色のみ
+
+          使い分け原則:
+          1. 各セクション/カードで主役色は1つのみ
+          2. 他の2色はボタン・ラベルなどアクセントのみ
+          3. グラデは境界を明確に（混色させない→デュオトーン分割）
+          4. 黒アウトライン(border-4 border-gray-800)で色面を分離
+
+          アクセント配色例:
+          - オレンジカード: bg-orange-400 + ピンクボタン
+          - ターコイズカード: bg-cyan-400 + オレンジボタン
+          - ピンクカード: bg-pink-400 + ターコイズボタン
+
+          アニメーション:
+          - CTAボタン: .bounce-hover（translateY -2px）
+          - 製品カード: .bounce-hover-subtle（translateY -1px）
+          - 見出し・テキスト: アニメーションなし
+        */
+
         :root {
             /* === メインパレット（3色のみ）=== */
             --retro-orange: #FF8C42;

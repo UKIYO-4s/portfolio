@@ -3,9 +3,11 @@
 @section('title', 'お問い合わせ')
 
 @section('content')
-<!-- Page Header -->
-<div class="bg-gradient-to-r from-orange-400 to-pink-400 py-16 border-b-4 border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+<!-- Page Header - デュオトーン水平分割 -->
+<section class="py-16 relative overflow-hidden border-b-4 border-gray-800">
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF8C42 0%, #FF8C42 50%, #FF6B9D 50%, #FF6B9D 100%);"></div>
+    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             Get in Touch!
         </h1>
@@ -13,11 +15,11 @@
             We'd love to hear from you!
         </p>
     </div>
-</div>
+</section>
 
 <!-- Contact Form -->
 <div class="max-w-4xl mx-auto px-6 lg:px-8 py-20">
-    <div class="bg-gradient-to-br from-cyan-400 to-pink-400 p-2 rounded-3xl border-4 border-gray-800 retro-shadow">
+    <div class="bg-cyan-400 p-2 rounded-3xl border-4 border-gray-800 retro-shadow">
         <div class="bg-[#FFF8E7] p-8 md:p-12 rounded-2xl">
             <form onsubmit="event.preventDefault(); alert('Message sent! (Demo only)');">
                 <!-- Name -->
@@ -114,9 +116,11 @@
     </div>
 </div>
 
-<!-- FAQ Section -->
-<div class="bg-gradient-to-r from-pink-400 to-orange-400 py-20 border-t-4 border-gray-800">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+<!-- FAQ Section - デュオトーン水平分割 -->
+<section class="py-20 relative overflow-hidden border-t-4 border-gray-800">
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF6B9D 0%, #FF6B9D 50%, #FF8C42 50%, #FF8C42 100%);"></div>
+    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
             FAQ
         </h2>
@@ -141,5 +145,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
