@@ -38,7 +38,7 @@
 </section>
 
 <!-- News List -->
-<section class="py-16 px-8">
+<section class="py-16 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-3xl mx-auto">
         <div class="space-y-4">
             @foreach($newsItems as $news)
@@ -51,7 +51,7 @@
                                     <time class="text-sm text-[#121212]">
                                         {{ \Carbon\Carbon::parse($news['date'])->format('Y.m.d') }}
                                     </time>
-                                    <span class="text-xs px-2 py-0.5 rounded-full bg-[rgba(31,58,46,0.08)] text-[#1F3A2E]">
+                                    <span class="text-xs px-2 py-0.5 rounded-full bg-[rgba(31,58,46,0.08)] text-[#265A49]">
                                         {{ $news['category'] }}
                                     </span>
                                 </div>
@@ -59,7 +59,7 @@
 
                             <!-- Content -->
                             <div class="flex-1">
-                                <h2 class="text-base font-medium text-[#121212] mb-2 group-hover:text-[#1F3A2E] transition-colors">
+                                <h2 class="text-base font-medium text-[#121212] mb-2 group-hover:text-[#265A49] transition-colors">
                                     {{ $news['title'] }}
                                 </h2>
                                 <p class="text-sm text-[#6B6B6B] leading-relaxed">
@@ -69,7 +69,7 @@
 
                             <!-- Arrow -->
                             <div class="flex-shrink-0 md:ml-4">
-                                <svg class="w-5 h-5 text-[#6B6B6B] group-hover:text-[#1F3A2E] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-[#6B6B6B] group-hover:text-[#265A49] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
                                 </svg>
                             </div>
@@ -118,7 +118,7 @@
                     <input
                         type="email"
                         placeholder="メールアドレスを入力"
-                        class="flex-1 rounded-full border border-[rgba(0,0,0,0.08)] bg-white/45 px-5 py-2.5 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="flex-1 rounded-full border border-[rgba(0,0,0,0.08)] bg-white/35 px-5 py-2.5 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                     >
                     <button class="btn-primary px-6 py-2.5 rounded-full text-sm font-medium flex-shrink-0">
                         登録
@@ -146,9 +146,9 @@
                     <ul class="space-y-1.5">
                         @foreach(['12月', '11月', '10月', '9月'] as $month)
                             <li>
-                                <a href="#" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors flex items-center justify-between group">
+                                <a href="#" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors flex items-center justify-between group">
                                     <span>{{ $month }}</span>
-                                    <span class="text-xs text-[#6B6B6B]/60 group-hover:text-[#1F3A2E]">({{ rand(1, 10) }})</span>
+                                    <span class="text-xs text-[#6B6B6B]/60 group-hover:text-[#265A49]">({{ rand(1, 10) }})</span>
                                 </a>
                             </li>
                         @endforeach

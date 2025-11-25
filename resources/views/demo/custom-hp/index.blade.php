@@ -6,7 +6,7 @@
 <!-- Hero Section -->
 <section class="min-h-screen flex items-center justify-center px-8 py-20">
     <div class="max-w-5xl mx-auto text-center">
-        <p class="text-[#1F3A2E] font-medium mb-6 text-sm tracking-wider uppercase">Creative Studio</p>
+        <p class="text-[#265A49] font-medium mb-6 text-sm tracking-wider uppercase">Creative Studio</p>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold text-[#121212] mb-8 leading-tight">
             Design meets<br>
             Technology
@@ -34,7 +34,7 @@
 </section>
 
 <!-- Services Section -->
-<section class="py-32 px-8">
+<section class="py-32 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-xs font-medium text-[#6B6B6B] tracking-widest uppercase mb-4 block">Our Services</span>
@@ -121,7 +121,7 @@
 </section>
 
 <!-- Works Section -->
-<section class="py-32 px-8">
+<section class="py-32 px-8 bg-gradient-to-br from-[#EDEBE8]/15 via-transparent to-[#F7F6F4]/10">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-xs font-medium text-[#6B6B6B] tracking-widest uppercase mb-4 block">Selected Works</span>
@@ -141,11 +141,11 @@
                         </svg>
                         <p class="text-[#6B6B6B]/60 text-xs">Work Image</p>
                     </div>
-                    <div class="absolute inset-0 bg-[#1F3A2E]/0 group-hover:bg-[#1F3A2E]/5 transition-colors duration-300"></div>
+                    <div class="absolute inset-0 bg-[#265A49]/0 group-hover:bg-[#265A49]/5 transition-colors duration-300"></div>
                 </div>
                 <div class="p-6">
                     <div class="flex items-center gap-3 mb-3">
-                        <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(31,58,46,0.08)] text-[#1F3A2E]">Web開発</span>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(38,90,73,0.08)] text-[#265A49]">Web開発</span>
                         <span class="text-xs text-[#6B6B6B]">2024</span>
                     </div>
                     <h3 class="text-lg font-medium text-[#121212] mb-2">ECサイトリニューアル</h3>
@@ -164,11 +164,11 @@
                         </svg>
                         <p class="text-[#6B6B6B]/60 text-xs">Work Image</p>
                     </div>
-                    <div class="absolute inset-0 bg-[#1F3A2E]/0 group-hover:bg-[#1F3A2E]/5 transition-colors duration-300"></div>
+                    <div class="absolute inset-0 bg-[#265A49]/0 group-hover:bg-[#265A49]/5 transition-colors duration-300"></div>
                 </div>
                 <div class="p-6">
                     <div class="flex items-center gap-3 mb-3">
-                        <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(31,58,46,0.08)] text-[#1F3A2E]">Webデザイン</span>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(38,90,73,0.08)] text-[#265A49]">Webデザイン</span>
                         <span class="text-xs text-[#6B6B6B]">2024</span>
                     </div>
                     <h3 class="text-lg font-medium text-[#121212] mb-2">コーポレートサイト制作</h3>
@@ -191,7 +191,7 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-32 px-8">
+<section class="py-32 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-3xl mx-auto">
         <div class="glass-card-minimal p-12 md:p-16 text-center">
             <h2 class="text-2xl md:text-3xl font-semibold text-[#121212] mb-4">お気軽にご相談ください</h2>

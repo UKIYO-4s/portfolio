@@ -18,18 +18,18 @@
             --text-primary: #121212;
             --text-secondary: #6B6B6B;
 
-            /* アクセントカラー（1色のみ） */
-            --accent-deep-green: #2F6D58;
-            --accent-deep-green-hover: #265A49;
+            /* アクセントカラー（1色のみ）- さらに暗く */
+            --accent-deep-green: #265A49;
+            --accent-deep-green-hover: #1E4A3B;
 
             /* ガラス要素 */
-            --glass-bg: rgba(255, 255, 255, 0.55);
+            --glass-bg: rgba(255, 255, 255, 0.30);
             --glass-border: rgba(255, 255, 255, 0.55);
-            --glass-shadow: rgba(0, 0, 0, 0.08);
+            --glass-shadow: rgba(0, 0, 0, 0.06);
 
             /* ラインアート */
             --line-color: rgba(0, 0, 0, 0.12);
-            --line-glow: rgba(47, 109, 88, 0.15);
+            --line-glow: rgba(38, 90, 73, 0.15);
         }
 
         * {
@@ -53,11 +53,11 @@
             z-index: 1;
         }
 
-        /* === 標準ガラスカード（最終版） === */
+        /* === 標準ガラスカード（すりガラス最終版） === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(24px) saturate(140%);
-            -webkit-backdrop-filter: blur(24px) saturate(140%);
+            background: rgba(255, 255, 255, 0.30);
+            backdrop-filter: blur(32px) saturate(140%);
+            -webkit-backdrop-filter: blur(32px) saturate(140%);
             border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
                 0 10px 32px rgba(0, 0, 0, 0.06),
@@ -67,20 +67,20 @@
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(28px) saturate(140%);
-            -webkit-backdrop-filter: blur(28px) saturate(140%);
+            background: rgba(255, 255, 255, 0.34);
+            backdrop-filter: blur(36px) saturate(140%);
+            -webkit-backdrop-filter: blur(36px) saturate(140%);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
-        /* === 強いガラスカード（最終版） === */
+        /* === 強いガラスカード（すりガラス最終版） === */
         .glass-card-strong {
-            background: rgba(255, 255, 255, 0.48);
-            backdrop-filter: blur(28px) saturate(140%);
-            -webkit-backdrop-filter: blur(28px) saturate(140%);
-            border: 1px solid rgba(255, 255, 255, 0.58);
+            background: rgba(255, 255, 255, 0.38);
+            backdrop-filter: blur(36px) saturate(140%);
+            -webkit-backdrop-filter: blur(36px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
                 0 10px 32px rgba(0, 0, 0, 0.06),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -89,19 +89,19 @@
         }
 
         .glass-card-strong:hover {
-            background: rgba(255, 255, 255, 0.53);
-            backdrop-filter: blur(32px) saturate(140%);
-            -webkit-backdrop-filter: blur(32px) saturate(140%);
+            background: rgba(255, 255, 255, 0.43);
+            backdrop-filter: blur(40px) saturate(140%);
+            -webkit-backdrop-filter: blur(40px) saturate(140%);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
-        /* === ガラスヘッダー（最終版） === */
+        /* === ガラスヘッダー（すりガラス最終版） === */
         .glass-header {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(24px) saturate(140%);
-            -webkit-backdrop-filter: blur(24px) saturate(140%);
+            background: rgba(255, 255, 255, 0.30);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.55);
         }
 
@@ -133,28 +133,38 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            background: rgba(47, 109, 88, 0.1);
+            background: rgba(38, 90, 73, 0.1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-deep-green);
         }
 
-        /* モバイル対応 */
+        /* モバイル対応（パフォーマンス確保） */
         @media (max-width: 768px) {
             .glass-card-minimal {
-                backdrop-filter: blur(16px) saturate(140%);
-                -webkit-backdrop-filter: blur(16px) saturate(140%);
+                backdrop-filter: blur(26px) saturate(140%);
+                -webkit-backdrop-filter: blur(26px) saturate(140%);
+            }
+
+            .glass-card-minimal:hover {
+                backdrop-filter: blur(30px) saturate(140%);
+                -webkit-backdrop-filter: blur(30px) saturate(140%);
             }
 
             .glass-card-strong {
-                backdrop-filter: blur(20px) saturate(140%);
-                -webkit-backdrop-filter: blur(20px) saturate(140%);
+                backdrop-filter: blur(30px) saturate(140%);
+                -webkit-backdrop-filter: blur(30px) saturate(140%);
+            }
+
+            .glass-card-strong:hover {
+                backdrop-filter: blur(34px) saturate(140%);
+                -webkit-backdrop-filter: blur(34px) saturate(140%);
             }
 
             .glass-header {
-                backdrop-filter: blur(16px) saturate(140%);
-                -webkit-backdrop-filter: blur(16px) saturate(140%);
+                backdrop-filter: blur(22px) saturate(140%);
+                -webkit-backdrop-filter: blur(22px) saturate(140%);
             }
         }
     </style>
@@ -221,7 +231,7 @@
                 cx="900"
                 cy="550"
                 r="120"
-                fill="rgba(47, 109, 88, 0.15)"
+                fill="rgba(38, 90, 73, 0.15)"
                 style="filter: blur(60px);"
             />
 
@@ -230,7 +240,7 @@
                 cx="1400"
                 cy="400"
                 r="100"
-                fill="rgba(47, 109, 88, 0.12)"
+                fill="rgba(38, 90, 73, 0.12)"
                 style="filter: blur(50px);"
             />
         </svg>
@@ -252,19 +262,19 @@
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex items-center space-x-8">
-                        <a href="{{ route('demo.custom-hp.index') }}" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                        <a href="{{ route('demo.custom-hp.index') }}" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#265A49] font-medium' : '' }}">
                             ホーム
                         </a>
-                        <a href="{{ route('demo.custom-hp.about') }}" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors {{ request()->routeIs('demo.custom-hp.about') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                        <a href="{{ route('demo.custom-hp.about') }}" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors {{ request()->routeIs('demo.custom-hp.about') ? 'text-[#265A49] font-medium' : '' }}">
                             私たちについて
                         </a>
-                        <a href="{{ route('demo.custom-hp.service') }}" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors {{ request()->routeIs('demo.custom-hp.service') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                        <a href="{{ route('demo.custom-hp.service') }}" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors {{ request()->routeIs('demo.custom-hp.service') ? 'text-[#265A49] font-medium' : '' }}">
                             サービス
                         </a>
-                        <a href="{{ route('demo.custom-hp.works') }}" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors {{ request()->routeIs('demo.custom-hp.works') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                        <a href="{{ route('demo.custom-hp.works') }}" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors {{ request()->routeIs('demo.custom-hp.works') ? 'text-[#265A49] font-medium' : '' }}">
                             実績
                         </a>
-                        <a href="{{ route('demo.custom-hp.news') }}" class="text-sm text-[#6B6B6B] hover:text-[#1F3A2E] transition-colors {{ request()->routeIs('demo.custom-hp.news*') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                        <a href="{{ route('demo.custom-hp.news') }}" class="text-sm text-[#6B6B6B] hover:text-[#265A49] transition-colors {{ request()->routeIs('demo.custom-hp.news*') ? 'text-[#265A49] font-medium' : '' }}">
                             お知らせ
                         </a>
                         <a href="{{ route('demo.custom-hp.contact') }}" class="btn-primary px-6 py-2 rounded-full text-sm hover:bg-[#152821] transition-colors">
@@ -285,23 +295,23 @@
 
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.08)]">
-                <div class="px-8 py-4 space-y-3 bg-white/45">
-                    <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                <div class="px-8 py-4 space-y-3 bg-white/35">
+                    <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#265A49] font-medium' : '' }}">
                         ホーム
                     </a>
-                    <a href="{{ route('demo.custom-hp.about') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.about') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                    <a href="{{ route('demo.custom-hp.about') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.about') ? 'text-[#265A49] font-medium' : '' }}">
                         私たちについて
                     </a>
-                    <a href="{{ route('demo.custom-hp.service') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.service') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                    <a href="{{ route('demo.custom-hp.service') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.service') ? 'text-[#265A49] font-medium' : '' }}">
                         サービス
                     </a>
-                    <a href="{{ route('demo.custom-hp.works') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.works') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                    <a href="{{ route('demo.custom-hp.works') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.works') ? 'text-[#265A49] font-medium' : '' }}">
                         実績
                     </a>
-                    <a href="{{ route('demo.custom-hp.news') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.news*') ? 'text-[#1F3A2E] font-medium' : '' }}">
+                    <a href="{{ route('demo.custom-hp.news') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.news*') ? 'text-[#265A49] font-medium' : '' }}">
                         お知らせ
                     </a>
-                    <a href="{{ route('demo.custom-hp.contact') }}" class="block py-2 text-sm text-[#1F3A2E] font-medium">
+                    <a href="{{ route('demo.custom-hp.contact') }}" class="block py-2 text-sm text-[#265A49] font-medium">
                         お問い合わせ
                     </a>
                 </div>

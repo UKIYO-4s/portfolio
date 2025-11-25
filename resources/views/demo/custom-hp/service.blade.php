@@ -15,7 +15,7 @@
 </section>
 
 <!-- Services List -->
-<section class="py-20 px-8">
+<section class="py-20 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-5xl mx-auto space-y-8">
         @foreach($services as $index => $service)
             <div class="glass-card-minimal overflow-hidden">
@@ -45,7 +45,7 @@
                     <!-- Content Side -->
                     <div class="order-1 md:order-{{ $index % 2 == 0 ? '2' : '1' }} p-10">
                         <div class="mb-6">
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(31,58,46,0.08)] text-[#1F3A2E] inline-block mb-4">Service {{ sprintf('%02d', $index + 1) }}</span>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-[rgba(31,58,46,0.08)] text-[#265A49] inline-block mb-4">Service {{ sprintf('%02d', $index + 1) }}</span>
                             <h2 class="text-2xl md:text-3xl font-semibold text-[#121212] mb-4">{{ $service['title'] }}</h2>
                             <p class="text-[#6B6B6B] leading-relaxed mb-6">
                                 {{ $service['description'] }}
@@ -57,7 +57,7 @@
                             <ul class="space-y-2">
                                 @foreach($service['features'] as $feature)
                                     <li class="flex items-start gap-2">
-                                        <svg class="w-4 h-4 text-[#1F3A2E] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-4 h-4 text-[#265A49] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
                                         <span class="text-sm text-[#6B6B6B]">{{ $feature }}</span>
@@ -97,7 +97,7 @@
             <!-- Step 1 -->
             <div class="glass-card-minimal p-6 text-center">
                 <div class="w-10 h-10 rounded-full bg-[rgba(31,58,46,0.1)] flex items-center justify-center mx-auto mb-4">
-                    <span class="text-sm font-medium text-[#1F3A2E]">01</span>
+                    <span class="text-sm font-medium text-[#265A49]">01</span>
                 </div>
                 <h3 class="text-base font-medium text-[#121212] mb-2">ヒアリング</h3>
                 <p class="text-xs text-[#6B6B6B] leading-relaxed">
@@ -108,7 +108,7 @@
             <!-- Step 2 -->
             <div class="glass-card-minimal p-6 text-center">
                 <div class="w-10 h-10 rounded-full bg-[rgba(31,58,46,0.1)] flex items-center justify-center mx-auto mb-4">
-                    <span class="text-sm font-medium text-[#1F3A2E]">02</span>
+                    <span class="text-sm font-medium text-[#265A49]">02</span>
                 </div>
                 <h3 class="text-base font-medium text-[#121212] mb-2">企画・提案</h3>
                 <p class="text-xs text-[#6B6B6B] leading-relaxed">
@@ -119,7 +119,7 @@
             <!-- Step 3 -->
             <div class="glass-card-minimal p-6 text-center">
                 <div class="w-10 h-10 rounded-full bg-[rgba(31,58,46,0.1)] flex items-center justify-center mx-auto mb-4">
-                    <span class="text-sm font-medium text-[#1F3A2E]">03</span>
+                    <span class="text-sm font-medium text-[#265A49]">03</span>
                 </div>
                 <h3 class="text-base font-medium text-[#121212] mb-2">制作</h3>
                 <p class="text-xs text-[#6B6B6B] leading-relaxed">
@@ -130,7 +130,7 @@
             <!-- Step 4 -->
             <div class="glass-card-minimal p-6 text-center">
                 <div class="w-10 h-10 rounded-full bg-[rgba(31,58,46,0.1)] flex items-center justify-center mx-auto mb-4">
-                    <span class="text-sm font-medium text-[#1F3A2E]">04</span>
+                    <span class="text-sm font-medium text-[#265A49]">04</span>
                 </div>
                 <h3 class="text-base font-medium text-[#121212] mb-2">納品・サポート</h3>
                 <p class="text-xs text-[#6B6B6B] leading-relaxed">

@@ -15,7 +15,7 @@
 </section>
 
 <!-- Vision & Mission -->
-<section class="py-20 px-8">
+<section class="py-20 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 gap-6 mb-20">
             <!-- Vision -->
@@ -47,7 +47,7 @@
                 <ul class="space-y-3">
                     @foreach($company['mission'] as $item)
                         <li class="flex items-start gap-3 text-[#6B6B6B] leading-relaxed">
-                            <svg class="w-4 h-4 text-[#1F3A2E] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-[#265A49] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                             <span class="text-sm">{{ $item }}</span>
@@ -60,7 +60,7 @@
 </section>
 
 <!-- Company Information -->
-<section class="py-20 px-8">
+<section class="py-20 px-8 bg-gradient-to-br from-[#EDEBE8]/15 via-transparent to-[#F7F6F4]/10">
     <div class="max-w-4xl mx-auto">
         <div class="glass-card-minimal p-10 md:p-14">
             <h2 class="text-2xl font-semibold text-[#121212] mb-10 text-center">会社情報</h2>
@@ -123,7 +123,7 @@
 </section>
 
 <!-- Values Section -->
-<section class="py-20 px-8">
+<section class="py-20 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-2xl md:text-3xl font-semibold text-[#121212] mb-4">私たちの価値観</h2>

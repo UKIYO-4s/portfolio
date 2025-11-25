@@ -16,7 +16,7 @@
 </section>
 
 <!-- Contact Info Cards -->
-<section class="py-16 px-8">
+<section class="py-16 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <!-- Phone -->
@@ -75,22 +75,22 @@
                 <!-- お問い合わせ種別 -->
                 <div>
                     <label class="block text-sm font-medium text-[#121212] mb-3">
-                        お問い合わせ種別 <span class="text-[#1F3A2E]">*</span>
+                        お問い合わせ種別 <span class="text-[#265A49]">*</span>
                     </label>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/35 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="service" class="sr-only">
                             <span class="text-sm text-[#121212]">サービス</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/35 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="estimate" class="sr-only">
                             <span class="text-sm text-[#121212]">お見積もり</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/35 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="recruit" class="sr-only">
                             <span class="text-sm text-[#121212]">採用</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/35 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="other" class="sr-only">
                             <span class="text-sm text-[#121212]">その他</span>
                         </label>
@@ -104,7 +104,7 @@
                     </label>
                     <input
                         type="text"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/35 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                         placeholder="株式会社サンプル"
                     >
                 </div>
@@ -112,17 +112,17 @@
                 <!-- お名前 -->
                 <div>
                     <label class="block text-sm font-medium text-[#121212] mb-2">
-                        お名前 <span class="text-[#1F3A2E]">*</span>
+                        お名前 <span class="text-[#265A49]">*</span>
                     </label>
                     <div class="grid md:grid-cols-2 gap-3">
                         <input
                             type="text"
-                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/35 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                             placeholder="山田"
                         >
                         <input
                             type="text"
-                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/35 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                             placeholder="太郎"
                         >
                     </div>
@@ -131,11 +131,11 @@
                 <!-- メールアドレス -->
                 <div>
                     <label class="block text-sm font-medium text-[#121212] mb-2">
-                        メールアドレス <span class="text-[#1F3A2E]">*</span>
+                        メールアドレス <span class="text-[#265A49]">*</span>
                     </label>
                     <input
                         type="email"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/35 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                         placeholder="example@email.com"
                     >
                 </div>
@@ -147,7 +147,7 @@
                     </label>
                     <input
                         type="tel"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/35 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all"
                         placeholder="03-1234-5678"
                     >
                 </div>
@@ -155,11 +155,11 @@
                 <!-- お問い合わせ内容 -->
                 <div>
                     <label class="block text-sm font-medium text-[#121212] mb-2">
-                        お問い合わせ内容 <span class="text-[#1F3A2E]">*</span>
+                        お問い合わせ内容 <span class="text-[#265A49]">*</span>
                     </label>
                     <textarea
                         rows="6"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all resize-none"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#265A49]/20 focus:border-[#265A49]/30 transition-all resize-none"
                         placeholder="お問い合わせ内容をご記入ください"
                     ></textarea>
                 </div>
@@ -167,9 +167,9 @@
                 <!-- プライバシーポリシー -->
                 <div>
                     <label class="flex items-start gap-3 cursor-pointer">
-                        <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-[rgba(0,0,0,0.15)] text-[#1F3A2E] focus:ring-[#1F3A2E]/20">
+                        <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-[rgba(0,0,0,0.15)] text-[#265A49] focus:ring-[#265A49]/20">
                         <span class="text-sm text-[#6B6B6B] leading-relaxed">
-                            <a href="#" class="text-[#1F3A2E] hover:underline">プライバシーポリシー</a>に同意します
+                            <a href="#" class="text-[#265A49] hover:underline">プライバシーポリシー</a>に同意します
                         </span>
                     </label>
                 </div>

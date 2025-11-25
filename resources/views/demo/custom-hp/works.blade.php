@@ -38,7 +38,7 @@
 </section>
 
 <!-- Works Grid -->
-<section class="py-16 px-8">
+<section class="py-16 px-8 bg-gradient-to-br from-[#EDEBE8]/20 via-transparent to-transparent">
     <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($works as $work)
@@ -51,13 +51,13 @@
                             </svg>
                             <p class="text-[#6B6B6B]/50 text-xs">Work Image</p>
                         </div>
-                        <div class="absolute inset-0 bg-[#1F3A2E]/0 group-hover:bg-[#1F3A2E]/5 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 bg-[#265A49]/0 group-hover:bg-[#265A49]/5 transition-colors duration-300"></div>
                     </div>
 
                     <!-- Content -->
                     <div class="p-5">
                         <div class="flex items-center gap-2 mb-2">
-                            <span class="text-xs px-2 py-0.5 rounded-full bg-[rgba(31,58,46,0.08)] text-[#1F3A2E]">
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-[rgba(31,58,46,0.08)] text-[#265A49]">
                                 {{ $work['category'] }}
                             </span>
                             <span class="text-xs text-[#6B6B6B]">{{ $work['year'] }}</span>
@@ -165,7 +165,7 @@
             <!-- Testimonial 1 -->
             <div class="glass-card-minimal p-6">
                 <div class="mb-4">
-                    <svg class="w-8 h-8 text-[#1F3A2E]/20" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-[#265A49]/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                     </svg>
                 </div>
@@ -184,7 +184,7 @@
             <!-- Testimonial 2 -->
             <div class="glass-card-minimal p-6">
                 <div class="mb-4">
-                    <svg class="w-8 h-8 text-[#1F3A2E]/20" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-[#265A49]/20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                     </svg>
                 </div>
