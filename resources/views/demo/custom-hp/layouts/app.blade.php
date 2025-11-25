@@ -19,17 +19,17 @@
             --text-secondary: #6B6B6B;
 
             /* アクセントカラー（1色のみ） */
-            --accent-deep-green: #357A63;
-            --accent-deep-green-hover: #2A6350;
+            --accent-deep-green: #2D6B56;
+            --accent-deep-green-hover: #245746;
 
             /* ガラス要素 */
-            --glass-bg: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.32);
+            --glass-border: rgba(255, 255, 255, 0.5);
             --glass-shadow: rgba(0, 0, 0, 0.08);
 
             /* ラインアート */
             --line-color: rgba(0, 0, 0, 0.12);
-            --line-glow: rgba(53, 122, 99, 0.15);
+            --line-glow: rgba(45, 107, 86, 0.15);
         }
 
         * {
@@ -55,24 +55,24 @@
 
         /* === ミニマル・グラスモーフィズム === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.32);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow:
-                0 4px 16px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+                0 4px 16px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(28px) saturate(180%);
-            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            background: rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             box-shadow:
-                0 8px 24px rgba(0, 0, 0, 0.1),
-                0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+                0 8px 24px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
         }
 
         /* ヘッダー */
@@ -111,7 +111,7 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            background: rgba(53, 122, 99, 0.1);
+            background: rgba(45, 107, 86, 0.1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -194,7 +194,7 @@
                 cx="900"
                 cy="550"
                 r="120"
-                fill="rgba(53, 122, 99, 0.15)"
+                fill="rgba(45, 107, 86, 0.15)"
                 style="filter: blur(60px);"
             />
 
@@ -203,7 +203,7 @@
                 cx="1400"
                 cy="400"
                 r="100"
-                fill="rgba(53, 122, 99, 0.12)"
+                fill="rgba(45, 107, 86, 0.12)"
                 style="filter: blur(50px);"
             />
         </svg>
