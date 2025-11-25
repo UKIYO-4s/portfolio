@@ -9,8 +9,9 @@
         <h1 class="text-3xl font-bold text-gray-800 mb-2">Content Calendar</h1>
         <p class="text-gray-600">View and manage your scheduled posts</p>
     </div>
-    <a href="{{ route('demo.sns-tool.posts.create') }}" class="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white rounded-lg shadow-md hover:shadow-lg transition font-semibold">
-        + Schedule Post
+    <a href="{{ route('demo.sns-tool.posts.create') }}" class="flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        Schedule Post
     </a>
 </div>
 
@@ -19,11 +20,13 @@
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
         <h3 class="text-xl font-bold text-gray-800">November 2024</h3>
         <div class="flex gap-2">
-            <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
-                ← Previous
+            <button class="flex items-center px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                Previous
             </button>
-            <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
-                Next →
+            <button class="flex items-center px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
+                Next
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
         </div>
     </div>
@@ -66,8 +69,13 @@
                         @if($hasScheduled)
                             <div class="flex-1 flex flex-col gap-1">
                                 @for($j = 0; $j < $postCounts[$day]; $j++)
-                                    <div class="text-xs {{ $j % 2 == 0 ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600' }} px-2 py-1 rounded truncate font-medium">
-                                        {{ $j % 2 == 0 ? '📷' : '🏢' }} Post
+                                    <div class="text-xs {{ $j % 2 == 0 ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600' }} px-2 py-1 rounded truncate font-medium flex items-center">
+                                        @if($j % 2 == 0)
+                                            <svg class="w-3 h-3 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke-width="1.5"/></svg>
+                                        @else
+                                            <svg class="w-3 h-3 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg>
+                                        @endif
+                                        Post
                                     </div>
                                 @endfor
                             </div>
@@ -90,8 +98,12 @@
             <div class="space-y-3">
                 @foreach($dateGroup['posts'] as $post)
                 <div class="flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                    <div class="w-16 h-16 bg-gradient-to-br {{ $post['platform'] == 'Instagram' ? 'from-purple-100 to-pink-100' : 'from-blue-100 to-cyan-100' }} rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span class="text-2xl">{{ $post['platform'] == 'Instagram' ? '📷' : '🏢' }}</span>
+                    <div class="w-16 h-16 {{ $post['platform'] == 'Instagram' ? 'bg-purple-100' : 'bg-blue-100' }} rounded-lg flex items-center justify-center flex-shrink-0">
+                        @if($post['platform'] == 'Instagram')
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke-width="1.5"/><circle cx="18" cy="6" r="1.5" fill="currentColor"/></svg>
+                        @else
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        @endif
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 mb-2">
@@ -103,7 +115,10 @@
                             </span>
                         </div>
                         <p class="font-semibold text-gray-800 mb-1">{{ $post['title'] }}</p>
-                        <p class="text-sm text-gray-600">🕐 {{ $post['time'] }}</p>
+                        <p class="text-sm text-gray-600 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            {{ $post['time'] }}
+                        </p>
                     </div>
                     <div class="flex gap-2">
                         <button onclick="alert('Edit scheduled post (Demo)')" class="px-4 py-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition text-sm font-medium">
@@ -122,7 +137,7 @@
 </div>
 
 <!-- Legend -->
-<div class="mt-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200 p-6">
+<div class="mt-8 bg-gray-50 rounded-xl border border-gray-200 p-6">
     <h4 class="font-semibold text-gray-800 mb-3">Legend</h4>
     <div class="flex flex-wrap gap-4">
         <div class="flex items-center gap-2">
@@ -134,7 +149,7 @@
             <span class="text-sm text-gray-700">GMB Update</span>
         </div>
         <div class="flex items-center gap-2">
-            <div class="w-4 h-4 border-2 border-purple-500 rounded"></div>
+            <div class="w-4 h-4 border-2 border-purple-600 rounded"></div>
             <span class="text-sm text-gray-700">Today</span>
         </div>
     </div>
