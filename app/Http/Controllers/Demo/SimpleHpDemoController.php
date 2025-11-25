@@ -21,14 +21,14 @@ class SimpleHpDemoController extends Controller
                     'title' => 'ECサイト構築',
                     'role' => 'UI/UXデザイン・Laravel開発',
                     'result' => '初月売上目標達成率 150%',
-                    'demo_url' => route('demo.full-custom-hp.index'),
+                    'demo_url' => route('demo.full-custom.index'),
                     'gradient' => 'from-gray-200 to-gray-300'
                 ],
                 [
                     'title' => '業務効率化システム',
                     'role' => 'フルスタック開発',
                     'result' => '業務時間 40%削減',
-                    'demo_url' => route('demo.invoice.index'),
+                    'demo_url' => route('demo.invoice.login'),
                     'gradient' => 'from-gray-100 to-gray-200'
                 ]
             ]
