@@ -10,7 +10,7 @@
         <div class="text-center mb-12">
             <p class="text-emerald-600 font-semibold mb-3">Webデザイナー / フロントエンド開発者</p>
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                後藤 翔英
+                後藤 翔栄
             </h1>
             <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
                 ユーザー体験を重視した、成果につながるWebサイトを制作します
