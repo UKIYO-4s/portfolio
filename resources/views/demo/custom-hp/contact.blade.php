@@ -78,19 +78,19 @@
                         お問い合わせ種別 <span class="text-[#1F3A2E]">*</span>
                     </label>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/60 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="service" class="sr-only">
                             <span class="text-sm text-[#121212]">サービス</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/60 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="estimate" class="sr-only">
                             <span class="text-sm text-[#121212]">お見積もり</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/60 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="recruit" class="sr-only">
                             <span class="text-sm text-[#121212]">採用</span>
                         </label>
-                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/60 transition-colors flex items-center justify-center text-center">
+                        <label class="glass-card-minimal p-3 cursor-pointer hover:bg-white/45 transition-colors flex items-center justify-center text-center">
                             <input type="radio" name="type" value="other" class="sr-only">
                             <span class="text-sm text-[#121212]">その他</span>
                         </label>
@@ -104,7 +104,7 @@
                     </label>
                     <input
                         type="text"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/60 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                         placeholder="株式会社サンプル"
                     >
                 </div>
@@ -117,12 +117,12 @@
                     <div class="grid md:grid-cols-2 gap-3">
                         <input
                             type="text"
-                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/60 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                             placeholder="山田"
                         >
                         <input
                             type="text"
-                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/60 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                            class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                             placeholder="太郎"
                         >
                     </div>
@@ -135,7 +135,7 @@
                     </label>
                     <input
                         type="email"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/60 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                         placeholder="example@email.com"
                     >
                 </div>
@@ -147,7 +147,7 @@
                     </label>
                     <input
                         type="tel"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/60 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                         placeholder="03-1234-5678"
                     >
                 </div>
@@ -159,7 +159,7 @@
                     </label>
                     <textarea
                         rows="6"
-                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/50 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all resize-none"
+                        class="w-full rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/45 px-4 py-3 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all resize-none"
                         placeholder="お問い合わせ内容をご記入ください"
                     ></textarea>
                 </div>
