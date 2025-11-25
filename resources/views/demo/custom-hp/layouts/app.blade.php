@@ -23,9 +23,9 @@
             --accent-deep-green-hover: #2A6350;
 
             /* ガラス要素 */
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.8);
-            --glass-shadow: rgba(0, 0, 0, 0.06);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: rgba(0, 0, 0, 0.08);
 
             /* ラインアート */
             --line-color: rgba(0, 0, 0, 0.12);
@@ -55,22 +55,24 @@
 
         /* === ミニマル・グラスモーフィズム === */
         .glass-card-minimal {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow:
-                0 1px 3px var(--glass-shadow),
-                0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+                0 4px 16px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
             box-shadow:
-                0 4px 12px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+                0 8px 24px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.6) inset;
         }
 
         /* ヘッダー */
