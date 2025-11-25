@@ -89,6 +89,19 @@ Route::prefix('projects/demo/custom-hp')->name('demo.custom-hp.')->group(functio
     Route::get('/contact', [CustomHpDemoController::class, 'contact'])->name('contact');
 });
 
+// Full Custom HP Demo Routes
+use App\Http\Controllers\Demo\FullCustomHpDemoController;
+
+Route::prefix('projects/demo/full-custom')->name('demo.full-custom.')->group(function () {
+    Route::get('/', [FullCustomHpDemoController::class, 'index'])->name('index');
+    Route::get('/products', [FullCustomHpDemoController::class, 'products'])->name('products');
+    Route::get('/products/{id}', [FullCustomHpDemoController::class, 'productDetail'])->name('products.detail');
+    Route::get('/about', [FullCustomHpDemoController::class, 'about'])->name('about');
+    Route::get('/contact', [FullCustomHpDemoController::class, 'contact'])->name('contact');
+    Route::get('/admin/dashboard', [FullCustomHpDemoController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/products', [FullCustomHpDemoController::class, 'adminProducts'])->name('admin.products');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
