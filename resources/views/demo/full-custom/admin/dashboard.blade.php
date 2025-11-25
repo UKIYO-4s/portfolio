@@ -3,11 +3,9 @@
 @section('title', '管理画面ダッシュボード')
 
 @section('content')
-<!-- Admin Header - デュオトーン -->
-<div class="relative overflow-hidden py-12 border-b-4 border-gray-800">
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF6B9D 0%, #FF6B9D 50%, #06AED5 50%, #06AED5 100%);"></div>
-    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Admin Header -->
+<div class="bg-gradient-to-r from-pink-400 to-pink-300 py-12 border-b-4 border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Admin Dashboard
         </h1>
@@ -131,11 +129,9 @@
     </div>
 </div>
 
-<!-- Quick Actions - デュオトーン水平分割 -->
-<section class="py-16 relative overflow-hidden border-t-4 border-gray-800 mt-12">
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF6B9D 0%, #FF6B9D 50%, #FF8C42 50%, #FF8C42 100%);"></div>
-    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Quick Actions -->
+<section class="bg-gradient-to-r from-orange-400 to-orange-300 py-16 border-t-4 border-gray-800 mt-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Quick Actions</h2>
 
         <div class="flex flex-wrap justify-center gap-4">

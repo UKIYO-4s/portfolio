@@ -3,11 +3,9 @@
 @section('title', '会社概要')
 
 @section('content')
-<!-- Page Header - デュオトーン水平分割 -->
-<section class="py-16 relative overflow-hidden border-b-4 border-gray-800">
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF6B9D 0%, #FF6B9D 50%, #06AED5 50%, #06AED5 100%);"></div>
-    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+<!-- Page Header -->
+<div class="bg-gradient-to-r from-pink-400 to-pink-300 py-16 border-b-4 border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             About Funky Co!
         </h1>
@@ -15,7 +13,7 @@
             {{ $company['mission'] }}
         </p>
     </div>
-</section>
+</div>
 
 <!-- Company Story -->
 <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
@@ -59,11 +57,9 @@
     </div>
 </div>
 
-<!-- Team Section - デュオトーン水平分割 -->
-<section class="py-20 relative overflow-hidden border-t-4 border-b-4 border-gray-800">
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, #06AED5 0%, #06AED5 50%, #FF8C42 50%, #FF8C42 100%);"></div>
-    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+<!-- Team Section -->
+<div class="bg-gradient-to-r from-cyan-400 to-cyan-300 py-20 border-t-4 border-b-4 border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
             Meet Our Team!
         </h2>
@@ -106,25 +102,21 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- CTA Section - デュオトーン水平分割 -->
-<section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, #FF6B9D 0%, #FF6B9D 50%, #FF8C42 50%, #FF8C42 100%);"></div>
-    <div class="absolute inset-y-0 left-1/2 w-1 bg-gray-800 hidden md:block"></div>
-    <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="bg-white p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">
-                Want to Join Us?
-            </h2>
-            <p class="text-xl font-bold text-gray-800 mb-8">
-                We're always looking for funky people!
-            </p>
-            <a href="{{ route('demo.full-custom.contact') }}"
-               class="inline-block px-10 py-4 bg-cyan-400 text-gray-800 text-xl font-bold rounded-3xl border-4 border-gray-800 retro-shadow bounce-hover btn-retro">
-                Get in Touch
-            </a>
-        </div>
+<!-- CTA Section -->
+<div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+    <div class="bg-gradient-to-r from-orange-400 to-orange-300 p-12 md:p-16 rounded-3xl border-4 border-gray-800 retro-shadow text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">
+            Want to Join Us?
+        </h2>
+        <p class="text-xl font-bold text-gray-800 mb-8">
+            We're always looking for funky people!
+        </p>
+        <a href="{{ route('demo.full-custom.contact') }}"
+           class="inline-block px-10 py-4 bg-cyan-400 text-gray-800 text-xl font-bold rounded-3xl border-4 border-gray-800 retro-shadow bounce-hover btn-retro">
+            Get in Touch
+        </a>
     </div>
-</section>
+</div>
 @endsection
