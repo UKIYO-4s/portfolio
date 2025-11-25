@@ -21,8 +21,8 @@
             <!-- Vision -->
             <div class="glass-card rounded-3xl p-10">
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-200/60 to-orange-300/40 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-pill icon-grad-amber">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                         </svg>
@@ -37,8 +37,8 @@
             <!-- Mission -->
             <div class="glass-card rounded-3xl p-10">
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-200/60 to-pink-300/40 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="icon-pill icon-grad-emerald">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
@@ -135,8 +135,8 @@
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Value 1 -->
             <div class="glass-card rounded-3xl p-8 text-center">
-                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-200/60 to-orange-300/40 flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="icon-pill icon-grad-sky mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                     </svg>
                 </div>
@@ -148,8 +148,8 @@
 
             <!-- Value 2 -->
             <div class="glass-card rounded-3xl p-8 text-center">
-                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-200/60 to-pink-300/40 flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="icon-pill icon-grad-rose mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
                 </div>
@@ -161,8 +161,8 @@
 
             <!-- Value 3 -->
             <div class="glass-card rounded-3xl p-8 text-center">
-                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-200/60 to-pink-200/40 flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="icon-pill icon-grad-violet mx-auto mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                     </svg>
                 </div>

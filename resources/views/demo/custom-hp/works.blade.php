@@ -135,11 +135,14 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            @php
+                $iconColors = ['icon-grad-sky', 'icon-grad-emerald', 'icon-grad-violet', 'icon-grad-amber', 'icon-grad-rose', 'icon-grad-sky', 'icon-grad-emerald', 'icon-grad-violet'];
+            @endphp
             @for($i = 1; $i <= 8; $i++)
                 <div class="glass-card rounded-2xl p-8 flex items-center justify-center aspect-square">
                     <div class="text-center">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-200/60 to-gray-300/40 flex items-center justify-center mx-auto mb-3">
-                            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="icon-pill-sm {{ $iconColors[$i - 1] }} mx-auto mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                             </svg>
                         </div>

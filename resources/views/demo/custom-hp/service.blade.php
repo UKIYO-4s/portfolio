@@ -95,8 +95,8 @@
             <!-- Step 1 -->
             <div class="text-center">
                 <div class="glass-card rounded-3xl p-8 mb-6">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-200/60 to-orange-300/40 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-light text-orange-700">01</span>
+                    <div class="icon-pill icon-grad-amber mx-auto mb-4">
+                        <span>01</span>
                     </div>
                     <h3 class="text-lg font-light text-gray-900 mb-2">ヒアリング</h3>
                     <p class="text-xs text-[#1F1F1F] font-light leading-relaxed">
@@ -108,8 +108,8 @@
             <!-- Step 2 -->
             <div class="text-center">
                 <div class="glass-card rounded-3xl p-8 mb-6">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-200/60 to-pink-300/40 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-light text-pink-700">02</span>
+                    <div class="icon-pill icon-grad-sky mx-auto mb-4">
+                        <span>02</span>
                     </div>
                     <h3 class="text-lg font-light text-gray-900 mb-2">企画・提案</h3>
                     <p class="text-xs text-[#1F1F1F] font-light leading-relaxed">
@@ -121,8 +121,8 @@
             <!-- Step 3 -->
             <div class="text-center">
                 <div class="glass-card rounded-3xl p-8 mb-6">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-200/60 to-pink-200/40 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-light text-orange-600">03</span>
+                    <div class="icon-pill icon-grad-rose mx-auto mb-4">
+                        <span>03</span>
                     </div>
                     <h3 class="text-lg font-light text-gray-900 mb-2">制作</h3>
                     <p class="text-xs text-[#1F1F1F] font-light leading-relaxed">
@@ -134,8 +134,8 @@
             <!-- Step 4 -->
             <div class="text-center">
                 <div class="glass-card rounded-3xl p-8 mb-6">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-200/60 to-orange-200/40 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-light text-pink-600">04</span>
+                    <div class="icon-pill icon-grad-emerald mx-auto mb-4">
+                        <span>04</span>
                     </div>
                     <h3 class="text-lg font-light text-gray-900 mb-2">納品・サポート</h3>
                     <p class="text-xs text-[#1F1F1F] font-light leading-relaxed">
