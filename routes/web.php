@@ -102,6 +102,18 @@ Route::prefix('projects/demo/full-custom')->name('demo.full-custom.')->group(fun
     Route::get('/admin/products', [FullCustomHpDemoController::class, 'adminProducts'])->name('admin.products');
 });
 
+// SNS Tool Demo Routes
+use App\Http\Controllers\Demo\SnsToolDemoController;
+
+Route::prefix('projects/demo/sns-tool')->name('demo.sns-tool.')->group(function () {
+    Route::get('/', [SnsToolDemoController::class, 'index'])->name('index');
+    Route::get('/posts', [SnsToolDemoController::class, 'posts'])->name('posts');
+    Route::get('/posts/create', [SnsToolDemoController::class, 'postsCreate'])->name('posts.create');
+    Route::get('/schedule', [SnsToolDemoController::class, 'schedule'])->name('schedule');
+    Route::get('/templates', [SnsToolDemoController::class, 'templates'])->name('templates');
+    Route::get('/analytics', [SnsToolDemoController::class, 'analytics'])->name('analytics');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
