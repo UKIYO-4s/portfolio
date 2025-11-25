@@ -19,17 +19,17 @@
             --text-secondary: #6B6B6B;
 
             /* アクセントカラー（1色のみ） */
-            --accent-deep-green: #2D6B56;
-            --accent-deep-green-hover: #245746;
+            --accent-deep-green: #2F6D58;
+            --accent-deep-green-hover: #265A49;
 
             /* ガラス要素 */
-            --glass-bg: rgba(255, 255, 255, 0.32);
-            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-bg: rgba(255, 255, 255, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.55);
             --glass-shadow: rgba(0, 0, 0, 0.08);
 
             /* ラインアート */
             --line-color: rgba(0, 0, 0, 0.12);
-            --line-glow: rgba(45, 107, 86, 0.15);
+            --line-glow: rgba(47, 109, 88, 0.15);
         }
 
         * {
@@ -53,34 +53,56 @@
             z-index: 1;
         }
 
-        /* === ミニマル・グラスモーフィズム === */
+        /* === 標準ガラスカード === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.32);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
-                0 4px 16px rgba(0, 0, 0, 0.06),
-                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+                0 12px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
             box-shadow:
-                0 8px 24px rgba(0, 0, 0, 0.08),
-                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+                0 16px 48px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* === 強いガラスカード === */
+        .glass-card-strong {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card-strong:hover {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            box-shadow:
+                0 16px 48px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.55);
         }
 
         /* ヘッダー */
         .glass-header {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.55);
         }
 
         /* ボタン */
@@ -111,7 +133,7 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            background: rgba(45, 107, 86, 0.1);
+            background: rgba(47, 109, 88, 0.1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -121,13 +143,18 @@
         /* モバイル対応 */
         @media (max-width: 768px) {
             .glass-card-minimal {
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+            }
+
+            .glass-card-strong {
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
             }
 
             .glass-header {
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
             }
         }
     </style>
@@ -194,7 +221,7 @@
                 cx="900"
                 cy="550"
                 r="120"
-                fill="rgba(45, 107, 86, 0.15)"
+                fill="rgba(47, 109, 88, 0.15)"
                 style="filter: blur(60px);"
             />
 
@@ -203,7 +230,7 @@
                 cx="1400"
                 cy="400"
                 r="100"
-                fill="rgba(45, 107, 86, 0.12)"
+                fill="rgba(47, 109, 88, 0.12)"
                 style="filter: blur(50px);"
             />
         </svg>

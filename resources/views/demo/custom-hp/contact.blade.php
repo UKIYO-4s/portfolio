@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <div class="p-8 bg-white/30">
+            <div class="p-8">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-base font-medium text-[#121212] mb-3">電車でお越しの場合</h3>
