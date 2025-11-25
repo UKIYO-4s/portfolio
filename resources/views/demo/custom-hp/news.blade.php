@@ -118,7 +118,7 @@
                     <input
                         type="email"
                         placeholder="メールアドレスを入力"
-                        class="flex-1 rounded-full border border-[rgba(0,0,0,0.08)] bg-white/50 px-5 py-2.5 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
+                        class="flex-1 rounded-full border border-[rgba(0,0,0,0.08)] bg-white/60 px-5 py-2.5 text-sm text-[#121212] placeholder-[#6B6B6B] focus:outline-none focus:ring-2 focus:ring-[#1F3A2E]/20 focus:border-[#1F3A2E]/30 transition-all"
                     >
                     <button class="btn-primary px-6 py-2.5 rounded-full text-sm font-medium flex-shrink-0">
                         登録

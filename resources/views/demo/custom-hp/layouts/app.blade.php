@@ -55,53 +55,53 @@
 
         /* === 標準ガラスカード === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px) saturate(140%);
+            -webkit-backdrop-filter: blur(24px) saturate(140%);
             border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
             box-shadow:
                 0 16px 48px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
         /* === 強いガラスカード === */
         .glass-card-strong {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
             border: 1px solid rgba(255, 255, 255, 0.6);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .glass-card-strong:hover {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(32px);
-            -webkit-backdrop-filter: blur(32px);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(32px) saturate(140%);
+            -webkit-backdrop-filter: blur(32px) saturate(140%);
             box-shadow:
                 0 16px 48px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.55);
+                inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
         /* ヘッダー */
         .glass-header {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px) saturate(140%);
+            -webkit-backdrop-filter: blur(24px) saturate(140%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.55);
         }
 
@@ -143,18 +143,18 @@
         /* モバイル対応 */
         @media (max-width: 768px) {
             .glass-card-minimal {
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
+                backdrop-filter: blur(16px) saturate(140%);
+                -webkit-backdrop-filter: blur(16px) saturate(140%);
             }
 
             .glass-card-strong {
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px) saturate(140%);
+                -webkit-backdrop-filter: blur(20px) saturate(140%);
             }
 
             .glass-header {
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
+                backdrop-filter: blur(16px) saturate(140%);
+                -webkit-backdrop-filter: blur(16px) saturate(140%);
             }
         }
     </style>
@@ -285,7 +285,7 @@
 
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.08)]">
-                <div class="px-8 py-4 space-y-3 bg-white/80">
+                <div class="px-8 py-4 space-y-3 bg-white/60">
                     <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#1F3A2E] {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#1F3A2E] font-medium' : '' }}">
                         ホーム
                     </a>
