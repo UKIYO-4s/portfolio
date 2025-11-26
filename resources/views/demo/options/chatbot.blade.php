@@ -89,10 +89,19 @@
                 AI-Powered
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">24時間対応のAIチャットBot</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                よくある質問に自動で回答。お客様をお待たせしません。<br>
-                右下のチャットアイコンをクリックしてお試しください。
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg mb-6">
+                よくある質問に自動で回答。お客様をお待たせしません。
             </p>
+            <!-- Click instruction highlight -->
+            <div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg animate-pulse">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                </svg>
+                <span class="font-medium">右下のチャットアイコンをクリックしてお試しください</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </div>
         </div>
 
         <!-- Features -->

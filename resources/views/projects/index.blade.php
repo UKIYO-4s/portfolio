@@ -166,7 +166,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.custom-hp.contact') }}'">
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.options.map') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">Google Map埋め込み</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">1万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">店舗・オフィスの位置情報を地図で表示</td>
@@ -220,6 +220,7 @@
                             <tr class="border-b border-gray-800 bg-gray-900/50">
                                 <th class="px-6 py-4 text-left text-sm font-light text-gray-200">システム</th>
                                 <th class="px-6 py-4 text-left text-sm font-light text-gray-200">価格</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-200">内容</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -233,18 +234,22 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 text-sm font-light text-white">20万円</td>
-                            </tr>
-                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
-                                <td class="px-6 py-4 text-sm font-light text-white">クラウドファンディング進捗報告アプリ</td>
-                                <td class="px-6 py-4 text-sm font-light text-white">80万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">出発地・目的地入力で最適ルート検索、時刻表連携</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.invoice.login') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">請求書作成システム</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">請求書・見積書作成、顧客管理、PDF出力</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
                                 <td class="px-6 py-4 text-sm font-light text-white">営業先企業自動リサーチシステム</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">40万円〜</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">AI活用で企業情報を自動収集・整理、営業リスト作成</td>
+                            </tr>
+                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="alert('デモページは準備中です / Demo coming soon')">
+                                <td class="px-6 py-4 text-sm font-light text-white">クラウドファンディング進捗報告アプリ</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">80万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">支援者向け進捗共有、マイルストーン管理、通知機能</td>
                             </tr>
                         </tbody>
                     </table>
@@ -259,20 +264,24 @@
                             <tr class="border-b border-gray-800 bg-gray-900/50">
                                 <th class="px-6 py-4 text-left text-sm font-light text-gray-200">ツール</th>
                                 <th class="px-6 py-4 text-left text-sm font-light text-gray-200">価格</th>
+                                <th class="px-6 py-4 text-left text-sm font-light text-gray-200">内容</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.feed') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">Instagram＆GMB投稿効率化アプリ</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">6万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">画像投稿の一括管理、予約投稿、Instagram・Googleビジネス連携</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.reels') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">Instagram＆Shorts動画作成効率化アプリ</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">10万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">ショート動画テンプレート、BGM・テキスト追加、Reels/Shorts一括投稿</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.index') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">2つセット</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">13万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">上記2つのアプリをセットでお得に導入</td>
                             </tr>
                         </tbody>
                     </table>

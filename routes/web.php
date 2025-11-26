@@ -162,6 +162,7 @@ Route::prefix('projects/demo/options')->name('demo.options.')->group(function ()
     Route::view('/shop', 'demo.options.shop')->name('shop');
     Route::view('/meo', 'demo.options.meo')->name('meo');
     Route::view('/chatbot', 'demo.options.chatbot')->name('chatbot');
+    Route::view('/map', 'demo.options.map')->name('map');
 });
 
 // Admin Routes
