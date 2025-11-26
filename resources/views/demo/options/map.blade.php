@@ -147,6 +147,12 @@
                                     class="w-full h-full object-cover">
                                 </iframe>
                             </div>
+                            <!-- Spacer to match info card height -->
+                            <div class="mt-4 p-4 bg-gray-50 rounded-xl space-y-2">
+                                <p class="font-medium text-gray-800 text-sm">シンプルな標準表示</p>
+                                <p class="text-xs text-gray-500">装飾を抑えたベーシックなスタイル</p>
+                                <p class="text-xs text-gray-500">どんなサイトにも馴染みます</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,6 +206,12 @@
                                     class="w-full h-full object-cover">
                                 </iframe>
                             </div>
+                            <!-- Spacer to match info card height -->
+                            <div class="mt-4 p-4 bg-gray-800 rounded-xl space-y-2">
+                                <p class="font-medium text-gray-200 text-sm">ダークモード対応</p>
+                                <p class="text-xs text-gray-400">黒背景のサイトに最適なフレーム</p>
+                                <p class="text-xs text-gray-400">高級感・モダン感を演出</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,6 +236,11 @@
                                         referrerpolicy="no-referrer-when-downgrade"
                                         class="w-full h-full object-cover">
                                     </iframe>
+                                </div>
+                                <div class="mt-4 p-4 bg-gray-50 rounded-xl space-y-2">
+                                    <p class="font-medium text-gray-800 text-sm">トレンド感のある装飾</p>
+                                    <p class="text-xs text-gray-500">ブランドカラーに合わせてカスタム可能</p>
+                                    <p class="text-xs text-gray-500">目を引くアクセントに</p>
                                 </div>
                             </div>
                         </div>
@@ -250,6 +267,11 @@
                                     class="w-full h-full object-cover">
                                 </iframe>
                             </div>
+                            <div class="mt-4 p-4 bg-gray-50 rounded-xl space-y-2">
+                                <p class="font-medium text-gray-800 text-sm">親しみやすいデザイン</p>
+                                <p class="text-xs text-gray-500">丸みのある角で優しい印象</p>
+                                <p class="text-xs text-gray-500">カフェ・サロン等に人気</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -273,6 +295,11 @@
                                     referrerpolicy="no-referrer-when-downgrade"
                                     class="w-full h-full object-cover">
                                 </iframe>
+                            </div>
+                            <div class="mt-4 p-4 bg-gray-50 rounded-xl space-y-2">
+                                <p class="font-medium text-gray-800 text-sm">究極のシンプル</p>
+                                <p class="text-xs text-gray-500">余計な装飾を排除</p>
+                                <p class="text-xs text-gray-500">コンテンツに集中させる</p>
                             </div>
                         </div>
                     </div>
