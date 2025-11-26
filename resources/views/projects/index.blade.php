@@ -9,7 +9,8 @@
         <div class="mb-16">
             <h2 class="text-4xl md:text-5xl font-thin tracking-wide mb-6">料金表 / Pricing</h2>
             <p class="text-lg text-gray-400 font-light max-w-2xl">
-                各サービスの料金目安をご確認いただけます。詳細はお問い合わせください。
+                各サービスの料金目安をご確認いただけます。詳細はお問い合わせください。<br>
+                <span class="text-gray-500">名前をクリックするとデモ画面に遷移します。</span>
             </p>
         </div>
 
