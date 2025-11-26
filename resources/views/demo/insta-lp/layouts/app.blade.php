@@ -2,8 +2,8 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'InstaLP') - Instagram風LP Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>@yield('title', 'FlickLP') - Instagram風フリックLP Demo</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         }
 
         body {
-            background: #FAFAFA;
+            background: #fff;
             color: #262626;
             overflow-x: hidden;
         }
@@ -31,34 +31,29 @@
             background-clip: text;
         }
 
-        /* Phone mockup */
+        /* Phone mockup - PC only */
         .phone-mockup {
-            background: #000;
-            border-radius: 40px;
-            padding: 12px;
+            max-width: 380px;
+            width: 100%;
+            aspect-ratio: 9/16;
+            border-radius: 2rem;
+            border: 1px solid #e5e7eb;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .phone-screen {
-            background: #fff;
-            border-radius: 32px;
             overflow: hidden;
+            background: #fff;
         }
 
-        .phone-notch {
-            width: 120px;
-            height: 28px;
-            background: #000;
-            border-radius: 0 0 16px 16px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
+        @media (min-width: 768px) {
+            .phone-mockup {
+                max-width: 420px;
+            }
         }
 
         /* Scroll snap container */
         .snap-container {
-            scroll-snap-type: y mandatory;
+            height: 100%;
             overflow-y: auto;
+            scroll-snap-type: y mandatory;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -70,76 +65,92 @@
         .snap-section {
             scroll-snap-align: start;
             scroll-snap-stop: always;
+            height: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 1.5rem;
         }
 
-        /* Reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        /* Full screen mode (mobile default, PC toggle) */
+        body.full-mode .mock-wrapper {
+            display: none !important;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        body.full-mode .full-wrapper {
+            display: block !important;
         }
 
-        /* View toggle */
-        .view-toggle button {
+        body.full-mode .lp-container {
+            position: fixed;
+            inset: 0;
+            top: 64px;
+            z-index: 40;
+        }
+
+        body.full-mode .snap-section {
+            padding: 0 1rem;
+        }
+
+        /* Mock mode (PC default) */
+        body.mock-mode .mock-wrapper {
+            display: flex !important;
+        }
+
+        body.mock-mode .full-wrapper {
+            display: none !important;
+        }
+
+        /* Toggle styles */
+        .toggle-btn {
             transition: all 0.2s ease;
         }
 
-        .view-toggle button.active {
+        .toggle-btn.active {
             background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
             color: white;
+            border-color: transparent;
         }
 
-        /* PC view layout */
-        body.pc-view .mobile-only {
-            display: none;
+        /* Dot navigation */
+        .dot-nav {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        body.mobile-view .pc-only {
-            display: none;
+        .dot-nav.active {
+            background: #262626;
+            transform: scale(1.2);
         }
 
-        body.mobile-view .phone-wrapper {
-            max-width: 100%;
-            padding: 0;
-        }
-
-        body.mobile-view .phone-mockup {
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-        }
-
-        body.mobile-view .phone-screen {
-            border-radius: 0;
-        }
-
-        body.mobile-view .phone-notch {
-            display: none;
+        /* Tabular numbers */
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
-<body class="min-h-screen pc-view">
+<body class="min-h-screen mock-mode">
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <a href="{{ route('demo.insta-lp.index') }}" class="text-xl font-bold">
-                    <span class="insta-gradient-text">InstaLP</span>
+                    <span class="insta-gradient-text">FlickLP</span>
                 </a>
 
-                <!-- View Toggle -->
-                <div class="view-toggle flex gap-2">
-                    <button onclick="setView('pc')" id="btn-pc" class="px-4 py-2 text-xs font-medium rounded-full border border-gray-300 active">
-                        pc view
+                <!-- View Toggle - PC only -->
+                <div class="view-toggle hidden md:flex gap-2">
+                    <button onclick="setMode('mock')" id="btn-mock" class="toggle-btn px-4 py-2 text-xs font-medium rounded-full border border-gray-300 active">
+                        モック表示
                     </button>
-                    <button onclick="setView('mobile')" id="btn-mobile" class="px-4 py-2 text-xs font-medium rounded-full border border-gray-300">
-                        mobile view
+                    <button onclick="setMode('full')" id="btn-full" class="toggle-btn px-4 py-2 text-xs font-medium rounded-full border border-gray-300">
+                        フル表示
                     </button>
                 </div>
             </div>
@@ -149,22 +160,13 @@
     <!-- Spacer -->
     <div class="h-16"></div>
 
-    <!-- Demo Notice -->
-    <div class="insta-gradient">
-        <div class="max-w-6xl mx-auto px-4 md:px-8 py-2">
-            <p class="text-xs text-center text-white font-medium">
-                demo mode - instagram風フリックlp
-            </p>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <main>
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-8">
+    <!-- Footer - hidden in full mode -->
+    <footer class="bg-white border-t border-gray-200 py-8 full-mode-hide">
         <div class="max-w-6xl mx-auto px-4 md:px-8">
             <div class="flex flex-col items-center gap-4">
                 <a href="{{ route('projects.index') }}" class="inline-flex items-center text-xs text-gray-500 hover:text-gray-800 transition-colors">
@@ -174,22 +176,41 @@
                     back to projects
                 </a>
                 <p class="text-xs text-gray-400">
-                    &copy; 2025 InstaLP. All rights reserved.
+                    &copy; 2025 FlickLP. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- View Toggle Script -->
+    <!-- Mode Toggle Script -->
     <script>
-        function setView(view) {
-            document.body.classList.remove('pc-view', 'mobile-view');
-            document.body.classList.add(view + '-view');
+        function setMode(mode) {
+            document.body.classList.remove('mock-mode', 'full-mode');
+            document.body.classList.add(mode + '-mode');
 
-            document.getElementById('btn-pc').classList.remove('active');
-            document.getElementById('btn-mobile').classList.remove('active');
-            document.getElementById('btn-' + view).classList.add('active');
+            document.getElementById('btn-mock').classList.remove('active');
+            document.getElementById('btn-full').classList.remove('active');
+            document.getElementById('btn-' + mode).classList.add('active');
+
+            // Hide/show footer
+            const footer = document.querySelector('footer');
+            if (mode === 'full') {
+                footer.style.display = 'none';
+            } else {
+                footer.style.display = '';
+            }
         }
+
+        // Auto-detect mobile and force full mode
+        function checkMobile() {
+            if (window.innerWidth < 768) {
+                document.body.classList.remove('mock-mode');
+                document.body.classList.add('full-mode');
+            }
+        }
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
     </script>
 
     @stack('scripts')
