@@ -23,9 +23,9 @@
             --accent-deep-green-hover: #1E4A3B;
 
             /* ガラス要素 */
-            --glass-bg: rgba(255, 255, 255, 0.30);
-            --glass-border: rgba(255, 255, 255, 0.55);
-            --glass-shadow: rgba(0, 0, 0, 0.06);
+            --glass-bg: rgba(255, 255, 255, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: rgba(0, 0, 0, 0.2);
 
             /* ラインアート */
             --line-color: rgba(0, 0, 0, 0.12);
@@ -53,56 +53,44 @@
             z-index: 1;
         }
 
-        /* === 標準ガラスカード（ヘッダーと統一） === */
+        /* === 標準ガラスカード === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(28px) saturate(140%);
-            -webkit-backdrop-filter: blur(28px) saturate(140%);
-            border: 1px solid rgba(255, 255, 255, 0.55);
-            box-shadow:
-                0 10px 32px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.42);
-            backdrop-filter: blur(32px) saturate(140%);
-            -webkit-backdrop-filter: blur(32px) saturate(140%);
-            box-shadow:
-                0 12px 40px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            background-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
-        /* === 強いガラスカード（ヘッダーと統一+0.05） === */
+        /* === 強いガラスカード === */
         .glass-card-strong {
-            background: rgba(255, 255, 255, 0.43);
-            backdrop-filter: blur(28px) saturate(140%);
-            -webkit-backdrop-filter: blur(28px) saturate(140%);
-            border: 1px solid rgba(255, 255, 255, 0.55);
-            box-shadow:
-                0 10px 32px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .glass-card-strong:hover {
-            background: rgba(255, 255, 255, 0.48);
-            backdrop-filter: blur(32px) saturate(140%);
-            -webkit-backdrop-filter: blur(32px) saturate(140%);
-            box-shadow:
-                0 12px 40px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            background-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
-        /* === ガラスヘッダー（基準：0.38） === */
+        /* === ガラスヘッダー === */
         .glass-header {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(28px) saturate(140%);
-            -webkit-backdrop-filter: blur(28px) saturate(140%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* ボタン */
@@ -159,31 +147,17 @@
         .abstract-shape-4 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift2 30s infinite ease-in-out 9s; }
         .abstract-shape-5 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift1 34s infinite ease-in-out 12s; }
 
-        /* モバイル対応（パフォーマンス確保・統一blur値） */
+        /* モバイル対応 */
         @media (max-width: 768px) {
-            .glass-card-minimal {
-                backdrop-filter: blur(24px) saturate(140%);
-                -webkit-backdrop-filter: blur(24px) saturate(140%);
-            }
-
-            .glass-card-minimal:hover {
-                backdrop-filter: blur(28px) saturate(140%);
-                -webkit-backdrop-filter: blur(28px) saturate(140%);
-            }
-
+            .glass-card-minimal,
             .glass-card-strong {
-                backdrop-filter: blur(24px) saturate(140%);
-                -webkit-backdrop-filter: blur(24px) saturate(140%);
-            }
-
-            .glass-card-strong:hover {
-                backdrop-filter: blur(28px) saturate(140%);
-                -webkit-backdrop-filter: blur(28px) saturate(140%);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
             }
 
             .glass-header {
-                backdrop-filter: blur(24px) saturate(140%);
-                -webkit-backdrop-filter: blur(24px) saturate(140%);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
             }
         }
     </style>
@@ -334,7 +308,7 @@
 
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.08)]">
-                <div class="px-8 py-4 space-y-3" style="background: rgba(255, 255, 255, 0.38); backdrop-filter: blur(28px) saturate(140%); -webkit-backdrop-filter: blur(28px) saturate(140%);">
+                <div class="px-8 py-4 space-y-3" style="background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
                     <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#265A49] font-medium' : '' }}">
                         ホーム
                     </a>

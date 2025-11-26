@@ -154,6 +154,16 @@ Route::prefix('projects/demo/insta-lp')->name('demo.insta-lp.')->group(function 
     Route::get('/', [InstaLpDemoController::class, 'index'])->name('index');
 });
 
+// Options Demo Routes
+Route::prefix('projects/demo/options')->name('demo.options.')->group(function () {
+    Route::view('/sns', 'demo.options.sns')->name('sns');
+    Route::view('/dashboard', 'demo.options.dashboard')->name('dashboard');
+    Route::view('/posts', 'demo.options.posts')->name('posts');
+    Route::view('/shop', 'demo.options.shop')->name('shop');
+    Route::view('/meo', 'demo.options.meo')->name('meo');
+    Route::view('/chatbot', 'demo.options.chatbot')->name('chatbot');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
