@@ -17,15 +17,33 @@
         }
 
         .chat-widget.minimized {
-            width: 64px;
-            height: 64px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            right: 24px;
+            bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .chat-widget.minimized {
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .chat-widget.minimized {
+                right: 16px;
+                bottom: 16px;
+            }
         }
 
         .chat-widget.expanded {
             width: 380px;
             height: 520px;
             border-radius: 16px;
+            right: 24px;
+            bottom: 24px;
         }
 
         @media (max-width: 640px) {
@@ -107,8 +125,8 @@
         <!-- Features -->
         <div class="grid md:grid-cols-3 gap-6 mb-16">
             <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
@@ -116,8 +134,8 @@
                 <p class="text-sm text-gray-600">営業時間外でもお客様の質問に即座に回答。機会損失を防ぎます。</p>
             </div>
             <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                     </svg>
                 </div>
@@ -125,8 +143,8 @@
                 <p class="text-sm text-gray-600">よくある質問を学習し、的確に回答。スタッフの負担を軽減します。</p>
             </div>
             <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
                     </svg>
                 </div>
@@ -195,7 +213,7 @@
     </main>
 
     <!-- Floating Chat Widget -->
-    <div id="chatWidget" class="chat-widget minimized fixed right-6 bottom-6 bg-gradient-to-r from-blue-600 to-purple-600 shadow-2xl cursor-pointer z-50 flex items-center justify-center" onclick="toggleChat()">
+    <div id="chatWidget" class="chat-widget minimized fixed bg-purple-600 shadow-lg cursor-pointer z-50 flex items-center justify-center hover:bg-purple-700 transition-colors" onclick="toggleChat()">
         <!-- Minimized Icon -->
         <div class="chat-button-icon absolute inset-0 flex items-center justify-center">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

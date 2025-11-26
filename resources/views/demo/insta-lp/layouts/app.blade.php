@@ -19,13 +19,17 @@
             overflow-x: hidden;
         }
 
-        /* Instagram gradient */
+        /* Instagram gradient - softer version */
         .insta-gradient {
-            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            background: linear-gradient(45deg, #F59E57, #E05C92, #8F63C8);
+        }
+
+        .insta-gradient:hover {
+            background: linear-gradient(45deg, #F7AE6F, #E570A0, #9D75D0);
         }
 
         .insta-gradient-text {
-            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            background: linear-gradient(45deg, #F59E57, #E05C92, #8F63C8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -158,7 +162,7 @@
         }
 
         .toggle-btn.active {
-            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            background: linear-gradient(45deg, #F59E57, #E05C92, #8F63C8);
             color: white;
             border-color: transparent;
         }
