@@ -23,9 +23,6 @@
         <!-- Hero Visual -->
         <div class="mt-10">
             <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center relative overflow-hidden">
-                <!-- Minimal Decorative Shapes -->
-                <div class="absolute top-6 right-6 w-10 h-10 border border-emerald-300/40 rounded-full"></div>
-                <div class="absolute bottom-6 left-6 w-10 h-10 bg-emerald-100/60 rounded-lg"></div>
                 <!-- Content -->
                 <div class="text-center z-10 px-4 flex flex-col items-center justify-center">
                     <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
@@ -144,7 +141,7 @@
             </a>
         </div>
 
-        <div class="mt-10 flex items-center justify-center gap-3 text-gray-700">
+        <div class="mt-10 pt-6 border-t border-gray-100 flex items-center justify-center gap-3 text-gray-700">
             <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
