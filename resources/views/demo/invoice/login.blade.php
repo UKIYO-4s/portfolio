@@ -157,19 +157,17 @@
 
             <h3>ログイン</h3>
 
-            <form id="loginForm">
-                <div class="mb-3">
-                    <label for="email" class="form-label">メールアドレス</label>
-                    <input type="email" class="form-control" id="email" placeholder="example@email.com" value="demo@sd-create.jp">
-                </div>
+            <div class="mb-3">
+                <label class="form-label">メールアドレス</label>
+                <div class="form-control bg-light" style="color: #6c757d;">demo@sd-create.jp</div>
+            </div>
 
-                <div class="mb-4">
-                    <label for="password" class="form-label">パスワード</label>
-                    <input type="password" class="form-control" id="password" placeholder="••••••••" value="demo1234">
-                </div>
+            <div class="mb-4">
+                <label class="form-label">パスワード</label>
+                <div class="form-control bg-light" style="color: #6c757d;">••••••••</div>
+            </div>
 
-                <button type="submit" class="btn btn-login">ログイン</button>
-            </form>
+            <a href="{{ route('demo.invoice.dashboard') }}" class="btn btn-login d-block text-center text-white text-decoration-none">ログイン</a>
         </div>
 
         <div class="back-link">
@@ -178,12 +176,5 @@
             </a>
         </div>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            window.location.href = '{{ route('demo.invoice.dashboard') }}';
-        });
-    </script>
 </body>
 </html>
