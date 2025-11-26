@@ -22,7 +22,7 @@
 
         <!-- Hero Visual -->
         <div class="mt-10">
-            <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-gradient-to-br from-gray-100 via-white to-gray-100 rounded-2xl shadow-sm flex items-center justify-center relative overflow-hidden">
+            <div class="w-full aspect-[4/3] md:aspect-[16/9] bg-gradient-to-br from-gray-100 via-white to-gray-100 rounded-2xl flex items-center justify-center relative overflow-hidden">
                 <!-- Content -->
                 <div class="text-center z-10 px-4 flex flex-col items-center justify-center">
                     <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
