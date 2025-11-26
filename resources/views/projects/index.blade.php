@@ -108,6 +108,11 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">15万円〜20万円</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
                                 </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.insta-lp.index') }}'">
+                                    <td class="px-6 py-4 text-sm font-light text-white">フリックLP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">20万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">スマホモック内スナップスクロール、PC/モバイル切替、グラデアクセント</td>
+                                </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.retro-terminal.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">レトロターミナル</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
@@ -127,11 +132,6 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">サイバー/SF</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">55万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">ダークモード、ブルー×紫グロー、グリッド背景、未来的UI</td>
-                                </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.insta-lp.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">Instagram風フリックLP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">58万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">スマホモック内スナップスクロール、PC/モバイル切替、グラデアクセント</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.luxury.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">ラグジュアリー</td>
@@ -162,40 +162,49 @@
                                 <tr class="border-b border-gray-800 bg-gray-900/50">
                                     <th class="px-6 py-4 text-left text-sm font-light text-gray-200">機能</th>
                                     <th class="px-6 py-4 text-left text-sm font-light text-gray-200">価格</th>
+                                    <th class="px-6 py-4 text-left text-sm font-light text-gray-200">内容</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light text-white">SHOP機能（EC）</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">15万円〜</td>
-                                </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light text-white">ダッシュボード</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">10万円〜</td>
-                                </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light text-white">投稿機能</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">8万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">Google Map埋め込み</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">1万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">店舗・オフィスの位置情報を地図で表示</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
                                     <td class="px-6 py-4 text-sm font-light text-white">SNS連携</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">3万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">Instagram・X等のフィード埋め込み、シェアボタン</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light text-white">Google Map埋め込み</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">1万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">HP用素材撮影</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">5万円/日</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">商品・店舗・スタッフ等の撮影（交通費別）</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
+                                    <td class="px-6 py-4 text-sm font-light text-white">投稿機能</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">8万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">お知らせ・ブログ等の記事投稿・編集機能</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
+                                    <td class="px-6 py-4 text-sm font-light text-white">ダッシュボード</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">10万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">管理画面でコンテンツ・データを一元管理</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
+                                    <td class="px-6 py-4 text-sm font-light text-white">SHOP機能（EC）</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">15万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">商品販売・カート・決済機能</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
                                     <td class="px-6 py-4 text-sm font-light text-white">MEO対策</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">15万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">Googleマップ検索での上位表示施策</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
                                     <td class="px-6 py-4 text-sm font-light text-white">AIチャットBot</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">80万円〜（時期未定）</td>
-                                </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors">
-                                    <td class="px-6 py-4 text-sm font-light text-white">HP用素材撮影</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">5万円/日（交通費別）</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">80万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">24時間自動応答、FAQ対応（時期未定）</td>
                                 </tr>
                             </tbody>
                         </table>
