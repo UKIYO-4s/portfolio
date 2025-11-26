@@ -104,14 +104,14 @@
                 </a>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center gap-10">
+                <nav class="hidden md:flex items-center gap-12">
                     <a href="#services" class="text-sm font-bold tracking-wider text-black hover:text-gray-dark transition-colors uppercase">
                         Services
                     </a>
                     <a href="#work" class="text-sm font-bold tracking-wider text-black hover:text-gray-dark transition-colors uppercase">
                         Work
                     </a>
-                    <a href="#contact" class="btn-black px-6 py-3 text-sm font-bold tracking-wider uppercase">
+                    <a href="#contact" class="btn-black px-6 py-3 text-sm font-bold tracking-wider uppercase ml-4">
                         Contact
                     </a>
                 </nav>
