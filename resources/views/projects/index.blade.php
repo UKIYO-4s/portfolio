@@ -109,24 +109,24 @@
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.retro-terminal.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">サンプルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">レトロターミナル</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">レトロ端末風デザイン、ワンページ構成</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">CRTモニター風、グリーン発光テキスト、ノスタルジック演出</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.brutalist.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">サンプルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">ブルータリズム</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">45万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">ブルータリズム、モノクロ、太線ボーダー、角丸なし</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">モノクロ厳守、太線ボーダー、装飾排除の力強いデザイン</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.custom-hp.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">カスタムデザインHP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">グラスモーフィズム</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">50万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">オリジナルデザイン、5〜10ページ、アニメーション</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">すりガラス効果、浮遊感のある洗練されたUI、複数ページ対応</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.luxury.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">サンプルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">ラグジュアリー</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">60万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">高級ブランド向け、黒×ゴールド基調、ミニマルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">黒×ゴールド、セリフ体、高級ブランド向けミニマルデザイン</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.full-custom.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">フルカスタムHP</td>

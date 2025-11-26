@@ -27,7 +27,6 @@
         </div>
 
         <!-- Decorative Elements -->
-        <div class="absolute top-10 right-10 w-48 h-48 border-4 border-black hidden lg:block"></div>
         <div class="absolute top-32 right-32 w-32 h-32 stripes-bg hidden lg:block"></div>
     </div>
 </section>
