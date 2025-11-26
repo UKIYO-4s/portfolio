@@ -144,8 +144,8 @@
 <body>
     <div class="login-container">
         <div class="logo-container">
-            <div class="logo-circle">M</div>
-            <div class="logo-text">Mocca Invoice</div>
+            <div class="logo-circle">S</div>
+            <div class="logo-text">Smart Invoice</div>
             <div class="logo-subtitle">請求書管理システム</div>
         </div>
 
