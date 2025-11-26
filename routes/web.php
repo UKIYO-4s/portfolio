@@ -116,6 +116,11 @@ Route::prefix('projects/demo/sns-tool')->name('demo.sns-tool.')->group(function 
     Route::get('/analytics', [SnsToolDemoController::class, 'analytics'])->name('analytics');
 });
 
+// Retro Terminal Demo Routes
+use App\Http\Controllers\Demo\RetroTerminalDemoController;
+
+Route::get('/projects/demo/retro-terminal', [RetroTerminalDemoController::class, 'index'])->name('demo.retro-terminal.index');
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;

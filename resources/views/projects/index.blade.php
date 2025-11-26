@@ -118,6 +118,11 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">80万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">カスタムデザイン＋システム機能</td>
                                 </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.retro-terminal.index') }}'">
+                                    <td class="px-6 py-4 text-sm font-light text-white">レトロ端末風HP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">ターミナル風デザイン、ワンページ構成</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
