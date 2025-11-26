@@ -138,11 +138,6 @@
                         ご要望や課題を丁寧にヒアリングし、最適なプランをご提案
                     </p>
                 </div>
-                <div class="hidden lg:block absolute top-10 -right-4 text-emerald-600 z-10">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
             </div>
 
             <!-- Step 2 -->
@@ -156,11 +151,6 @@
                         サイト構成とデザインコンセプトを策定
                     </p>
                 </div>
-                <div class="hidden lg:block absolute top-10 -right-4 text-emerald-600 z-10">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
             </div>
 
             <!-- Step 3 -->
@@ -173,11 +163,6 @@
                     <p class="text-sm text-gray-600 leading-relaxed">
                         デザイン制作とコーディングを実施
                     </p>
-                </div>
-                <div class="hidden lg:block absolute top-10 -right-4 text-emerald-600 z-10">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
                 </div>
             </div>
 
