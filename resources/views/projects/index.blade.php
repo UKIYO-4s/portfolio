@@ -128,6 +128,11 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">55万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">ダークモード、ブルー×紫グロー、グリッド背景、未来的UI</td>
                                 </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.insta-lp.index') }}'">
+                                    <td class="px-6 py-4 text-sm font-light text-white">Instagram風フリックLP</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">58万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">スマホモック内スナップスクロール、PC/モバイル切替、グラデアクセント</td>
+                                </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.luxury.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">ラグジュアリー</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">60万円〜</td>

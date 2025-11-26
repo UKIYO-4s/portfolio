@@ -147,6 +147,13 @@ Route::prefix('projects/demo/cyber')->name('demo.cyber.')->group(function () {
     Route::get('/', [CyberDemoController::class, 'index'])->name('index');
 });
 
+// Instagram LP Demo Routes
+use App\Http\Controllers\Demo\InstaLpDemoController;
+
+Route::prefix('projects/demo/insta-lp')->name('demo.insta-lp.')->group(function () {
+    Route::get('/', [InstaLpDemoController::class, 'index'])->name('index');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
