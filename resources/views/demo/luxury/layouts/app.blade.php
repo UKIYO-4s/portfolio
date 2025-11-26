@@ -144,14 +144,14 @@
                     </a>
 
                     <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex items-center space-x-10">
+                    <nav class="hidden md:flex items-center gap-12">
                         <a href="#services" class="text-sm tracking-wider text-[#9A9A9A] hover:text-gold transition-colors">
                             SERVICES
                         </a>
                         <a href="#clients" class="text-sm tracking-wider text-[#9A9A9A] hover:text-gold transition-colors">
                             CLIENTS
                         </a>
-                        <a href="#contact" class="btn-outline-gold px-6 py-2 rounded-lg text-sm tracking-wider">
+                        <a href="#contact" class="btn-outline-gold px-6 py-2 rounded-lg text-sm tracking-wider ml-4">
                             CONTACT
                         </a>
                     </nav>
@@ -232,16 +232,18 @@
                     </div>
                 </div>
 
-                <div class="border-t border-[#222] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-[#6B6B6B] text-xs tracking-wider">
+                <div class="border-t border-[#222] pt-8">
+                    <div class="flex justify-center mb-6">
+                        <a href="{{ route('projects.index') }}" class="inline-flex items-center text-xs text-[#6B6B6B] hover:text-gold transition-colors tracking-wider">
+                            <svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                            </svg>
+                            BACK TO PROJECTS
+                        </a>
+                    </div>
+                    <p class="text-[#6B6B6B] text-xs tracking-wider text-center">
                         &copy; 2025 MAISON NOIR. All rights reserved.
                     </p>
-                    <a href="{{ route('projects.index') }}" class="inline-flex items-center text-xs text-[#6B6B6B] hover:text-gold transition-colors tracking-wider">
-                        <svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                        </svg>
-                        BACK TO PROJECTS
-                    </a>
                 </div>
             </div>
         </footer>
