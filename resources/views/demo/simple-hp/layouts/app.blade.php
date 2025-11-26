@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'サンプル株式会社') - シンプルHPデモ</title>
+    <title>@yield('title', 'Greenline Studio') - シンプルHPデモ</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white">
@@ -14,7 +14,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="{{ route('demo.simple-hp.index') }}" class="text-2xl font-semibold text-gray-900 hover:text-gray-700 transition-colors">
-                        Sample Corp.
+                        Greenline Studio
                     </a>
                 </div>
 
@@ -24,7 +24,7 @@
                         ホーム
                     </a>
                     <a href="{{ route('demo.simple-hp.about') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.about') ? 'text-gray-900' : '' }}">
-                        私について
+                        会社概要
                     </a>
                     <a href="{{ route('demo.simple-hp.service') }}" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors {{ request()->routeIs('demo.simple-hp.service') ? 'text-gray-900' : '' }}">
                         サービス
@@ -55,7 +55,7 @@
                     ホーム
                 </a>
                 <a href="{{ route('demo.simple-hp.about') }}" class="block py-3 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-4 rounded-lg transition-colors {{ request()->routeIs('demo.simple-hp.about') ? 'text-gray-900 bg-gray-50' : '' }}">
-                    私について
+                    会社概要
                 </a>
                 <a href="{{ route('demo.simple-hp.service') }}" class="block py-3 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 px-4 rounded-lg transition-colors {{ request()->routeIs('demo.simple-hp.service') ? 'text-gray-900 bg-gray-50' : '' }}">
                     サービス
@@ -88,13 +88,14 @@
     <footer class="bg-gray-900 text-gray-300 mt-24">
         <div class="max-w-7xl mx-auto px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Portfolio Info -->
+                <!-- Company Info -->
                 <div>
-                    <h3 class="text-lg font-semibold text-white mb-6">後藤 翔英</h3>
+                    <h3 class="text-lg font-semibold text-white mb-6">Greenline Studio</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Webデザイナー / フロントエンド開発者<br>
-                        Email: info@sample-corp.jp<br>
-                        営業時間: 平日 9:00-18:00
+                        〒150-0001<br>
+                        東京都渋谷区神宮前3-1-1<br>
+                        TEL: 03-1234-5678<br>
+                        Email: info@greenline-studio.jp
                     </p>
                 </div>
 
@@ -103,7 +104,7 @@
                     <h3 class="text-lg font-semibold text-white mb-6">サイトマップ</h3>
                     <ul class="space-y-3 text-sm">
                         <li><a href="{{ route('demo.simple-hp.index') }}" class="text-gray-400 hover:text-white transition-colors">ホーム</a></li>
-                        <li><a href="{{ route('demo.simple-hp.about') }}" class="text-gray-400 hover:text-white transition-colors">私について</a></li>
+                        <li><a href="{{ route('demo.simple-hp.about') }}" class="text-gray-400 hover:text-white transition-colors">会社概要</a></li>
                         <li><a href="{{ route('demo.simple-hp.service') }}" class="text-gray-400 hover:text-white transition-colors">サービス</a></li>
                         <li><a href="{{ route('demo.simple-hp.contact') }}" class="text-gray-400 hover:text-white transition-colors">お問い合わせ</a></li>
                     </ul>
@@ -123,7 +124,7 @@
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-500 text-sm">
-                    &copy; 2025 Shoeigoto Portfolio. All rights reserved.
+                    &copy; 2025 Greenline Studio. All rights reserved.
                 </p>
             </div>
         </div>
