@@ -124,8 +124,8 @@
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">カスタムデザイン＋システム機能</td>
                                 </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.luxury.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">ラグジュアリーブランドHP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">100万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">サンプルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">60万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">高級ブランド向け、黒×ゴールド基調、ミニマルデザイン</td>
                                 </tr>
                             </tbody>
