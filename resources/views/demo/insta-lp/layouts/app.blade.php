@@ -93,6 +93,56 @@
             padding: 0 1rem;
         }
 
+        /* PC Full mode enhancements */
+        @media (min-width: 768px) {
+            body.full-mode .snap-section {
+                padding: 0 2rem;
+            }
+
+            body.full-mode .snap-section > div {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            body.full-mode .snap-section h1,
+            body.full-mode .snap-section h2 {
+                font-size: 2.5rem;
+            }
+
+            body.full-mode .snap-section p {
+                font-size: 1.125rem;
+                max-width: 480px;
+            }
+
+            body.full-mode .snap-section .grid {
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                gap: 1rem;
+            }
+
+            body.full-mode .snap-section button {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body.full-mode .snap-section > div {
+                max-width: 720px;
+            }
+
+            body.full-mode .snap-section h1,
+            body.full-mode .snap-section h2 {
+                font-size: 3rem;
+            }
+
+            body.full-mode .snap-section .grid {
+                max-width: 600px;
+                gap: 1.25rem;
+            }
+        }
+
         /* Mock mode (PC default) */
         body.mock-mode .mock-wrapper {
             display: flex !important;
