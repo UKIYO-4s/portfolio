@@ -126,6 +126,13 @@ Route::prefix('projects/demo/retro-terminal')->name('demo.retro-terminal.')->gro
     Route::get('/contact', [RetroTerminalDemoController::class, 'contact'])->name('contact');
 });
 
+// Luxury Demo Routes
+use App\Http\Controllers\Demo\LuxuryDemoController;
+
+Route::prefix('projects/demo/luxury')->name('demo.luxury.')->group(function () {
+    Route::get('/', [LuxuryDemoController::class, 'index'])->name('index');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
