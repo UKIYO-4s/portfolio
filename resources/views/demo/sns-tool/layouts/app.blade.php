@@ -26,6 +26,13 @@
             transform: translateX(0);
         }
 
+        /* デスクトップでは常にサイドバー表示 */
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                transform: translateX(0) !important;
+            }
+        }
+
         /* 数字用等幅フォント */
         .tabular-nums {
             font-variant-numeric: tabular-nums;
@@ -134,7 +141,14 @@
         <header class="bg-white border-b border-gray-200 sticky top-0 z-20">
             <div class="px-4 lg:px-8 py-4 flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-gray-900 ml-12 lg:ml-0">@yield('page-title', 'ダッシュボード')</h2>
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <a href="{{ route('projects.index') }}"
+                       class="flex items-center px-3 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition text-sm font-medium">
+                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
+                        <span class="hidden sm:inline">プロジェクト一覧</span>
+                    </a>
                     <a href="{{ route('demo.sns-tool.posts.create') }}"
                        class="hidden sm:flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium text-sm">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
