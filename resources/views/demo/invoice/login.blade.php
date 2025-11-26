@@ -159,12 +159,12 @@
 
             <div class="mb-3">
                 <label class="form-label">メールアドレス</label>
-                <div class="form-control bg-light" style="color: #6c757d;">demo@sd-create.jp</div>
+                <div class="form-control bg-light" style="color: #adb5bd;">example@email.com</div>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">パスワード</label>
-                <div class="form-control bg-light" style="color: #6c757d;">••••••••</div>
+                <div class="form-control bg-light" style="color: #adb5bd;">パスワードを入力</div>
             </div>
 
             <a href="{{ route('demo.invoice.dashboard') }}" class="btn btn-login d-block text-center text-white text-decoration-none">ログイン</a>
