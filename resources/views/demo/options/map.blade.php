@@ -47,76 +47,61 @@
         <div class="mb-20">
             <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">サイズサンプル</h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="space-y-8">
                 <!-- Small -->
-                <div class="h-full flex flex-col rounded-2xl border border-gray-200 shadow-sm bg-white overflow-hidden">
-                    <div class="p-6 md:p-7 flex flex-col flex-1">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-gray-200 text-gray-700">Small</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">300 x 200px - サイドバー・フッター向け</p>
-                        <div class="mt-auto">
-                            <div class="aspect-[4/3] w-full rounded-xl overflow-hidden">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    class="w-full h-full object-cover">
-                                </iframe>
-                            </div>
-                        </div>
+                <div class="flex flex-col items-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-gray-200 text-gray-700">Small</span>
+                        <span class="text-sm text-gray-500">300 x 200px - サイドバー・フッター向け</span>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                            width="300"
+                            height="200"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
 
                 <!-- Medium -->
-                <div class="h-full flex flex-col rounded-2xl border border-gray-200 shadow-sm bg-white overflow-hidden">
-                    <div class="p-6 md:p-7 flex flex-col flex-1">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-700">Medium</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">500 x 300px - コンテンツ内埋め込み向け</p>
-                        <div class="mt-auto">
-                            <div class="aspect-[4/3] w-full rounded-xl overflow-hidden">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    class="w-full h-full object-cover">
-                                </iframe>
-                            </div>
-                        </div>
+                <div class="flex flex-col items-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-700">Medium</span>
+                        <span class="text-sm text-gray-500">500 x 300px - コンテンツ内埋め込み向け</span>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                            width="500"
+                            height="300"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
 
                 <!-- Large -->
-                <div class="h-full flex flex-col rounded-2xl border border-gray-200 shadow-sm bg-white overflow-hidden">
-                    <div class="p-6 md:p-7 flex flex-col flex-1">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-700">Large</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-4">100% x 400px - アクセスページ・フルワイド表示向け</p>
-                        <div class="mt-auto">
-                            <div class="aspect-[4/3] w-full rounded-xl overflow-hidden">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    class="w-full h-full object-cover">
-                                </iframe>
-                            </div>
-                        </div>
+                <div class="flex flex-col items-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="inline-flex items-center px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-700">Large</span>
+                        <span class="text-sm text-gray-500">100% x 400px - アクセスページ・フルワイド表示向け</span>
+                    </div>
+                    <div class="w-full rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7477983421797!2d139.6917066!3d35.6594945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
