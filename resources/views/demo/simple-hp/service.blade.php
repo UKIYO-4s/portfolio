@@ -20,175 +20,153 @@
             <p class="text-gray-600">B2B企業のWeb制作に特化した3つのサービスをご提供しています</p>
         </div>
 
-        <!-- Service 1: コーポレートサイト制作 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 py-8 md:py-10 px-6 md:px-8">
-            <div class="grid md:grid-cols-12 gap-6 md:gap-8 items-center">
-                <!-- Service Content -->
-                <div class="md:col-span-7">
-                    <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mt-2 mb-4">
-                        Service 01
-                    </span>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">コーポレートサイト制作</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        情報設計からブランドトーンの統一まで、企業の顔となるWebサイトを制作します。ターゲットユーザーの行動分析に基づいた導線設計で、リード獲得や採用強化に貢献します。
-                    </p>
-
-                    <!-- Features -->
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>情報設計・サイト構成</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>ブランドトーンに合わせたデザイン</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>レスポンシブ対応・SEO最適化</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>CMS導入・運用マニュアル</span>
-                        </li>
-                    </ul>
-
-                    <!-- Price & Duration -->
-                    <div class="flex items-center gap-6 mt-6">
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">料金</p>
-                            <p class="text-xl font-bold text-emerald-600">50万円〜</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">納期目安</p>
-                            <p class="text-base font-semibold text-gray-900">2〜3ヶ月</p>
-                        </div>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Service 1: コーポレートサイト制作 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <!-- Service Visual -->
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
                 </div>
 
-                <!-- Service Visual -->
-                <div class="md:col-span-5">
-                    <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center justify-center p-6">
-                        <svg class="w-10 h-10 text-gray-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
-                        <p class="text-xs text-gray-500 font-medium">Corporate Website</p>
+                <span class="inline-block px-3 py-1 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
+                    Service 01
+                </span>
+                <h3 class="text-lg font-bold text-gray-900 mb-4">コーポレートサイト制作</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    情報設計からブランドトーンの統一まで、企業の顔となるWebサイトを制作します。
+                </p>
+
+                <!-- Features -->
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>情報設計・サイト構成</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>ブランドトーンに合わせたデザイン</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>レスポンシブ対応・SEO最適化</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>CMS導入・運用マニュアル</span>
+                    </li>
+                </ul>
+
+                <!-- Price & Duration -->
+                <div class="flex items-center gap-6 pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">料金</p>
+                        <p class="text-lg font-bold text-emerald-600">50万円〜</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">納期目安</p>
+                        <p class="text-sm font-semibold text-gray-900">2〜3ヶ月</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Service 2: LP・キャンペーン制作 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 py-8 md:py-10 px-6 md:px-8 mt-10">
-            <div class="grid md:grid-cols-12 gap-6 md:gap-8 items-center">
-                <!-- Service Content -->
-                <div class="md:col-span-7 md:order-2">
-                    <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mt-2 mb-4">
-                        Service 02
-                    </span>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">LP・キャンペーン制作</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        高速ABテストを想定した設計で、コンバージョン最大化を目指すランディングページを制作します。広告運用チームとの連携もスムーズに行えます。
-                    </p>
-
-                    <!-- Features -->
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>コンバージョン重視の設計</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>ABテスト対応の構造</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>高速表示・モバイル最適化</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>効果測定タグ設置</span>
-                        </li>
-                    </ul>
-
-                    <!-- Price & Duration -->
-                    <div class="flex items-center gap-6 mt-6">
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">料金</p>
-                            <p class="text-xl font-bold text-emerald-600">20万円〜</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">納期目安</p>
-                            <p class="text-base font-semibold text-gray-900">2〜4週間</p>
-                        </div>
-                    </div>
+            <!-- Service 2: LP・キャンペーン制作 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <!-- Service Visual -->
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                 </div>
 
-                <!-- Service Visual -->
-                <div class="md:col-span-5 md:order-1">
-                    <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center justify-center p-6">
-                        <svg class="w-10 h-10 text-gray-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        <p class="text-xs text-gray-500 font-medium">Landing Page</p>
+                <span class="inline-block px-3 py-1 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
+                    Service 02
+                </span>
+                <h3 class="text-lg font-bold text-gray-900 mb-4">LP・キャンペーン制作</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    高速ABテストを想定した設計で、コンバージョン最大化を目指すLPを制作します。
+                </p>
+
+                <!-- Features -->
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>コンバージョン重視の設計</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>ABテスト対応の構造</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>高速表示・モバイル最適化</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>効果測定タグ設置</span>
+                    </li>
+                </ul>
+
+                <!-- Price & Duration -->
+                <div class="flex items-center gap-6 pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">料金</p>
+                        <p class="text-lg font-bold text-emerald-600">20万円〜</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">納期目安</p>
+                        <p class="text-sm font-semibold text-gray-900">2〜4週間</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Service 3: Webガイドライン設計 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 py-8 md:py-10 px-6 md:px-8 mt-10">
-            <div class="grid md:grid-cols-12 gap-6 md:gap-8 items-center">
-                <!-- Service Content -->
-                <div class="md:col-span-7">
-                    <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mt-2 mb-4">
-                        Service 03
-                    </span>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">Webガイドライン設計</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        デザインシステムの構築で、ブランドの一貫性と制作効率を両立します。複数部門でのWeb制作やベンダー管理にも対応できる体制を整えます。
-                    </p>
-
-                    <!-- Features -->
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>カラー・タイポグラフィ規定</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>UIコンポーネント設計</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>コーディングガイドライン</span>
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <span class="text-emerald-600 mr-2">✓</span>
-                            <span>運用ルール策定</span>
-                        </li>
-                    </ul>
-
-                    <!-- Price & Duration -->
-                    <div class="flex items-center gap-6 mt-6">
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">料金</p>
-                            <p class="text-xl font-bold text-emerald-600">30万円〜</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-500 mb-1">納期目安</p>
-                            <p class="text-base font-semibold text-gray-900">1〜2ヶ月</p>
-                        </div>
-                    </div>
+            <!-- Service 3: Webガイドライン設計 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <!-- Service Visual -->
+                <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
                 </div>
 
-                <!-- Service Visual -->
-                <div class="md:col-span-5">
-                    <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center justify-center p-6">
-                        <svg class="w-10 h-10 text-gray-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        <p class="text-xs text-gray-500 font-medium">Design System</p>
+                <span class="inline-block px-3 py-1 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
+                    Service 03
+                </span>
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Webガイドライン設計</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    デザインシステムの構築で、ブランドの一貫性と制作効率を両立します。
+                </p>
+
+                <!-- Features -->
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>カラー・タイポグラフィ規定</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>UIコンポーネント設計</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>コーディングガイドライン</span>
+                    </li>
+                    <li class="flex items-center text-sm text-gray-600">
+                        <span class="text-emerald-600 mr-2">✓</span>
+                        <span>運用ルール策定</span>
+                    </li>
+                </ul>
+
+                <!-- Price & Duration -->
+                <div class="flex items-center gap-6 pt-4 border-t border-gray-100">
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">料金</p>
+                        <p class="text-lg font-bold text-emerald-600">30万円〜</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 mb-1">納期目安</p>
+                        <p class="text-sm font-semibold text-gray-900">1〜2ヶ月</p>
                     </div>
                 </div>
             </div>
