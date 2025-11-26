@@ -6,12 +6,7 @@
 <div>
     <h1 class="text-4xl font-thin tracking-wide mb-12">Dashboard</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-        <div class="bg-gray-900 border border-gray-800 p-6">
-            <div class="text-gray-400 text-sm mb-2">Projects</div>
-            <div class="text-3xl font-light">{{ $stats['projects'] }}</div>
-        </div>
-
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <div class="bg-gray-900 border border-gray-800 p-6">
             <div class="text-gray-400 text-sm mb-2">Photos</div>
             <div class="text-3xl font-light">{{ $stats['photos'] }}</div>
@@ -37,10 +32,6 @@
         <div>
             <h2 class="text-2xl font-thin mb-6">Quick Actions</h2>
             <div class="space-y-4">
-                <a href="{{ route('admin.projects.create') }}" class="block bg-gray-900 border border-gray-800 p-4 hover:border-gray-600 transition-colors">
-                    <div class="font-light">Add New Project</div>
-                    <div class="text-sm text-gray-400 mt-1">Create a new portfolio project</div>
-                </a>
                 <a href="{{ route('admin.photos.create') }}" class="block bg-gray-900 border border-gray-800 p-4 hover:border-gray-600 transition-colors">
                     <div class="font-light">Upload Photos</div>
                     <div class="text-sm text-gray-400 mt-1">Add new photos to gallery</div>

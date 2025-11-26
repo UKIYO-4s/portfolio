@@ -11,7 +11,7 @@ use App\Http\Controllers\WebhookController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/price', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');

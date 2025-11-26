@@ -18,9 +18,6 @@
                             <a href="{{ route('admin.dashboard') }}" class="text-sm {{ request()->routeIs('admin.dashboard') ? 'text-white' : 'text-gray-400 hover:text-white' }} transition-colors">
                                 Dashboard
                             </a>
-                            <a href="{{ route('admin.projects.index') }}" class="text-sm {{ request()->routeIs('admin.projects.*') ? 'text-white' : 'text-gray-400 hover:text-white' }} transition-colors">
-                                Projects
-                            </a>
                             <a href="{{ route('admin.photos.index') }}" class="text-sm {{ request()->routeIs('admin.photos.*') ? 'text-white' : 'text-gray-400 hover:text-white' }} transition-colors">
                                 Photos
                             </a>

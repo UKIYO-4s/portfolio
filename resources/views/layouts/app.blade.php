@@ -19,7 +19,7 @@
 
                 <div class="hidden md:flex space-x-12">
                     <a href="{{ route('projects.index') }}" class="text-sm font-light hover:text-gray-400 transition-colors {{ request()->routeIs('projects.*') ? 'text-gray-400' : '' }}">
-                        Projects
+                        Price
                     </a>
                     <a href="{{ route('photos.index') }}" class="text-sm font-light hover:text-gray-400 transition-colors {{ request()->routeIs('photos.*') ? 'text-gray-400' : '' }}">
                         Photography
@@ -53,7 +53,7 @@
         <div id="mobile-menu" class="md:hidden hidden bg-black border-t border-gray-800">
             <div class="px-6 py-4 space-y-4">
                 <a href="{{ route('projects.index') }}" class="block text-sm font-light hover:text-gray-400 transition-colors">
-                    Projects
+                    Price
                 </a>
                 <a href="{{ route('photos.index') }}" class="block text-sm font-light hover:text-gray-400 transition-colors">
                     Photography
@@ -81,7 +81,7 @@
                 <div>
                     <h3 class="text-lg font-light mb-4">Links</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="{{ route('projects.index') }}" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="{{ route('projects.index') }}" class="hover:text-white transition-colors">Price</a></li>
                         <li><a href="{{ route('photos.index') }}" class="hover:text-white transition-colors">Photography</a></li>
                         <li><a href="{{ route('shop.index') }}" class="hover:text-white transition-colors">Shop</a></li>
                     </ul>
