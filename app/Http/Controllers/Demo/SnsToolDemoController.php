@@ -98,6 +98,149 @@ class SnsToolDemoController extends Controller
     }
 
     /**
+     * フィード最適化ツール
+     */
+    public function feed()
+    {
+        $scheduledPosts = [
+            [
+                'id' => 1,
+                'platform' => 'Instagram',
+                'title' => '新商品のご紹介',
+                'scheduled_at' => '2024-11-26 10:00',
+                'status' => 'scheduled',
+                'thumbnail' => null
+            ],
+            [
+                'id' => 2,
+                'platform' => 'GMB',
+                'title' => '営業時間変更のお知らせ',
+                'scheduled_at' => '2024-11-26 14:00',
+                'status' => 'scheduled',
+                'thumbnail' => null
+            ],
+            [
+                'id' => 3,
+                'platform' => 'Instagram',
+                'title' => 'お客様の声をご紹介',
+                'scheduled_at' => '2024-11-27 11:00',
+                'status' => 'scheduled',
+                'thumbnail' => null
+            ]
+        ];
+
+        $recommendedTimes = [
+            ['day' => '月曜日', 'times' => ['10:00', '18:00', '21:00']],
+            ['day' => '火曜日', 'times' => ['10:00', '12:00', '19:00']],
+            ['day' => '水曜日', 'times' => ['10:00', '18:00', '20:00']],
+            ['day' => '木曜日', 'times' => ['10:00', '12:00', '19:00']],
+            ['day' => '金曜日', 'times' => ['10:00', '18:00', '21:00']],
+            ['day' => '土曜日', 'times' => ['11:00', '15:00', '20:00']],
+            ['day' => '日曜日', 'times' => ['11:00', '14:00', '19:00']]
+        ];
+
+        $suggestedHashtags = [
+            ['tag' => '#ビジネス', 'posts' => '1.2M'],
+            ['tag' => '#マーケティング', 'posts' => '890K'],
+            ['tag' => '#SNS運用', 'posts' => '456K'],
+            ['tag' => '#Instagram活用', 'posts' => '234K'],
+            ['tag' => '#集客', 'posts' => '567K'],
+            ['tag' => '#店舗経営', 'posts' => '345K']
+        ];
+
+        $metrics = [
+            'click_rate' => 4.2,
+            'saves' => 1234,
+            'reach' => 45621,
+            'impressions' => 89432
+        ];
+
+        return view('demo.sns-tool.feed', compact('scheduledPosts', 'recommendedTimes', 'suggestedHashtags', 'metrics'));
+    }
+
+    /**
+     * リール/ショート最適化ツール
+     */
+    public function reels()
+    {
+        $recentReels = [
+            [
+                'id' => 1,
+                'title' => '商品紹介リール',
+                'platform' => 'Instagram',
+                'views' => 12500,
+                'completion_rate' => 68.5,
+                'follows_gained' => 45,
+                'duration' => '0:30',
+                'created_at' => '2024-11-24'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Behind the Scenes',
+                'platform' => 'YouTube',
+                'views' => 8900,
+                'completion_rate' => 72.3,
+                'follows_gained' => 32,
+                'duration' => '0:45',
+                'created_at' => '2024-11-22'
+            ],
+            [
+                'id' => 3,
+                'title' => 'お客様インタビュー',
+                'platform' => 'Instagram',
+                'views' => 15600,
+                'completion_rate' => 58.2,
+                'follows_gained' => 67,
+                'duration' => '0:60',
+                'created_at' => '2024-11-20'
+            ]
+        ];
+
+        $templates = [
+            [
+                'id' => 1,
+                'name' => '商品紹介テンプレート',
+                'duration' => '15秒',
+                'style' => 'プロモーション'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Before/Afterテンプレート',
+                'duration' => '30秒',
+                'style' => 'ビフォーアフター'
+            ],
+            [
+                'id' => 3,
+                'name' => 'チュートリアルテンプレート',
+                'duration' => '60秒',
+                'style' => 'How-to'
+            ],
+            [
+                'id' => 4,
+                'name' => 'お客様の声テンプレート',
+                'duration' => '30秒',
+                'style' => 'テスティモニアル'
+            ]
+        ];
+
+        $metrics = [
+            'total_views' => 156800,
+            'avg_completion_rate' => 65.4,
+            'total_follows' => 234,
+            'total_reels' => 24
+        ];
+
+        $trendingAudio = [
+            ['name' => 'トレンド音源 #1', 'uses' => '2.3M'],
+            ['name' => 'トレンド音源 #2', 'uses' => '1.8M'],
+            ['name' => 'トレンド音源 #3', 'uses' => '1.5M'],
+            ['name' => 'トレンド音源 #4', 'uses' => '1.2M']
+        ];
+
+        return view('demo.sns-tool.reels', compact('recentReels', 'templates', 'metrics', 'trendingAudio'));
+    }
+
+    /**
      * 最近の投稿を取得（5件）
      */
     private function getRecentPosts()

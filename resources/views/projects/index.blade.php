@@ -223,11 +223,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.index') }}'">
+                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.feed') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">Instagram＆GMB投稿効率化アプリ</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">6万円</td>
                             </tr>
-                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.index') }}'">
+                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.reels') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">Instagram＆Shorts動画作成効率化アプリ</td>
                                 <td class="px-6 py-4 text-sm font-light text-white">10万円</td>
                             </tr>

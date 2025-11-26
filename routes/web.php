@@ -107,6 +107,8 @@ use App\Http\Controllers\Demo\SnsToolDemoController;
 
 Route::prefix('projects/demo/sns-tool')->name('demo.sns-tool.')->group(function () {
     Route::get('/', [SnsToolDemoController::class, 'index'])->name('index');
+    Route::get('/feed', [SnsToolDemoController::class, 'feed'])->name('feed');
+    Route::get('/reels', [SnsToolDemoController::class, 'reels'])->name('reels');
     Route::get('/posts', [SnsToolDemoController::class, 'posts'])->name('posts');
     Route::get('/posts/create', [SnsToolDemoController::class, 'postsCreate'])->name('posts.create');
     Route::get('/schedule', [SnsToolDemoController::class, 'schedule'])->name('schedule');
