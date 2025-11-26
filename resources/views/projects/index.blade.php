@@ -146,6 +146,11 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- 注意書き -->
+                    <div class="mt-6 space-y-2">
+                        <p class="text-sm text-gray-400 font-light">※1 金額はページ数や実装するシステムにより変動します。</p>
+                        <p class="text-sm text-gray-400 font-light">※2 上記以外のデザインテイストにも対応可能です。お気軽にご相談ください。</p>
+                    </div>
                 </div>
 
                 <!-- Options Table -->
