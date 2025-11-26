@@ -109,9 +109,12 @@
 
         <!-- デモ通知 -->
         <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-gray-50">
-            <p class="text-xs text-gray-500 mb-2">デモモード</p>
-            <a href="{{ route('projects.index') }}" class="text-xs text-purple-600 hover:text-purple-800 font-medium flex items-center">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <p class="text-xs text-gray-500 font-medium">デモモード</p>
+            </div>
+            <a href="{{ route('projects.index') }}" class="flex items-center justify-center w-full px-4 py-2.5 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition text-sm font-medium shadow-sm">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                 </svg>
                 プロジェクト一覧へ戻る
