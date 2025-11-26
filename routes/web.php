@@ -133,6 +133,13 @@ Route::prefix('projects/demo/luxury')->name('demo.luxury.')->group(function () {
     Route::get('/', [LuxuryDemoController::class, 'index'])->name('index');
 });
 
+// Brutalist Demo Routes
+use App\Http\Controllers\Demo\BrutalistDemoController;
+
+Route::prefix('projects/demo/brutalist')->name('demo.brutalist.')->group(function () {
+    Route::get('/', [BrutalistDemoController::class, 'index'])->name('index');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
