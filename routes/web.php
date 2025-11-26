@@ -119,7 +119,12 @@ Route::prefix('projects/demo/sns-tool')->name('demo.sns-tool.')->group(function 
 // Retro Terminal Demo Routes
 use App\Http\Controllers\Demo\RetroTerminalDemoController;
 
-Route::get('/projects/demo/retro-terminal', [RetroTerminalDemoController::class, 'index'])->name('demo.retro-terminal.index');
+Route::prefix('projects/demo/retro-terminal')->name('demo.retro-terminal.')->group(function () {
+    Route::get('/', [RetroTerminalDemoController::class, 'index'])->name('index');
+    Route::get('/about', [RetroTerminalDemoController::class, 'about'])->name('about');
+    Route::get('/service', [RetroTerminalDemoController::class, 'service'])->name('service');
+    Route::get('/contact', [RetroTerminalDemoController::class, 'contact'])->name('contact');
+});
 
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;

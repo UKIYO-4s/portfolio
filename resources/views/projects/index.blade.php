@@ -108,6 +108,11 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">15万円〜20万円</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">3〜4ページ、レスポンシブ、問い合わせフォーム、基本SEO</td>
                                 </tr>
+                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.retro-terminal.index') }}'">
+                                    <td class="px-6 py-4 text-sm font-light text-white">サンプルデザイン</td>
+                                    <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
+                                    <td class="px-6 py-4 text-sm font-light text-gray-100">レトロ端末風デザイン、ワンページ構成</td>
+                                </tr>
                                 <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.custom-hp.index') }}'">
                                     <td class="px-6 py-4 text-sm font-light text-white">カスタムデザインHP</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">50万円〜</td>
@@ -117,11 +122,6 @@
                                     <td class="px-6 py-4 text-sm font-light text-white">フルカスタムHP</td>
                                     <td class="px-6 py-4 text-sm font-light text-white">80万円〜</td>
                                     <td class="px-6 py-4 text-sm font-light text-gray-100">カスタムデザイン＋システム機能</td>
-                                </tr>
-                                <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.retro-terminal.index') }}'">
-                                    <td class="px-6 py-4 text-sm font-light text-white">レトロ端末風HP</td>
-                                    <td class="px-6 py-4 text-sm font-light text-white">30万円〜</td>
-                                    <td class="px-6 py-4 text-sm font-light text-gray-100">ターミナル風デザイン、ワンページ構成</td>
                                 </tr>
                             </tbody>
                         </table>
