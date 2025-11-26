@@ -140,6 +140,13 @@ Route::prefix('projects/demo/brutalist')->name('demo.brutalist.')->group(functio
     Route::get('/', [BrutalistDemoController::class, 'index'])->name('index');
 });
 
+// Cyber Demo Routes
+use App\Http\Controllers\Demo\CyberDemoController;
+
+Route::prefix('projects/demo/cyber')->name('demo.cyber.')->group(function () {
+    Route::get('/', [CyberDemoController::class, 'index'])->name('index');
+});
+
 // Admin Routes
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
