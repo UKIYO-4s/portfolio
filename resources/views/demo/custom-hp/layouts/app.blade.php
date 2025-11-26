@@ -53,11 +53,11 @@
             z-index: 1;
         }
 
-        /* === 標準ガラスカード（すりガラス最終版） === */
+        /* === 標準ガラスカード（ヘッダーと統一） === */
         .glass-card-minimal {
-            background: rgba(255, 255, 255, 0.30);
-            backdrop-filter: blur(32px) saturate(140%);
-            -webkit-backdrop-filter: blur(32px) saturate(140%);
+            background: rgba(255, 255, 255, 0.38);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
             border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
                 0 10px 32px rgba(0, 0, 0, 0.06),
@@ -67,19 +67,19 @@
         }
 
         .glass-card-minimal:hover {
-            background: rgba(255, 255, 255, 0.34);
-            backdrop-filter: blur(36px) saturate(140%);
-            -webkit-backdrop-filter: blur(36px) saturate(140%);
+            background: rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(32px) saturate(140%);
+            -webkit-backdrop-filter: blur(32px) saturate(140%);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
-        /* === 強いガラスカード（すりガラス最終版） === */
+        /* === 強いガラスカード（ヘッダーと統一+0.05） === */
         .glass-card-strong {
-            background: rgba(255, 255, 255, 0.38);
-            backdrop-filter: blur(36px) saturate(140%);
-            -webkit-backdrop-filter: blur(36px) saturate(140%);
+            background: rgba(255, 255, 255, 0.43);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
             border: 1px solid rgba(255, 255, 255, 0.55);
             box-shadow:
                 0 10px 32px rgba(0, 0, 0, 0.06),
@@ -89,17 +89,17 @@
         }
 
         .glass-card-strong:hover {
-            background: rgba(255, 255, 255, 0.43);
-            backdrop-filter: blur(40px) saturate(140%);
-            -webkit-backdrop-filter: blur(40px) saturate(140%);
+            background: rgba(255, 255, 255, 0.48);
+            backdrop-filter: blur(32px) saturate(140%);
+            -webkit-backdrop-filter: blur(32px) saturate(140%);
             box-shadow:
                 0 12px 40px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.65);
         }
 
-        /* === ガラスヘッダー（すりガラス最終版） === */
+        /* === ガラスヘッダー（基準：0.38） === */
         .glass-header {
-            background: rgba(255, 255, 255, 0.30);
+            background: rgba(255, 255, 255, 0.38);
             backdrop-filter: blur(28px) saturate(140%);
             -webkit-backdrop-filter: blur(28px) saturate(140%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.55);
@@ -140,31 +140,51 @@
             color: var(--accent-deep-green);
         }
 
-        /* モバイル対応（パフォーマンス確保） */
+        /* === ドリフトアニメーション（ゆっくり漂う） === */
+        @keyframes drift1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(35px, -40px) scale(1.04); }
+            50% { transform: translate(-30px, 30px) scale(0.96); }
+            75% { transform: translate(40px, 20px) scale(1.03); }
+        }
+
+        @keyframes drift2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            30% { transform: translate(-40px, 25px) scale(0.97); }
+            60% { transform: translate(35px, -30px) scale(1.05); }
+        }
+
+        .abstract-shape-1 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift1 32s infinite ease-in-out; }
+        .abstract-shape-2 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift2 28s infinite ease-in-out 3s; }
+        .abstract-shape-3 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift1 36s infinite ease-in-out 6s; }
+        .abstract-shape-4 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift2 30s infinite ease-in-out 9s; }
+        .abstract-shape-5 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift1 34s infinite ease-in-out 12s; }
+
+        /* モバイル対応（パフォーマンス確保・統一blur値） */
         @media (max-width: 768px) {
             .glass-card-minimal {
-                backdrop-filter: blur(26px) saturate(140%);
-                -webkit-backdrop-filter: blur(26px) saturate(140%);
+                backdrop-filter: blur(24px) saturate(140%);
+                -webkit-backdrop-filter: blur(24px) saturate(140%);
             }
 
             .glass-card-minimal:hover {
-                backdrop-filter: blur(30px) saturate(140%);
-                -webkit-backdrop-filter: blur(30px) saturate(140%);
+                backdrop-filter: blur(28px) saturate(140%);
+                -webkit-backdrop-filter: blur(28px) saturate(140%);
             }
 
             .glass-card-strong {
-                backdrop-filter: blur(30px) saturate(140%);
-                -webkit-backdrop-filter: blur(30px) saturate(140%);
+                backdrop-filter: blur(24px) saturate(140%);
+                -webkit-backdrop-filter: blur(24px) saturate(140%);
             }
 
             .glass-card-strong:hover {
-                backdrop-filter: blur(34px) saturate(140%);
-                -webkit-backdrop-filter: blur(34px) saturate(140%);
+                backdrop-filter: blur(28px) saturate(140%);
+                -webkit-backdrop-filter: blur(28px) saturate(140%);
             }
 
             .glass-header {
-                backdrop-filter: blur(22px) saturate(140%);
-                -webkit-backdrop-filter: blur(22px) saturate(140%);
+                backdrop-filter: blur(24px) saturate(140%);
+                -webkit-backdrop-filter: blur(24px) saturate(140%);
             }
         }
     </style>
@@ -200,49 +220,69 @@
 
             <!-- 円アウトライン1（左上寄り） -->
             <circle
+                class="abstract-shape-1"
                 cx="400"
                 cy="300"
                 r="250"
                 stroke="rgba(0, 0, 0, 0.06)"
                 stroke-width="1"
                 fill="none"
-            />
+            >
+                <animateTransform attributeName="transform" type="translate" dur="32s" values="0 0; 35 -40; -30 30; 40 20; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="32s" values="1; 1.04; 0.96; 1.03; 1" repeatCount="indefinite" />
+            </circle>
 
             <!-- 円アウトライン2（右下寄り・少し小さめ） -->
             <circle
+                class="abstract-shape-2"
                 cx="1400"
                 cy="800"
                 r="180"
                 stroke="rgba(0, 0, 0, 0.06)"
                 stroke-width="1"
                 fill="none"
-            />
+            >
+                <animateTransform attributeName="transform" type="translate" dur="28s" values="0 0; -40 25; 35 -30; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="28s" values="1; 0.97; 1.05; 1" repeatCount="indefinite" />
+            </circle>
 
             <!-- 六角形アウトライン（中央やや右） -->
             <polygon
+                class="abstract-shape-3"
                 points="1100,400 1200,460 1200,580 1100,640 1000,580 1000,460"
                 stroke="rgba(0, 0, 0, 0.06)"
                 stroke-width="1"
                 fill="none"
-            />
+            >
+                <animateTransform attributeName="transform" type="translate" dur="36s" values="0 0; 30 -35; -25 25; 35 15; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="36s" values="1; 1.03; 0.97; 1.02; 1" repeatCount="indefinite" />
+            </polygon>
 
             <!-- 交点グロウ1（線1と線2の交点付近） -->
             <circle
+                class="abstract-shape-4"
                 cx="900"
                 cy="550"
                 r="120"
                 fill="rgba(38, 90, 73, 0.15)"
                 style="filter: blur(60px);"
-            />
+            >
+                <animateTransform attributeName="transform" type="translate" dur="30s" values="0 0; -35 20; 30 -25; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="30s" values="1; 0.98; 1.04; 1" repeatCount="indefinite" />
+            </circle>
 
             <!-- 交点グロウ2（線2と線3の交点付近） -->
             <circle
+                class="abstract-shape-5"
                 cx="1400"
                 cy="400"
                 r="100"
                 fill="rgba(38, 90, 73, 0.12)"
                 style="filter: blur(50px);"
-            />
+            >
+                <animateTransform attributeName="transform" type="translate" dur="34s" values="0 0; 25 -30; -30 20; 20 25; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="34s" values="1; 1.02; 0.98; 1.03; 1" repeatCount="indefinite" />
+            </circle>
         </svg>
 
         <!-- 微グラデーション（空気感） -->
@@ -295,7 +335,7 @@
 
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.08)]">
-                <div class="px-8 py-4 space-y-3 bg-white/35">
+                <div class="px-8 py-4 space-y-3" style="background: rgba(255, 255, 255, 0.38); backdrop-filter: blur(28px) saturate(140%); -webkit-backdrop-filter: blur(28px) saturate(140%);">
                     <a href="{{ route('demo.custom-hp.index') }}" class="block py-2 text-sm text-[#6B6B6B] hover:text-[#265A49] {{ request()->routeIs('demo.custom-hp.index') ? 'text-[#265A49] font-medium' : '' }}">
                         ホーム
                     </a>
