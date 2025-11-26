@@ -22,17 +22,9 @@
 
         <!-- Hero Visual -->
         <div class="mt-10">
-            <div class="w-full aspect-[4/3] md:aspect-[16/9] flex items-center justify-center">
-                <!-- Content -->
-                <div class="text-center z-10 px-4 flex flex-col items-center justify-center">
-                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <p class="text-gray-800 font-medium text-base md:text-lg">Web制作で成果を出す</p>
-                    <p class="text-gray-500 text-sm mt-2">戦略的なデザインとコーディング</p>
-                </div>
+            <div class="bg-emerald-700 rounded-2xl py-12 md:py-16 px-6 text-center">
+                <p class="text-white font-bold text-2xl md:text-3xl mb-2">Web制作で成果を出す</p>
+                <p class="text-emerald-100 text-sm md:text-base">戦略的なデザインとコーディング</p>
             </div>
         </div>
     </div>
