@@ -4,23 +4,23 @@
 
 @section('content')
 <!-- Page Header -->
-<section class="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
-    <div class="max-w-6xl mx-auto px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">サービス</h1>
+<section class="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">サービス</h1>
         <p class="text-gray-600">Services</p>
     </div>
 </section>
 
 <!-- Services -->
-<section class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">提供サービス</h2>
-            <div class="w-16 h-1 bg-emerald-600 mx-auto mb-8"></div>
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">提供サービス</h2>
+            <div class="w-16 h-1 bg-emerald-600 mx-auto mb-4"></div>
             <p class="text-gray-600">B2B企業のWeb制作に特化した3つのサービスをご提供しています</p>
         </div>
 
-        <div class="space-y-16">
+        <div class="space-y-10 md:space-y-12">
             <!-- Service 1: コーポレートサイト制作 -->
             <div class="bg-gradient-to-br from-gray-50 via-emerald-50/20 to-gray-50 rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div class="grid md:grid-cols-2 gap-0">
@@ -39,7 +39,7 @@
                     </div>
 
                     <!-- Service Content -->
-                    <div class="order-1 md:order-2 p-8 md:p-12 flex flex-col justify-center">
+                    <div class="order-1 md:order-2 p-6 md:p-10 flex flex-col justify-center">
                         <div class="mb-6">
                             <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
                                 Service 01
@@ -106,7 +106,7 @@
                     </div>
 
                     <!-- Service Content -->
-                    <div class="order-1 p-8 md:p-12 flex flex-col justify-center">
+                    <div class="order-1 p-6 md:p-10 flex flex-col justify-center">
                         <div class="mb-6">
                             <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
                                 Service 02
@@ -175,7 +175,7 @@
                     </div>
 
                     <!-- Service Content -->
-                    <div class="order-1 md:order-2 p-8 md:p-12 flex flex-col justify-center">
+                    <div class="order-1 md:order-2 p-6 md:p-10 flex flex-col justify-center">
                         <div class="mb-6">
                             <span class="inline-block px-4 py-1.5 bg-emerald-600 text-white text-xs rounded-full font-semibold mb-4">
                                 Service 03
@@ -228,9 +228,9 @@
 </section>
 
 <!-- Process Overview -->
-<section class="py-24 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
-    <div class="max-w-4xl mx-auto px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">制作の流れ</h2>
+<section class="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50">
+    <div class="max-w-4xl mx-auto px-6 md:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">制作の流れ</h2>
         <p class="text-gray-600 leading-relaxed mb-10">
             ヒアリングから納品まで、丁寧にサポートいたします。<br>
             詳しい制作フローは「会社概要」ページをご覧ください。
@@ -242,18 +242,17 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">お気軽にご相談ください</h2>
-        <p class="text-gray-600 leading-relaxed mb-10">
-            ご質問やお見積もりのご依頼など、<br>
-            お気軽にお問い合わせください。
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">お気軽にご相談ください</h2>
+        <p class="text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto">
+            ご質問やお見積もりのご依頼など、お気軽にお問い合わせください。
         </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="{{ route('demo.simple-hp.contact') }}" class="inline-block bg-emerald-600 text-white text-base px-10 py-4 rounded-lg hover:bg-emerald-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 font-semibold w-full sm:w-auto">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="{{ route('demo.simple-hp.contact') }}" class="inline-block bg-emerald-600 text-white text-base px-8 py-3 rounded-lg hover:bg-emerald-700 hover:shadow-lg transition-all duration-300 font-semibold w-full sm:w-auto">
                 無料相談を予約する
             </a>
-            <a href="#" class="inline-block text-gray-700 border-2 border-gray-300 text-base px-10 py-4 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 font-medium w-full sm:w-auto">
+            <a href="#" class="inline-block text-gray-700 border-2 border-gray-300 text-base px-8 py-3 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 font-medium w-full sm:w-auto">
                 会社案内PDFをダウンロード
             </a>
         </div>
