@@ -140,18 +140,17 @@
             color: var(--accent-deep-green);
         }
 
-        /* === ドリフトアニメーション（ゆっくり漂う） === */
+        /* === ドリフトアニメーション（ゆっくり漂う・振れ幅拡大版） === */
         @keyframes drift1 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(35px, -40px) scale(1.04); }
-            50% { transform: translate(-30px, 30px) scale(0.96); }
-            75% { transform: translate(40px, 20px) scale(1.03); }
+            33% { transform: translate(60px, -70px) scale(1.06); }
+            66% { transform: translate(-55px, 50px) scale(0.94); }
         }
 
         @keyframes drift2 {
             0%, 100% { transform: translate(0, 0) scale(1); }
-            30% { transform: translate(-40px, 25px) scale(0.97); }
-            60% { transform: translate(35px, -30px) scale(1.05); }
+            33% { transform: translate(-65px, 45px) scale(0.94); }
+            66% { transform: translate(55px, -60px) scale(1.06); }
         }
 
         .abstract-shape-1 { transform-box: fill-box; transform-origin: center; will-change: transform; animation: drift1 32s infinite ease-in-out; }
@@ -228,8 +227,8 @@
                 stroke-width="1"
                 fill="none"
             >
-                <animateTransform attributeName="transform" type="translate" dur="32s" values="0 0; 35 -40; -30 30; 40 20; 0 0" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" additive="sum" type="scale" dur="32s" values="1; 1.04; 0.96; 1.03; 1" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="translate" dur="32s" values="0 0; 60 -70; -55 50; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="32s" values="1; 1.06; 0.94; 1" repeatCount="indefinite" />
             </circle>
 
             <!-- 円アウトライン2（右下寄り・少し小さめ） -->
@@ -242,8 +241,8 @@
                 stroke-width="1"
                 fill="none"
             >
-                <animateTransform attributeName="transform" type="translate" dur="28s" values="0 0; -40 25; 35 -30; 0 0" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" additive="sum" type="scale" dur="28s" values="1; 0.97; 1.05; 1" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="translate" dur="28s" values="0 0; -65 45; 55 -60; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="28s" values="1; 0.94; 1.06; 1" repeatCount="indefinite" />
             </circle>
 
             <!-- 六角形アウトライン（中央やや右） -->
@@ -254,8 +253,8 @@
                 stroke-width="1"
                 fill="none"
             >
-                <animateTransform attributeName="transform" type="translate" dur="36s" values="0 0; 30 -35; -25 25; 35 15; 0 0" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" additive="sum" type="scale" dur="36s" values="1; 1.03; 0.97; 1.02; 1" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="translate" dur="36s" values="0 0; 50 -65; -60 55; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="36s" values="1; 1.06; 0.94; 1" repeatCount="indefinite" />
             </polygon>
 
             <!-- 交点グロウ1（線1と線2の交点付近） -->
@@ -267,8 +266,8 @@
                 fill="rgba(38, 90, 73, 0.15)"
                 style="filter: blur(60px);"
             >
-                <animateTransform attributeName="transform" type="translate" dur="30s" values="0 0; -35 20; 30 -25; 0 0" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" additive="sum" type="scale" dur="30s" values="1; 0.98; 1.04; 1" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="translate" dur="30s" values="0 0; -60 40; 55 -50; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="30s" values="1; 0.94; 1.06; 1" repeatCount="indefinite" />
             </circle>
 
             <!-- 交点グロウ2（線2と線3の交点付近） -->
@@ -280,8 +279,8 @@
                 fill="rgba(38, 90, 73, 0.12)"
                 style="filter: blur(50px);"
             >
-                <animateTransform attributeName="transform" type="translate" dur="34s" values="0 0; 25 -30; -30 20; 20 25; 0 0" repeatCount="indefinite" />
-                <animateTransform attributeName="transform" additive="sum" type="scale" dur="34s" values="1; 1.02; 0.98; 1.03; 1" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" type="translate" dur="34s" values="0 0; 45 -60; -55 45; 0 0" repeatCount="indefinite" />
+                <animateTransform attributeName="transform" additive="sum" type="scale" dur="34s" values="1; 1.06; 0.94; 1" repeatCount="indefinite" />
             </circle>
         </svg>
 
