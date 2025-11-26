@@ -41,74 +41,77 @@
     </button>
 
     <!-- サイドバー -->
-    <div id="sidebar" class="mobile-menu lg:translate-x-0 fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200 overflow-y-auto z-40">
+    <div id="sidebar" class="mobile-menu lg:translate-x-0 fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200 z-40 flex flex-col">
         <!-- ロゴ -->
-        <div class="p-6 border-b border-gray-100">
+        <div class="p-6 border-b border-gray-100 flex-shrink-0">
             <h1 class="text-xl font-semibold text-gray-900">SNS Manager</h1>
             <p class="text-xs text-gray-500 mt-1">SNS運用管理ツール</p>
         </div>
 
-        <!-- アプリ切替 -->
-        <div class="p-4 border-b border-gray-100">
-            <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-3">アプリ切替</p>
-            <div class="grid grid-cols-2 gap-2">
-                <a href="{{ route('demo.sns-tool.feed') }}" class="flex flex-col items-center p-3 rounded-lg border {{ request()->routeIs('demo.sns-tool.feed') ? 'border-purple-300 bg-purple-50' : 'border-gray-200 hover:bg-gray-50' }} transition">
-                    <svg class="w-5 h-5 {{ request()->routeIs('demo.sns-tool.feed') ? 'text-purple-600' : 'text-gray-500' }} mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
-                    <span class="text-xs font-medium {{ request()->routeIs('demo.sns-tool.feed') ? 'text-purple-700' : 'text-gray-600' }}">フィード</span>
-                </a>
-                <a href="{{ route('demo.sns-tool.reels') }}" class="flex flex-col items-center p-3 rounded-lg border {{ request()->routeIs('demo.sns-tool.reels') ? 'border-orange-300 bg-orange-50' : 'border-gray-200 hover:bg-gray-50' }} transition">
-                    <svg class="w-5 h-5 {{ request()->routeIs('demo.sns-tool.reels') ? 'text-orange-500' : 'text-gray-500' }} mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                    <span class="text-xs font-medium {{ request()->routeIs('demo.sns-tool.reels') ? 'text-orange-600' : 'text-gray-600' }}">リール</span>
-                </a>
+        <!-- スクロール可能エリア -->
+        <div class="flex-1 overflow-y-auto">
+            <!-- アプリ切替 -->
+            <div class="p-4 border-b border-gray-100">
+                <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-3">アプリ切替</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="{{ route('demo.sns-tool.feed') }}" class="flex flex-col items-center p-3 rounded-lg border {{ request()->routeIs('demo.sns-tool.feed') ? 'border-purple-300 bg-purple-50' : 'border-gray-200 hover:bg-gray-50' }} transition">
+                        <svg class="w-5 h-5 {{ request()->routeIs('demo.sns-tool.feed') ? 'text-purple-600' : 'text-gray-500' }} mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                        <span class="text-xs font-medium {{ request()->routeIs('demo.sns-tool.feed') ? 'text-purple-700' : 'text-gray-600' }}">フィード</span>
+                    </a>
+                    <a href="{{ route('demo.sns-tool.reels') }}" class="flex flex-col items-center p-3 rounded-lg border {{ request()->routeIs('demo.sns-tool.reels') ? 'border-orange-300 bg-orange-50' : 'border-gray-200 hover:bg-gray-50' }} transition">
+                        <svg class="w-5 h-5 {{ request()->routeIs('demo.sns-tool.reels') ? 'text-orange-500' : 'text-gray-500' }} mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span class="text-xs font-medium {{ request()->routeIs('demo.sns-tool.reels') ? 'text-orange-600' : 'text-gray-600' }}">リール</span>
+                    </a>
+                </div>
             </div>
+
+            <!-- ナビゲーション -->
+            <nav class="p-4">
+                <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-3">メインメニュー</p>
+                <a href="{{ route('demo.sns-tool.index') }}"
+                   class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.index') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="font-medium">ダッシュボード</span>
+                </a>
+
+                <a href="{{ route('demo.sns-tool.posts') }}"
+                   class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.posts*') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                    <span class="font-medium">投稿管理</span>
+                </a>
+
+                <a href="{{ route('demo.sns-tool.schedule') }}"
+                   class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.schedule') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="font-medium">予約投稿</span>
+                </a>
+
+                <a href="{{ route('demo.sns-tool.templates') }}"
+                   class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.templates') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span class="font-medium">テンプレート</span>
+                </a>
+
+                <a href="{{ route('demo.sns-tool.analytics') }}"
+                   class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.analytics') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <span class="font-medium">効果測定</span>
+                </a>
+            </nav>
         </div>
 
-        <!-- ナビゲーション -->
-        <nav class="p-4">
-            <p class="text-xs text-gray-400 uppercase tracking-wide font-medium mb-3">メインメニュー</p>
-            <a href="{{ route('demo.sns-tool.index') }}"
-               class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.index') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                </svg>
-                <span class="font-medium">ダッシュボード</span>
-            </a>
-
-            <a href="{{ route('demo.sns-tool.posts') }}"
-               class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.posts*') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <span class="font-medium">投稿管理</span>
-            </a>
-
-            <a href="{{ route('demo.sns-tool.schedule') }}"
-               class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.schedule') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="font-medium">予約投稿</span>
-            </a>
-
-            <a href="{{ route('demo.sns-tool.templates') }}"
-               class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.templates') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                <span class="font-medium">テンプレート</span>
-            </a>
-
-            <a href="{{ route('demo.sns-tool.analytics') }}"
-               class="flex items-center px-4 py-3 mb-1 rounded-lg transition {{ request()->routeIs('demo.sns-tool.analytics') ? 'bg-purple-50 text-purple-700' : 'text-gray-600 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-                <span class="font-medium">効果測定</span>
-            </a>
-        </nav>
-
-        <!-- デモ通知 -->
-        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-gray-50">
+        <!-- デモ通知（固定フッター） -->
+        <div class="flex-shrink-0 p-4 border-t border-gray-100 bg-gray-50">
             <div class="flex items-center gap-2 mb-3">
                 <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                 <p class="text-xs text-gray-500 font-medium">デモモード</p>
