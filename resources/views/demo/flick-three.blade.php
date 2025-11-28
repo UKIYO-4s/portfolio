@@ -45,18 +45,49 @@
             overflow: hidden;
         }
 
-        /* Background glow effect */
+        /* Background glow effect - large blur */
         .mock-container::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 60%);
             pointer-events: none;
             animation: pulse 4s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        /* Background particles */
+        .bg-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticle 8s ease-in-out infinite;
+        }
+
+        .bg-particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .bg-particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 1s; }
+        .bg-particle:nth-child(3) { left: 80%; top: 30%; animation-delay: 2s; }
+        .bg-particle:nth-child(4) { left: 70%; top: 70%; animation-delay: 3s; }
+        .bg-particle:nth-child(5) { left: 40%; top: 80%; animation-delay: 4s; }
+        .bg-particle:nth-child(6) { left: 90%; top: 50%; animation-delay: 5s; }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-30px) scale(1.5); opacity: 0.6; }
         }
 
         @keyframes pulse {
@@ -320,6 +351,16 @@
 
     <!-- PC: iPhone Mock -->
     <div class="mock-container">
+        <!-- Background particles -->
+        <div class="bg-particles">
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+        </div>
+
         <div class="iphone-mock">
             <div class="iphone-screen">
                 <div class="dynamic-island"></div>
@@ -350,6 +391,16 @@
 
     <!-- Mobile: Full Screen -->
     <div class="mobile-fullscreen">
+        <!-- Background particles -->
+        <div class="bg-particles">
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+        </div>
+
         <div class="three-container" id="mobileContainer">
             <!-- Three.js renders here -->
         </div>
@@ -391,7 +442,7 @@
             { title: 'Experience', subtitle: 'Innovation', color: 0x0a1a15 }
         ];
 
-        class PrismScene {
+        class HingePrismScene {
             constructor(containerId, dotsId, titleId, subtitleId) {
                 this.container = document.getElementById(containerId);
                 this.dotsContainer = document.getElementById(dotsId);
@@ -409,6 +460,22 @@
                 this.velocity = 0;
                 this.lastTime = 0;
 
+                // Hinge animation state
+                this.targetLift = 0;
+                this.currentLift = 0;
+                this.targetCamZ = 5.0;
+                this.currentCamZ = 5.0;
+                this.animationPhase = 'idle'; // 'rotating', 'sinking', 'settling', 'idle'
+
+                // Lerp settings - slower for smooth effect
+                this.rotLerpFactor = 0.045;
+                this.liftLerpFactor = 0.18;
+                this.camLerpFactor = 0.08;
+
+                // Emissive intensity
+                this.targetEmissive = 0.12;
+                this.currentEmissive = 0.12;
+
                 this.init();
             }
 
@@ -420,7 +487,7 @@
 
                 // Camera
                 this.camera = new THREE.PerspectiveCamera(50, rect.width / rect.height, 0.1, 1000);
-                this.camera.position.z = 5;
+                this.camera.position.z = this.currentCamZ;
 
                 // Renderer
                 this.renderer = new THREE.WebGLRenderer({
@@ -438,8 +505,8 @@
                 // Create background particles
                 this.createParticles();
 
-                // Create prism
-                this.createPrism();
+                // Create prism with hinge pivot
+                this.createHingePrism();
 
                 // Lights
                 this.setupLights();
@@ -457,93 +524,192 @@
             }
 
             createParticles() {
-                const particleCount = 50;
-                const geometry = new THREE.BufferGeometry();
-                const positions = new Float32Array(particleCount * 3);
+                // Front particles (closer, smaller)
+                const frontCount = 30;
+                const frontGeometry = new THREE.BufferGeometry();
+                const frontPositions = new Float32Array(frontCount * 3);
 
-                for (let i = 0; i < particleCount; i++) {
-                    positions[i * 3] = (Math.random() - 0.5) * 10;
-                    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-                    positions[i * 3 + 2] = (Math.random() - 0.5) * 5 - 3;
+                for (let i = 0; i < frontCount; i++) {
+                    frontPositions[i * 3] = (Math.random() - 0.5) * 8;
+                    frontPositions[i * 3 + 1] = (Math.random() - 0.5) * 8;
+                    frontPositions[i * 3 + 2] = (Math.random() - 0.5) * 3 + 1;
                 }
 
-                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                frontGeometry.setAttribute('position', new THREE.BufferAttribute(frontPositions, 3));
 
-                const material = new THREE.PointsMaterial({
+                const frontMaterial = new THREE.PointsMaterial({
                     color: 0x00CED1,
-                    size: 0.03,
+                    size: 0.025,
                     transparent: true,
-                    opacity: 0.6,
+                    opacity: 0.5,
                     blending: THREE.AdditiveBlending
                 });
 
-                this.particles = new THREE.Points(geometry, material);
-                this.scene.add(this.particles);
+                this.frontParticles = new THREE.Points(frontGeometry, frontMaterial);
+                this.scene.add(this.frontParticles);
+
+                // Back particles (farther, larger blur effect)
+                const backCount = 40;
+                const backGeometry = new THREE.BufferGeometry();
+                const backPositions = new Float32Array(backCount * 3);
+
+                for (let i = 0; i < backCount; i++) {
+                    backPositions[i * 3] = (Math.random() - 0.5) * 12;
+                    backPositions[i * 3 + 1] = (Math.random() - 0.5) * 12;
+                    backPositions[i * 3 + 2] = (Math.random() - 0.5) * 4 - 5;
+                }
+
+                backGeometry.setAttribute('position', new THREE.BufferAttribute(backPositions, 3));
+
+                const backMaterial = new THREE.PointsMaterial({
+                    color: 0x00CED1,
+                    size: 0.06,
+                    transparent: true,
+                    opacity: 0.3,
+                    blending: THREE.AdditiveBlending
+                });
+
+                this.backParticles = new THREE.Points(backGeometry, backMaterial);
+                this.scene.add(this.backParticles);
             }
 
-            createPrism() {
-                // Create triangular prism geometry
-                const shape = new THREE.Shape();
-                const radius = 1.2;
+            createHingePrism() {
+                // Prism dimensions
+                const width = 2.0;
+                const height = 3.5;
+                const depth = 0.15;
 
-                // Triangle vertices
-                for (let i = 0; i < 3; i++) {
-                    const angle = (i / 3) * Math.PI * 2 - Math.PI / 2;
-                    const x = Math.cos(angle) * radius;
-                    const y = Math.sin(angle) * radius;
-                    if (i === 0) {
-                        shape.moveTo(x, y);
-                    } else {
-                        shape.lineTo(x, y);
-                    }
-                }
-                shape.closePath();
+                // Create pivot group for hinge rotation
+                this.pivotGroup = new THREE.Group();
+                // Offset pivot to left edge (hinge position)
+                this.pivotGroup.position.set(-width / 2, 0, 0);
+                this.scene.add(this.pivotGroup);
 
-                const extrudeSettings = {
-                    depth: 2.5,
-                    bevelEnabled: false
-                };
+                // Inner group to hold the prism (offset back to center visually)
+                this.prismGroup = new THREE.Group();
+                this.prismGroup.position.set(width / 2, 0, 0);
+                this.pivotGroup.add(this.prismGroup);
 
-                const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-                geometry.center();
+                // Create three planes for the triangular prism faces
+                const planeGeometry = new THREE.PlaneGeometry(width, height);
 
-                // Create materials for each face
-                const materials = faceData.map((face, index) => {
+                // Materials with emissive
+                this.faceMaterials = faceData.map((face, index) => {
                     return new THREE.MeshStandardMaterial({
                         color: face.color,
                         metalness: 0.35,
                         roughness: 0.25,
                         emissive: 0x00CED1,
-                        emissiveIntensity: 0.05 + index * 0.02
+                        emissiveIntensity: 0.12,
+                        side: THREE.DoubleSide
                     });
                 });
 
-                // Apply materials - ExtrudeGeometry has multiple groups
-                // Groups: 0 = front cap, 1 = back cap, 2+ = sides
-                const material = new THREE.MeshStandardMaterial({
-                    color: 0x0a1520,
-                    metalness: 0.35,
-                    roughness: 0.25,
-                    emissive: 0x00CED1,
-                    emissiveIntensity: 0.08
+                // Create face meshes positioned for triangular prism
+                this.faceMeshes = [];
+                const faceAngles = [0, 120, 240]; // degrees
+                const prismRadius = 0.8; // Distance from center to face
+
+                faceAngles.forEach((angle, index) => {
+                    const mesh = new THREE.Mesh(planeGeometry.clone(), this.faceMaterials[index]);
+
+                    // Position each face
+                    const rad = (angle * Math.PI) / 180;
+                    mesh.position.z = Math.cos(rad) * prismRadius;
+                    mesh.position.x = Math.sin(rad) * prismRadius;
+                    mesh.rotation.y = -rad;
+
+                    // Translate geometry to pivot from left edge
+                    mesh.geometry.translate(-width / 2, 0, 0);
+                    mesh.position.x += width / 2;
+
+                    this.faceMeshes.push(mesh);
+                    this.prismGroup.add(mesh);
                 });
 
-                this.prism = new THREE.Mesh(geometry, material);
-                this.prism.rotation.y = Math.PI / 2;
-                this.prism.castShadow = true;
-                this.prism.receiveShadow = true;
-                this.scene.add(this.prism);
+                // Create hinge glow line (left edge)
+                this.createHingeGlow();
 
-                // Add edge glow
-                const edgeGeometry = new THREE.EdgesGeometry(geometry);
-                const edgeMaterial = new THREE.LineBasicMaterial({
+                // Create edge highlights
+                this.createEdgeHighlights();
+            }
+
+            createHingeGlow() {
+                const height = 3.5;
+                const hingeGeometry = new THREE.BufferGeometry();
+                const hingePositions = new Float32Array([
+                    0, -height / 2, 0,
+                    0, height / 2, 0
+                ]);
+                hingeGeometry.setAttribute('position', new THREE.BufferAttribute(hingePositions, 3));
+
+                this.hingeMaterial = new THREE.LineBasicMaterial({
                     color: 0x00CED1,
                     transparent: true,
-                    opacity: 0.5
+                    opacity: 0.6,
+                    linewidth: 2
                 });
-                this.edges = new THREE.LineSegments(edgeGeometry, edgeMaterial);
-                this.edges.rotation.y = Math.PI / 2;
-                this.scene.add(this.edges);
+
+                this.hingeLine = new THREE.Line(hingeGeometry, this.hingeMaterial);
+                this.hingeLine.position.set(0, 0, 0.8); // Position at front face left edge
+                this.prismGroup.add(this.hingeLine);
+
+                // Hinge glow sprite
+                const glowTexture = this.createGlowTexture();
+                const glowMaterial = new THREE.SpriteMaterial({
+                    map: glowTexture,
+                    color: 0x00CED1,
+                    transparent: true,
+                    opacity: 0.4,
+                    blending: THREE.AdditiveBlending
+                });
+
+                this.hingeGlow = new THREE.Sprite(glowMaterial);
+                this.hingeGlow.scale.set(0.5, 4, 1);
+                this.hingeGlow.position.set(0, 0, 0.8);
+                this.prismGroup.add(this.hingeGlow);
+            }
+
+            createGlowTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                const ctx = canvas.getContext('2d');
+
+                const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+                gradient.addColorStop(0, 'rgba(0, 206, 209, 1)');
+                gradient.addColorStop(0.3, 'rgba(0, 206, 209, 0.5)');
+                gradient.addColorStop(1, 'rgba(0, 206, 209, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 64, 64);
+
+                const texture = new THREE.CanvasTexture(canvas);
+                return texture;
+            }
+
+            createEdgeHighlights() {
+                const width = 2.0;
+                const height = 3.5;
+
+                // Right edge highlight for each face
+                const edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.15
+                });
+
+                this.faceMeshes.forEach((mesh, index) => {
+                    const edgeGeometry = new THREE.BufferGeometry();
+                    const edgePositions = new Float32Array([
+                        width / 2, -height / 2, 0,
+                        width / 2, height / 2, 0
+                    ]);
+                    edgeGeometry.setAttribute('position', new THREE.BufferAttribute(edgePositions, 3));
+
+                    const edge = new THREE.Line(edgeGeometry, edgeMaterial);
+                    mesh.add(edge);
+                });
             }
 
             setupLights() {
@@ -551,16 +717,16 @@
                 const hemiLight = new THREE.HemisphereLight(0x444444, 0x111111, 0.5);
                 this.scene.add(hemiLight);
 
-                // Left point light
-                const leftLight = new THREE.PointLight(0x00CED1, 1, 10);
-                leftLight.position.set(-3, 1, 2);
-                leftLight.castShadow = true;
-                leftLight.shadow.mapSize.width = 512;
-                leftLight.shadow.mapSize.height = 512;
-                this.scene.add(leftLight);
+                // Left point light (hinge side - stronger)
+                this.leftLight = new THREE.PointLight(0x00CED1, 1.2, 10);
+                this.leftLight.position.set(-3, 1, 2);
+                this.leftLight.castShadow = true;
+                this.leftLight.shadow.mapSize.width = 512;
+                this.leftLight.shadow.mapSize.height = 512;
+                this.scene.add(this.leftLight);
 
                 // Right point light
-                const rightLight = new THREE.PointLight(0x00CED1, 1, 10);
+                const rightLight = new THREE.PointLight(0x00CED1, 0.8, 10);
                 rightLight.position.set(3, 1, 2);
                 rightLight.castShadow = true;
                 this.scene.add(rightLight);
@@ -611,6 +777,12 @@
                 this.lastX = this.startX;
                 this.lastTime = Date.now();
                 this.velocity = 0;
+
+                // Start lift
+                this.animationPhase = 'rotating';
+                this.targetLift = 0.12;
+                this.targetCamZ = 4.6;
+                this.targetEmissive = 0.28;
             }
 
             onTouchMove(e) {
@@ -621,10 +793,11 @@
                 const deltaTime = currentTime - this.lastTime;
 
                 if (deltaTime > 0) {
-                    this.velocity = deltaX / deltaTime * 10;
+                    this.velocity = deltaX / deltaTime * 8;
                 }
 
-                this.targetRotation -= deltaX * 0.005;
+                // Right-to-left swipe = positive rotation (door opens)
+                this.targetRotation -= deltaX * 0.006;
                 this.lastX = currentX;
                 this.lastTime = currentTime;
             }
@@ -642,6 +815,12 @@
                 this.lastTime = Date.now();
                 this.velocity = 0;
                 this.container.style.cursor = 'grabbing';
+
+                // Start lift
+                this.animationPhase = 'rotating';
+                this.targetLift = 0.12;
+                this.targetCamZ = 4.6;
+                this.targetEmissive = 0.28;
             }
 
             onMouseMove(e) {
@@ -652,10 +831,11 @@
                 const deltaTime = currentTime - this.lastTime;
 
                 if (deltaTime > 0) {
-                    this.velocity = deltaX / deltaTime * 10;
+                    this.velocity = deltaX / deltaTime * 8;
                 }
 
-                this.targetRotation -= deltaX * 0.005;
+                // Right-to-left swipe = positive rotation (door opens)
+                this.targetRotation -= deltaX * 0.006;
                 this.lastX = currentX;
                 this.lastTime = currentTime;
             }
@@ -682,8 +862,8 @@
             }
 
             applyMomentumAndSnap() {
-                // Apply momentum
-                this.targetRotation += this.velocity * 0.3;
+                // Apply short momentum
+                this.targetRotation += this.velocity * 0.2;
 
                 // Snap to nearest face (120° = 2π/3 radians)
                 const faceAngle = (Math.PI * 2) / 3;
@@ -692,7 +872,25 @@
 
                 // Calculate current face
                 this.currentFace = (((-nearestFace % 3) + 3) % 3);
-                this.updateUI();
+
+                // Start sink sequence
+                this.animationPhase = 'sinking';
+                this.targetLift = -0.06;
+                this.targetCamZ = 5.1;
+
+                // After sink, settle
+                setTimeout(() => {
+                    this.animationPhase = 'settling';
+                    this.targetLift = 0;
+                    this.targetCamZ = 5.0;
+                    this.targetEmissive = 0.12;
+                    this.updateUI();
+                }, 350);
+
+                // Mark as idle
+                setTimeout(() => {
+                    this.animationPhase = 'idle';
+                }, 700);
             }
 
             goToFace(faceIndex) {
@@ -705,9 +903,35 @@
                 if (diff > 1) diff -= 3;
                 if (diff < -1) diff += 3;
 
+                // Start lift
+                this.animationPhase = 'rotating';
+                this.targetLift = 0.12;
+                this.targetCamZ = 4.6;
+                this.targetEmissive = 0.28;
+
                 this.targetRotation = (currentFaceFromRotation + diff) * faceAngle;
                 this.currentFace = faceIndex;
-                this.updateUI();
+
+                // Sink sequence
+                setTimeout(() => {
+                    this.animationPhase = 'sinking';
+                    this.targetLift = -0.06;
+                    this.targetCamZ = 5.1;
+                }, 400);
+
+                // Settle
+                setTimeout(() => {
+                    this.animationPhase = 'settling';
+                    this.targetLift = 0;
+                    this.targetCamZ = 5.0;
+                    this.targetEmissive = 0.12;
+                    this.updateUI();
+                }, 600);
+
+                // Idle
+                setTimeout(() => {
+                    this.animationPhase = 'idle';
+                }, 900);
             }
 
             updateUI() {
@@ -760,26 +984,70 @@
             animate() {
                 requestAnimationFrame(() => this.animate());
 
-                // Ease out cubic interpolation
-                const diff = this.targetRotation - this.currentRotation;
-                const easeAmount = 0.08;
-
-                if (Math.abs(diff) > 0.001) {
-                    this.currentRotation += diff * easeAmount;
+                // Smooth lerp for rotation (slow)
+                const rotDiff = this.targetRotation - this.currentRotation;
+                if (Math.abs(rotDiff) > 0.001) {
+                    this.currentRotation += rotDiff * this.rotLerpFactor;
                 } else {
                     this.currentRotation = this.targetRotation;
                 }
 
-                // Apply rotation
-                if (this.prism) {
-                    this.prism.rotation.y = this.currentRotation + Math.PI / 2;
-                    this.edges.rotation.y = this.currentRotation + Math.PI / 2;
+                // Smooth lerp for lift (faster for quick settle)
+                const liftDiff = this.targetLift - this.currentLift;
+                if (Math.abs(liftDiff) > 0.0001) {
+                    this.currentLift += liftDiff * this.liftLerpFactor;
+                } else {
+                    this.currentLift = this.targetLift;
+                }
+
+                // Smooth lerp for camera Z
+                const camDiff = this.targetCamZ - this.currentCamZ;
+                if (Math.abs(camDiff) > 0.001) {
+                    this.currentCamZ += camDiff * this.camLerpFactor;
+                } else {
+                    this.currentCamZ = this.targetCamZ;
+                }
+
+                // Smooth lerp for emissive
+                const emDiff = this.targetEmissive - this.currentEmissive;
+                if (Math.abs(emDiff) > 0.001) {
+                    this.currentEmissive += emDiff * 0.1;
+                } else {
+                    this.currentEmissive = this.targetEmissive;
+                }
+
+                // Apply transforms
+                if (this.pivotGroup) {
+                    // Hinge rotation (Y axis at left edge)
+                    this.pivotGroup.rotation.y = this.currentRotation;
+                    // Lift effect (Z translation)
+                    this.pivotGroup.position.z = this.currentLift;
+                }
+
+                // Update camera
+                this.camera.position.z = this.currentCamZ;
+
+                // Update emissive intensity and hinge glow
+                this.faceMaterials.forEach(mat => {
+                    mat.emissiveIntensity = this.currentEmissive;
+                });
+
+                if (this.hingeMaterial) {
+                    this.hingeMaterial.opacity = 0.3 + this.currentEmissive;
+                }
+
+                if (this.hingeGlow) {
+                    this.hingeGlow.material.opacity = 0.2 + this.currentEmissive * 0.5;
                 }
 
                 // Animate particles
-                if (this.particles) {
-                    this.particles.rotation.y += 0.0005;
-                    this.particles.rotation.x += 0.0002;
+                if (this.frontParticles) {
+                    this.frontParticles.rotation.y += 0.0003;
+                    this.frontParticles.rotation.x += 0.0001;
+                }
+                if (this.backParticles) {
+                    this.backParticles.rotation.y += 0.0002;
+                    this.backParticles.rotation.x += 0.00015;
                 }
 
                 // Render
@@ -789,8 +1057,8 @@
 
         // Initialize scenes
         document.addEventListener('DOMContentLoaded', () => {
-            new PrismScene('pcContainer', 'pcDots', 'pcTitle', 'pcSubtitle');
-            new PrismScene('mobileContainer', 'mobileDots', 'mobileTitle', 'mobileSubtitle');
+            new HingePrismScene('pcContainer', 'pcDots', 'pcTitle', 'pcSubtitle');
+            new HingePrismScene('mobileContainer', 'mobileDots', 'mobileTitle', 'mobileSubtitle');
         });
 
         // Set to true to enable initial rotation demo
