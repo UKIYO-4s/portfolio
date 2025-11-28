@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Flick LP Demo - Swiper Cube (Left Hinge)</title>
+    <title>Flick LP Demo - Swiper Cube (3-Phase Motion)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -157,18 +157,20 @@
             overflow: hidden;
         }
 
-        /* Left Hinge Adjustment - Shift cube wrapper */
+        /* Left Hinge Adjustment */
         .swiper {
             width: 100%;
             height: 100%;
-            /* Left hinge: shift container left by 50% */
             transform-origin: left center;
+            /* Left shift for visual hinge */
+            transform: translateX(-10%);
         }
 
         /* Override cube wrapper for left hinge effect */
         .swiper-cube .swiper-wrapper {
-            /* Shift wrapper left to make hinge appear on left edge */
             transform-origin: left center !important;
+            /* 3-phase motion easing */
+            transition: transform 420ms cubic-bezier(.2,.7,.2,1) !important;
         }
 
         .swiper-slide {
@@ -591,20 +593,30 @@
             opacity: 0.6;
         }
 
-        /* Sink animation class */
-        .swiper.is-lifting .swiper-wrapper {
-            transform: translateZ(16px) !important;
-            transition: transform 0.1s ease-out;
+        /* 3-Phase Motion Animation Classes */
+
+        /* Phase A: Lift (持ち上げ) */
+        .swiper.phase-lift .swiper-wrapper {
+            transform: translateZ(50px) translateY(-14px) !important;
+            transition: transform 180ms cubic-bezier(.2,.7,.2,1) !important;
         }
 
-        .swiper.is-sinking .swiper-wrapper {
-            transform: translateZ(-6px) !important;
-            transition: transform 0.15s ease-in;
+        /* Phase B: Center Float (浮遊) */
+        .swiper.phase-float .swiper-wrapper {
+            transform: translateZ(28px) translateY(-18px) !important;
+            transition: transform 200ms cubic-bezier(.2,.7,.2,1) !important;
         }
 
-        .swiper.is-settling .swiper-wrapper {
-            transform: translateZ(0px) !important;
-            transition: transform 0.2s ease-out;
+        /* Phase C: Land (着地) */
+        .swiper.phase-land .swiper-wrapper {
+            transform: translateZ(-6px) translateY(0px) !important;
+            transition: transform 350ms cubic-bezier(.2,.7,.2,1) !important;
+        }
+
+        /* Phase C2: Settle (収束) */
+        .swiper.phase-settle .swiper-wrapper {
+            transform: translateZ(0px) translateY(0px) !important;
+            transition: transform 150ms ease-out !important;
         }
     </style>
 </head>
@@ -801,56 +813,98 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             /**
-             * SinkAnimationController
-             * Handles lift → sink → settle sequence on slide change
+             * ThreePhaseMotionController
+             * Handles Phase A (Lift) → Phase B (Float) → Phase C (Land/Settle) sequence
              */
-            class SinkAnimationController {
+            class ThreePhaseMotionController {
                 constructor(swiper) {
                     this.swiper = swiper;
                     this.swiperEl = swiper.el;
+                    this.phases = ['phase-lift', 'phase-float', 'phase-land', 'phase-settle'];
                 }
 
+                clearPhases() {
+                    this.phases.forEach(phase => {
+                        this.swiperEl.classList.remove(phase);
+                    });
+                }
+
+                // Phase A: Lift (持ち上げ) - TransitionStart
                 onTransitionStart() {
-                    // Lift phase: translateZ(16px)
-                    this.swiperEl.classList.remove('is-sinking', 'is-settling');
-                    this.swiperEl.classList.add('is-lifting');
+                    this.clearPhases();
+                    this.swiperEl.classList.add('phase-lift');
+
+                    // After lift, transition to float
+                    setTimeout(() => {
+                        this.swiperEl.classList.remove('phase-lift');
+                        this.swiperEl.classList.add('phase-float');
+                    }, 180);
                 }
 
+                // Phase C: Land/Settle (着地/収束) - TransitionEnd
                 onTransitionEnd() {
-                    // Sink phase: translateZ(-6px)
-                    this.swiperEl.classList.remove('is-lifting');
-                    this.swiperEl.classList.add('is-sinking');
+                    this.clearPhases();
+                    this.swiperEl.classList.add('phase-land');
 
-                    // After 200ms, settle to 0
+                    // After land, settle to 0
                     setTimeout(() => {
-                        this.swiperEl.classList.remove('is-sinking');
-                        this.swiperEl.classList.add('is-settling');
+                        this.swiperEl.classList.remove('phase-land');
+                        this.swiperEl.classList.add('phase-settle');
 
                         // Clean up after settling
                         setTimeout(() => {
-                            this.swiperEl.classList.remove('is-settling');
-                        }, 200);
-                    }, 200);
+                            this.clearPhases();
+                        }, 150);
+                    }, 350);
                 }
             }
 
-            // Swiper configuration with "weight" parameters
+            /**
+             * PaginationController
+             * Uses realIndex for proper dot control with loop
+             */
+            class PaginationController {
+                constructor(swiper, paginationSelector) {
+                    this.swiper = swiper;
+                    this.dots = document.querySelectorAll(paginationSelector + ' .swiper-pagination-bullet');
+                }
+
+                update() {
+                    const realIndex = this.swiper.realIndex;
+                    this.dots.forEach((dot, i) => {
+                        dot.classList.toggle('swiper-pagination-bullet-active', i === realIndex);
+                    });
+                }
+            }
+
+            // Swiper configuration with loop and weight parameters
             const swiperConfig = {
                 effect: 'cube',
                 grabCursor: true,
+                loop: true,                    // Infinite loop enabled
+                loopAdditionalSlides: 3,       // Safety margin for loop
                 cubeEffect: {
                     shadow: true,
                     slideShadows: true,
-                    shadowOffset: 70,      // Deeper shadow for "weight"
-                    shadowScale: 0.85,
+                    shadowOffset: 70,          // Deep shadow for weight
+                    shadowScale: 0.82,
                 },
-                speed: 1300,               // 1200-1400ms for heavy feel
+                speed: 1500,                   // 1400-1600ms range
                 touchReleaseOnEdges: true,
                 resistance: true,
-                resistanceRatio: 0.7,      // Higher resistance for weight
+                resistanceRatio: 0.75,         // Higher resistance for weight
+                allowTouchMove: true,
+                autoplay: {
+                    delay: 2600,               // 2600ms delay for breathing rhythm
+                    disableOnInteraction: true,
+                    pauseOnMouseEnter: true,
+                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '" data-index="' + index + '"></span>';
+                    },
                 },
                 keyboard: {
                     enabled: true,
@@ -868,16 +922,36 @@
                 pagination: {
                     el: '.pc-swiper .swiper-pagination',
                     clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '" data-index="' + index + '"></span>';
+                    },
                 },
                 on: {
                     init: function() {
-                        this.sinkController = new SinkAnimationController(this);
+                        this.motionController = new ThreePhaseMotionController(this);
+                        this.paginationController = new PaginationController(this, '.pc-swiper .swiper-pagination');
+
+                        // Initial demo: slow rotation after 1.5s
+                        setTimeout(() => {
+                            if (!this.destroyed) {
+                                this.slideNext(2000);
+                                setTimeout(() => {
+                                    if (!this.destroyed) {
+                                        this.slidePrev(2000);
+                                    }
+                                }, 3000);
+                            }
+                        }, 1500);
                     },
                     slideChangeTransitionStart: function() {
-                        this.sinkController.onTransitionStart();
+                        this.motionController.onTransitionStart();
                     },
                     slideChangeTransitionEnd: function() {
-                        this.sinkController.onTransitionEnd();
+                        this.motionController.onTransitionEnd();
+                    },
+                    slideChange: function() {
+                        // Update pagination with realIndex
+                        this.paginationController.update();
                     }
                 }
             });
@@ -888,16 +962,36 @@
                 pagination: {
                     el: '.mobile-swiper .swiper-pagination',
                     clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '" data-index="' + index + '"></span>';
+                    },
                 },
                 on: {
                     init: function() {
-                        this.sinkController = new SinkAnimationController(this);
+                        this.motionController = new ThreePhaseMotionController(this);
+                        this.paginationController = new PaginationController(this, '.mobile-swiper .swiper-pagination');
+
+                        // Initial demo: slow rotation after 1.5s
+                        setTimeout(() => {
+                            if (!this.destroyed) {
+                                this.slideNext(2000);
+                                setTimeout(() => {
+                                    if (!this.destroyed) {
+                                        this.slidePrev(2000);
+                                    }
+                                }, 3000);
+                            }
+                        }, 1500);
                     },
                     slideChangeTransitionStart: function() {
-                        this.sinkController.onTransitionStart();
+                        this.motionController.onTransitionStart();
                     },
                     slideChangeTransitionEnd: function() {
-                        this.sinkController.onTransitionEnd();
+                        this.motionController.onTransitionEnd();
+                    },
+                    slideChange: function() {
+                        // Update pagination with realIndex
+                        this.paginationController.update();
                     }
                 }
             });
