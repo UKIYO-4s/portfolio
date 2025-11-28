@@ -159,6 +159,11 @@ Route::get('/demo/flick-css3d', function () {
     return view('demo.flick-css3d');
 })->name('demo.flick-css3d');
 
+// Flick LP Demo Routes (Swiper.js Cube)
+Route::get('/demo/flick-swiper', function () {
+    return view('demo.flick-swiper');
+})->name('demo.flick-swiper');
+
 // Options Demo Routes
 Route::prefix('projects/demo/options')->name('demo.options.')->group(function () {
     Route::view('/sns', 'demo.options.sns')->name('sns');
