@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Flick LP Demo - Swiper Cube</title>
+    <title>Flick LP Demo - Hinge Rotation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         * {
             margin: 0;
@@ -61,7 +59,7 @@
             animation: pulse 4s ease-in-out infinite;
         }
 
-        /* Left light beam */
+        /* Light beams */
         .light-beam-left {
             position: absolute;
             left: 10%;
@@ -81,7 +79,6 @@
             animation: beamPulse 3s ease-in-out infinite;
         }
 
-        /* Right light beam */
         .light-beam-right {
             position: absolute;
             right: 10%;
@@ -149,59 +146,79 @@
             z-index: 100;
         }
 
-        /* Swiper Container */
-        .swiper-wrapper-container {
+        /* Prism Scene Container */
+        .prism-container {
             width: 100%;
             height: 100%;
             position: relative;
+            perspective: 1200px;
+            overflow: hidden;
         }
 
-        .swiper {
+        /* Hinge Scene - Left Edge Pivot */
+        .prism-scene {
             width: 100%;
             height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: left center;
+            transition: none;
         }
 
-        .swiper-slide {
+        /* Individual Face */
+        .prism-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 60px 30px;
-            background: linear-gradient(180deg, #000 0%, #0a1520 100%);
-            position: relative;
-            overflow: hidden;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transform-origin: left center;
         }
 
-        .swiper-slide::before {
+        /* Hinge Glow Line */
+        .prism-face::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                var(--color-accent) 30%,
+                var(--color-accent) 70%,
+                transparent 100%
+            );
+            filter: blur(2px);
+            opacity: 0.6;
+            z-index: 10;
+        }
+
+        /* Face Border */
+        .prism-face::after {
             content: '';
             position: absolute;
             inset: 0;
-            border: 1px solid rgba(0, 206, 209, 0.1);
+            border: 1px solid rgba(0, 206, 209, 0.15);
             pointer-events: none;
         }
 
-        /* Cube edge highlight */
-        .swiper-cube .swiper-slide {
-            box-shadow: inset 0 0 30px rgba(0, 206, 209, 0.05);
-        }
-
-        .swiper-cube .swiper-slide-active {
-            box-shadow:
-                inset 0 0 30px rgba(0, 206, 209, 0.1),
-                inset 2px 0 0 rgba(0, 206, 209, 0.3),
-                inset -2px 0 0 rgba(0, 206, 209, 0.3);
-        }
-
-        /* Face backgrounds */
-        .slide-1 {
+        /* Face Backgrounds */
+        .face-1 {
             background: linear-gradient(180deg, #000 0%, #0a1520 100%);
         }
 
-        .slide-2 {
+        .face-2 {
             background: linear-gradient(180deg, #000 0%, #0f0a1a 100%);
         }
 
-        .slide-3 {
+        .face-3 {
             background: linear-gradient(180deg, #000 0%, #0a1a15 100%);
         }
 
@@ -244,7 +261,7 @@
             margin: 1.5rem 0;
         }
 
-        /* Face 1: Creative - Spiral Lines */
+        /* Face 1: Spiral */
         .spiral-visual {
             position: absolute;
             inset: 0;
@@ -270,7 +287,7 @@
             100% { stroke-dashoffset: -500; opacity: 0.3; }
         }
 
-        /* Face 2: Elegant - Diamond Pattern */
+        /* Face 2: Diamond */
         .diamond-visual {
             position: absolute;
             inset: 0;
@@ -289,32 +306,16 @@
             filter: drop-shadow(0 0 10px var(--color-accent-glow));
         }
 
-        .diamond:nth-child(1) {
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-        }
-
-        .diamond:nth-child(2) {
-            width: 100px;
-            height: 100px;
-            animation-delay: 0.3s;
-            opacity: 0.7;
-        }
-
-        .diamond:nth-child(3) {
-            width: 140px;
-            height: 140px;
-            animation-delay: 0.6s;
-            opacity: 0.4;
-        }
+        .diamond:nth-child(1) { width: 60px; height: 60px; animation-delay: 0s; }
+        .diamond:nth-child(2) { width: 100px; height: 100px; animation-delay: 0.3s; opacity: 0.7; }
+        .diamond:nth-child(3) { width: 140px; height: 140px; animation-delay: 0.6s; opacity: 0.4; }
 
         @keyframes diamondPulse {
             0%, 100% { transform: rotate(45deg) scale(1); opacity: 0.4; }
             50% { transform: rotate(45deg) scale(1.05); opacity: 0.8; }
         }
 
-        /* Face 3: Experience - Orbiting Dots */
+        /* Face 3: Orbit */
         .orbit-visual {
             position: absolute;
             inset: 0;
@@ -329,20 +330,9 @@
             border-radius: 50%;
         }
 
-        .orbit-ring:nth-child(1) {
-            width: 60px;
-            height: 60px;
-        }
-
-        .orbit-ring:nth-child(2) {
-            width: 100px;
-            height: 100px;
-        }
-
-        .orbit-ring:nth-child(3) {
-            width: 140px;
-            height: 140px;
-        }
+        .orbit-ring:nth-child(1) { width: 60px; height: 60px; }
+        .orbit-ring:nth-child(2) { width: 100px; height: 100px; }
+        .orbit-ring:nth-child(3) { width: 140px; height: 140px; }
 
         .orbit-dot {
             position: absolute;
@@ -353,40 +343,11 @@
             top: 50%;
             left: 50%;
             box-shadow: 0 0 15px var(--color-accent);
-            animation: orbit 4s linear infinite;
         }
 
-        .orbit-dot:nth-child(4) {
-            animation-duration: 3s;
-            transform-origin: -26px 0;
-        }
-
-        .orbit-dot:nth-child(5) {
-            animation-duration: 5s;
-            transform-origin: -46px 0;
-            animation-delay: 1s;
-        }
-
-        .orbit-dot:nth-child(6) {
-            animation-duration: 7s;
-            transform-origin: -66px 0;
-            animation-delay: 2s;
-        }
-
-        @keyframes orbit {
-            from { transform: rotate(0deg) translateX(30px); }
-            to { transform: rotate(360deg) translateX(30px); }
-        }
-
-        .orbit-dot:nth-child(4) {
-            animation-name: orbit1;
-        }
-        .orbit-dot:nth-child(5) {
-            animation-name: orbit2;
-        }
-        .orbit-dot:nth-child(6) {
-            animation-name: orbit3;
-        }
+        .orbit-dot:nth-child(4) { animation: orbit1 3s linear infinite; }
+        .orbit-dot:nth-child(5) { animation: orbit2 5s linear infinite 1s; }
+        .orbit-dot:nth-child(6) { animation: orbit3 7s linear infinite 2s; }
 
         @keyframes orbit1 {
             from { transform: rotate(0deg) translateX(30px); }
@@ -401,7 +362,7 @@
             to { transform: rotate(360deg) translateX(70px); }
         }
 
-        /* CTA Button - Glass */
+        /* CTA Button */
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -439,10 +400,10 @@
             transform: translateX(4px);
         }
 
-        /* Custom Pagination */
-        .swiper-pagination {
+        /* Pagination */
+        .pagination {
             position: absolute;
-            bottom: 40px !important;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -450,25 +411,24 @@
             z-index: 50;
         }
 
-        .swiper-pagination-bullet {
+        .pagination-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            opacity: 1;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .swiper-pagination-bullet-active {
+        .pagination-dot.active {
             background: var(--color-accent);
             border-color: var(--color-accent);
             box-shadow: 0 0 15px var(--color-accent), 0 0 30px var(--color-accent-glow);
             transform: scale(1.2);
         }
 
-        /* Hint Label - Top Right */
+        /* Hint Label */
         .swipe-hint {
             position: absolute;
             top: 60px;
@@ -548,11 +508,11 @@
                 background: var(--color-bg);
             }
 
-            .mobile-fullscreen .swiper {
+            .mobile-fullscreen .prism-container {
                 height: 100vh;
             }
 
-            .mobile-fullscreen .swiper-slide {
+            .mobile-fullscreen .prism-face {
                 padding: 80px 24px 100px;
             }
 
@@ -565,8 +525,8 @@
                 height: 150px;
             }
 
-            .mobile-fullscreen .swiper-pagination {
-                bottom: 30px !important;
+            .mobile-fullscreen .pagination {
+                bottom: 30px;
             }
 
             .mobile-fullscreen .swipe-hint {
@@ -579,20 +539,14 @@
                 display: none;
             }
 
-            /* Mobile light beams */
             .mobile-fullscreen .light-beam-left,
             .mobile-fullscreen .light-beam-right {
                 display: block;
                 position: fixed;
             }
 
-            .mobile-fullscreen .light-beam-left {
-                left: 5%;
-            }
-
-            .mobile-fullscreen .light-beam-right {
-                right: 5%;
-            }
+            .mobile-fullscreen .light-beam-left { left: 5%; }
+            .mobile-fullscreen .light-beam-right { right: 5%; }
         }
 
         /* PC default: hide mobile fullscreen */
@@ -600,10 +554,27 @@
             display: none;
         }
 
-        /* Swiper cube shadow customization */
-        .swiper-cube-shadow {
-            background: var(--color-accent-glow) !important;
-            filter: blur(30px);
+        /* Background Particles */
+        .particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+            50% { transform: translateY(-30px) translateX(10px); opacity: 0.5; }
         }
     </style>
 </head>
@@ -625,75 +596,81 @@
         <div class="iphone-mock">
             <div class="iphone-screen">
                 <div class="dynamic-island"></div>
-                <div class="swiper-wrapper-container">
-                    <!-- Swiper -->
-                    <div class="swiper pc-swiper">
-                        <div class="swiper-wrapper">
-                            <!-- Slide 1: Creative -->
-                            <div class="swiper-slide slide-1">
-                                <span class="face-subtitle">Imagination</span>
-                                <h2 class="face-title">Creative</h2>
-                                <div class="visual-container">
-                                    <div class="spiral-visual">
-                                        <svg viewBox="0 0 200 200">
-                                            <path class="spiral-path" d="M100,100 m0,-80 a80,80 0 1,1 0,160 a60,60 0 1,1 0,-120 a40,40 0 1,1 0,80 a20,20 0 1,1 0,-40" stroke-dasharray="500"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="face-description">スナップで止まる<br>クリエイティブな表現</p>
-                                <a href="#" class="cta-button">
-                                    Explore
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                                    </svg>
-                                </a>
-                            </div>
+                <div class="prism-container" id="pc-prism">
+                    <!-- Particles -->
+                    <div class="particles" id="pc-particles"></div>
 
-                            <!-- Slide 2: Elegant -->
-                            <div class="swiper-slide slide-2">
-                                <span class="face-subtitle">Sophistication</span>
-                                <h2 class="face-title">Elegant</h2>
-                                <div class="visual-container">
-                                    <div class="diamond-visual">
-                                        <div class="diamond"></div>
-                                        <div class="diamond"></div>
-                                        <div class="diamond"></div>
-                                    </div>
-                                </div>
-                                <p class="face-description">スナップで止まる<br>エレガントなデザイン</p>
-                                <a href="#" class="cta-button">
-                                    Discover
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    <!-- Prism Scene (Left Hinge) -->
+                    <div class="prism-scene">
+                        <!-- Face 1: Creative -->
+                        <div class="prism-face face-1" data-face="0">
+                            <span class="face-subtitle">Imagination</span>
+                            <h2 class="face-title">Creative</h2>
+                            <div class="visual-container">
+                                <div class="spiral-visual">
+                                    <svg viewBox="0 0 200 200">
+                                        <path class="spiral-path" d="M100,100 m0,-80 a80,80 0 1,1 0,160 a60,60 0 1,1 0,-120 a40,40 0 1,1 0,80 a20,20 0 1,1 0,-40" stroke-dasharray="500"/>
                                     </svg>
-                                </a>
-                            </div>
-
-                            <!-- Slide 3: Experience -->
-                            <div class="swiper-slide slide-3">
-                                <span class="face-subtitle">Innovation</span>
-                                <h2 class="face-title">Experience</h2>
-                                <div class="visual-container">
-                                    <div class="orbit-visual">
-                                        <div class="orbit-ring"></div>
-                                        <div class="orbit-ring"></div>
-                                        <div class="orbit-ring"></div>
-                                        <div class="orbit-dot"></div>
-                                        <div class="orbit-dot"></div>
-                                        <div class="orbit-dot"></div>
-                                    </div>
                                 </div>
-                                <p class="face-description">スナップで止まる<br>革新的な体験</p>
-                                <a href="#" class="cta-button">
-                                    Learn More
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                                    </svg>
-                                </a>
                             </div>
+                            <p class="face-description">スナップで止まる<br>クリエイティブな表現</p>
+                            <a href="#" class="cta-button">
+                                Explore
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
                         </div>
-                        <!-- Pagination -->
-                        <div class="swiper-pagination"></div>
+
+                        <!-- Face 2: Elegant -->
+                        <div class="prism-face face-2" data-face="1">
+                            <span class="face-subtitle">Sophistication</span>
+                            <h2 class="face-title">Elegant</h2>
+                            <div class="visual-container">
+                                <div class="diamond-visual">
+                                    <div class="diamond"></div>
+                                    <div class="diamond"></div>
+                                    <div class="diamond"></div>
+                                </div>
+                            </div>
+                            <p class="face-description">スナップで止まる<br>エレガントなデザイン</p>
+                            <a href="#" class="cta-button">
+                                Discover
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Face 3: Experience -->
+                        <div class="prism-face face-3" data-face="2">
+                            <span class="face-subtitle">Innovation</span>
+                            <h2 class="face-title">Experience</h2>
+                            <div class="visual-container">
+                                <div class="orbit-visual">
+                                    <div class="orbit-ring"></div>
+                                    <div class="orbit-ring"></div>
+                                    <div class="orbit-ring"></div>
+                                    <div class="orbit-dot"></div>
+                                    <div class="orbit-dot"></div>
+                                    <div class="orbit-dot"></div>
+                                </div>
+                            </div>
+                            <p class="face-description">スナップで止まる<br>革新的な体験</p>
+                            <a href="#" class="cta-button">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <div class="pagination-dot active" data-index="0"></div>
+                        <div class="pagination-dot" data-index="1"></div>
+                        <div class="pagination-dot" data-index="2"></div>
                     </div>
 
                     <!-- Hint Label -->
@@ -714,75 +691,81 @@
         <div class="light-beam-left"></div>
         <div class="light-beam-right"></div>
 
-        <div class="swiper-wrapper-container">
-            <!-- Swiper -->
-            <div class="swiper mobile-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Slide 1: Creative -->
-                    <div class="swiper-slide slide-1">
-                        <span class="face-subtitle">Imagination</span>
-                        <h2 class="face-title">Creative</h2>
-                        <div class="visual-container">
-                            <div class="spiral-visual">
-                                <svg viewBox="0 0 200 200">
-                                    <path class="spiral-path" d="M100,100 m0,-80 a80,80 0 1,1 0,160 a60,60 0 1,1 0,-120 a40,40 0 1,1 0,80 a20,20 0 1,1 0,-40" stroke-dasharray="500"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <p class="face-description">スナップで止まる<br>クリエイティブな表現</p>
-                        <a href="#" class="cta-button">
-                            Explore
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                    </div>
+        <div class="prism-container" id="mobile-prism">
+            <!-- Particles -->
+            <div class="particles" id="mobile-particles"></div>
 
-                    <!-- Slide 2: Elegant -->
-                    <div class="swiper-slide slide-2">
-                        <span class="face-subtitle">Sophistication</span>
-                        <h2 class="face-title">Elegant</h2>
-                        <div class="visual-container">
-                            <div class="diamond-visual">
-                                <div class="diamond"></div>
-                                <div class="diamond"></div>
-                                <div class="diamond"></div>
-                            </div>
-                        </div>
-                        <p class="face-description">スナップで止まる<br>エレガントなデザイン</p>
-                        <a href="#" class="cta-button">
-                            Discover
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+            <!-- Prism Scene (Left Hinge) -->
+            <div class="prism-scene">
+                <!-- Face 1: Creative -->
+                <div class="prism-face face-1" data-face="0">
+                    <span class="face-subtitle">Imagination</span>
+                    <h2 class="face-title">Creative</h2>
+                    <div class="visual-container">
+                        <div class="spiral-visual">
+                            <svg viewBox="0 0 200 200">
+                                <path class="spiral-path" d="M100,100 m0,-80 a80,80 0 1,1 0,160 a60,60 0 1,1 0,-120 a40,40 0 1,1 0,80 a20,20 0 1,1 0,-40" stroke-dasharray="500"/>
                             </svg>
-                        </a>
-                    </div>
-
-                    <!-- Slide 3: Experience -->
-                    <div class="swiper-slide slide-3">
-                        <span class="face-subtitle">Innovation</span>
-                        <h2 class="face-title">Experience</h2>
-                        <div class="visual-container">
-                            <div class="orbit-visual">
-                                <div class="orbit-ring"></div>
-                                <div class="orbit-ring"></div>
-                                <div class="orbit-ring"></div>
-                                <div class="orbit-dot"></div>
-                                <div class="orbit-dot"></div>
-                                <div class="orbit-dot"></div>
-                            </div>
                         </div>
-                        <p class="face-description">スナップで止まる<br>革新的な体験</p>
-                        <a href="#" class="cta-button">
-                            Learn More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
                     </div>
+                    <p class="face-description">スナップで止まる<br>クリエイティブな表現</p>
+                    <a href="#" class="cta-button">
+                        Explore
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
                 </div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
+
+                <!-- Face 2: Elegant -->
+                <div class="prism-face face-2" data-face="1">
+                    <span class="face-subtitle">Sophistication</span>
+                    <h2 class="face-title">Elegant</h2>
+                    <div class="visual-container">
+                        <div class="diamond-visual">
+                            <div class="diamond"></div>
+                            <div class="diamond"></div>
+                            <div class="diamond"></div>
+                        </div>
+                    </div>
+                    <p class="face-description">スナップで止まる<br>エレガントなデザイン</p>
+                    <a href="#" class="cta-button">
+                        Discover
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Face 3: Experience -->
+                <div class="prism-face face-3" data-face="2">
+                    <span class="face-subtitle">Innovation</span>
+                    <h2 class="face-title">Experience</h2>
+                    <div class="visual-container">
+                        <div class="orbit-visual">
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-dot"></div>
+                            <div class="orbit-dot"></div>
+                            <div class="orbit-dot"></div>
+                        </div>
+                    </div>
+                    <p class="face-description">スナップで止まる<br>革新的な体験</p>
+                    <a href="#" class="cta-button">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <div class="pagination-dot active" data-index="0"></div>
+                <div class="pagination-dot" data-index="1"></div>
+                <div class="pagination-dot" data-index="2"></div>
             </div>
 
             <!-- Hint Label -->
@@ -795,83 +778,228 @@
         </div>
     </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Swiper configuration
-            const swiperConfig = {
-                effect: 'cube',
-                grabCursor: true,
-                cubeEffect: {
-                    shadow: true,
-                    slideShadows: true,
-                    shadowOffset: 40,
-                    shadowScale: 0.9,
-                },
-                speed: 600,
-                touchReleaseOnEdges: true,
-                resistance: true,
-                resistanceRatio: 0.5,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                keyboard: {
-                    enabled: true,
-                },
-                mousewheel: {
-                    invert: false,
-                    sensitivity: 1,
-                    thresholdDelta: 30,
-                },
-                on: {
-                    init: function() {
-                        // Optional: Initial slow rotation on first load
-                        if (window.enableInitialRotation) {
-                            this.slideNext(2000);
-                            setTimeout(() => {
-                                this.slideNext(2000);
-                            }, 2200);
-                            setTimeout(() => {
-                                this.slideTo(0, 2000);
-                            }, 4400);
-                        }
-                    }
+        /**
+         * HingePrismController
+         * Left-hinge rotation with sink animation
+         */
+        class HingePrismController {
+            constructor(container) {
+                this.container = container;
+                this.scene = container.querySelector('.prism-scene');
+                this.faces = container.querySelectorAll('.prism-face');
+                this.pagination = container.querySelectorAll('.pagination-dot');
+                this.particlesContainer = container.querySelector('.particles');
+
+                // State
+                this.currentFace = 0;
+                this.totalFaces = 3;
+                this.anglePerFace = 120;
+
+                // Animation state
+                this.currentRotation = 0;
+                this.targetRotation = 0;
+                this.currentLift = 0;
+                this.targetLift = 0;
+                this.animationPhase = 'idle'; // 'rotating', 'sinking', 'settling', 'idle'
+
+                // Animation parameters
+                this.rotLerpFactor = 0.06;
+                this.liftLerpFactor = 0.18;
+                this.liftAmount = 14;
+                this.sinkAmount = -6;
+
+                // Touch handling
+                this.isDragging = false;
+                this.startX = 0;
+                this.dragDelta = 0;
+                this.dragSensitivity = 0.3;
+
+                this.init();
+            }
+
+            init() {
+                this.setupFaces();
+                this.createParticles();
+                this.bindEvents();
+                this.animate();
+            }
+
+            setupFaces() {
+                const containerWidth = this.container.offsetWidth;
+                const depth = containerWidth / (2 * Math.tan(Math.PI / 3));
+
+                this.faces.forEach((face, i) => {
+                    const angle = i * this.anglePerFace;
+                    face.style.transform = `rotateY(${angle}deg) translateZ(${depth}px)`;
+                });
+            }
+
+            createParticles() {
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.animationDelay = `${Math.random() * 8}s`;
+                    particle.style.animationDuration = `${6 + Math.random() * 4}s`;
+                    this.particlesContainer.appendChild(particle);
                 }
-            };
+            }
 
-            // Initialize PC Swiper
-            const pcSwiper = new Swiper('.pc-swiper', {
-                ...swiperConfig,
-                pagination: {
-                    el: '.pc-swiper .swiper-pagination',
-                    clickable: true,
-                },
-            });
+            bindEvents() {
+                // Touch events
+                this.container.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: true });
+                this.container.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: true });
+                this.container.addEventListener('touchend', (e) => this.onTouchEnd(e));
 
-            // Initialize Mobile Swiper
-            const mobileSwiper = new Swiper('.mobile-swiper', {
-                ...swiperConfig,
-                pagination: {
-                    el: '.mobile-swiper .swiper-pagination',
-                    clickable: true,
-                },
-            });
+                // Mouse events
+                this.container.addEventListener('mousedown', (e) => this.onMouseDown(e));
+                this.container.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                this.container.addEventListener('mouseup', (e) => this.onMouseUp(e));
+                this.container.addEventListener('mouseleave', (e) => this.onMouseUp(e));
 
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                const activeSwiper = window.innerWidth <= 768 ? mobileSwiper : pcSwiper;
+                // Keyboard
+                document.addEventListener('keydown', (e) => this.onKeyDown(e));
+
+                // Pagination
+                this.pagination.forEach((dot, i) => {
+                    dot.addEventListener('click', () => this.goToFace(i));
+                });
+
+                // Resize
+                window.addEventListener('resize', () => this.setupFaces());
+            }
+
+            onTouchStart(e) {
+                this.isDragging = true;
+                this.startX = e.touches[0].clientX;
+                this.dragDelta = 0;
+            }
+
+            onTouchMove(e) {
+                if (!this.isDragging) return;
+                const x = e.touches[0].clientX;
+                this.dragDelta = (this.startX - x) * this.dragSensitivity;
+            }
+
+            onTouchEnd(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.handleSwipe();
+            }
+
+            onMouseDown(e) {
+                this.isDragging = true;
+                this.startX = e.clientX;
+                this.dragDelta = 0;
+            }
+
+            onMouseMove(e) {
+                if (!this.isDragging) return;
+                this.dragDelta = (this.startX - e.clientX) * this.dragSensitivity;
+            }
+
+            onMouseUp(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.handleSwipe();
+            }
+
+            onKeyDown(e) {
                 if (e.key === 'ArrowLeft') {
-                    activeSwiper.slidePrev();
+                    this.prev();
                 } else if (e.key === 'ArrowRight') {
-                    activeSwiper.slideNext();
+                    this.next();
                 }
-            });
-        });
+            }
 
-        // Set to true to enable initial rotation demo
-        window.enableInitialRotation = false;
+            handleSwipe() {
+                const threshold = 30;
+                if (this.dragDelta > threshold) {
+                    this.next();
+                } else if (this.dragDelta < -threshold) {
+                    this.prev();
+                }
+                this.dragDelta = 0;
+            }
+
+            next() {
+                this.currentFace = (this.currentFace + 1) % this.totalFaces;
+                this.rotateTo(this.currentFace);
+            }
+
+            prev() {
+                this.currentFace = (this.currentFace - 1 + this.totalFaces) % this.totalFaces;
+                this.rotateTo(this.currentFace);
+            }
+
+            goToFace(index) {
+                this.currentFace = index;
+                this.rotateTo(index);
+            }
+
+            rotateTo(faceIndex) {
+                this.targetRotation = -faceIndex * this.anglePerFace;
+                this.targetLift = this.liftAmount;
+                this.animationPhase = 'rotating';
+                this.updatePagination();
+            }
+
+            updatePagination() {
+                this.pagination.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === this.currentFace);
+                });
+            }
+
+            animate() {
+                // Lerp rotation
+                this.currentRotation += (this.targetRotation - this.currentRotation) * this.rotLerpFactor;
+
+                // Lerp lift
+                this.currentLift += (this.targetLift - this.currentLift) * this.liftLerpFactor;
+
+                // Phase transitions
+                const rotDiff = Math.abs(this.targetRotation - this.currentRotation);
+
+                if (this.animationPhase === 'rotating' && rotDiff < 1) {
+                    this.animationPhase = 'sinking';
+                    this.targetLift = this.sinkAmount;
+                } else if (this.animationPhase === 'sinking' && Math.abs(this.currentLift - this.sinkAmount) < 0.5) {
+                    this.animationPhase = 'settling';
+                    this.targetLift = 0;
+                } else if (this.animationPhase === 'settling' && Math.abs(this.currentLift) < 0.3) {
+                    this.animationPhase = 'idle';
+                    this.targetLift = 0;
+                    this.currentLift = 0;
+                }
+
+                // Apply transform
+                this.scene.style.transform = `rotateY(${this.currentRotation}deg) translateY(${-this.currentLift}px)`;
+
+                // Update hinge glow intensity based on rotation
+                const isRotating = rotDiff > 0.5;
+                this.faces.forEach(face => {
+                    const glow = face.querySelector('::before');
+                    face.style.setProperty('--hinge-opacity', isRotating ? '0.9' : '0.6');
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const pcContainer = document.getElementById('pc-prism');
+            const mobileContainer = document.getElementById('mobile-prism');
+
+            if (pcContainer) {
+                new HingePrismController(pcContainer);
+            }
+            if (mobileContainer) {
+                new HingePrismController(mobileContainer);
+            }
+        });
     </script>
 </body>
 </html>
