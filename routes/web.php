@@ -154,6 +154,11 @@ Route::prefix('projects/demo/insta-lp')->name('demo.insta-lp.')->group(function 
     Route::get('/', [InstaLpDemoController::class, 'index'])->name('index');
 });
 
+// Flick LP Demo Routes (CSS 3D)
+Route::get('/demo/flick-css3d', function () {
+    return view('demo.flick-css3d');
+})->name('demo.flick-css3d');
+
 // Options Demo Routes
 Route::prefix('projects/demo/options')->name('demo.options.')->group(function () {
     Route::view('/sns', 'demo.options.sns')->name('sns');
