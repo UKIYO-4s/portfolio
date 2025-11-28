@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Flick LP Demo - CSS 3D</title>
+    <title>Flick LP Demo - CSS 3D (3-Phase Motion)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -150,6 +150,16 @@
 
         .prism-viewport:active {
             cursor: grabbing;
+        }
+
+        /* Hinge Wrapper - for center shifting during Phase B */
+        .hinge-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            /* Smooth transition for hinge movement */
+            transition: transform 350ms cubic-bezier(.2,.7,.2,1);
         }
 
         /* Scene container for hinge rotation */
@@ -566,78 +576,80 @@
             <div class="iphone-screen">
                 <div class="dynamic-island"></div>
                 <div class="prism-viewport" id="pcViewport">
-                    <div class="prism-scene" id="pcPrism">
-                        <!-- Face 1: Design/Vision -->
-                        <div class="prism-face face-1">
-                            <span class="face-subtitle">Creative</span>
-                            <h2 class="face-title">Design</h2>
-                            <div class="visual-container">
-                                <div class="flowing-lines">
-                                    <svg viewBox="0 0 200 200">
-                                        <path class="flow-path" d="M20,100 Q60,60 100,100 T180,100" stroke-dasharray="300"/>
-                                        <path class="flow-path" d="M20,120 Q60,80 100,120 T180,120" stroke-dasharray="300" style="animation-delay: 0.5s"/>
-                                        <path class="flow-path" d="M20,140 Q60,100 100,140 T180,140" stroke-dasharray="300" style="animation-delay: 1s"/>
+                    <div class="hinge-wrapper" id="pcHingeWrapper">
+                        <div class="prism-scene" id="pcPrism">
+                            <!-- Face 1: Design/Vision -->
+                            <div class="prism-face face-1">
+                                <span class="face-subtitle">Creative</span>
+                                <h2 class="face-title">Design</h2>
+                                <div class="visual-container">
+                                    <div class="flowing-lines">
+                                        <svg viewBox="0 0 200 200">
+                                            <path class="flow-path" d="M20,100 Q60,60 100,100 T180,100" stroke-dasharray="300"/>
+                                            <path class="flow-path" d="M20,120 Q60,80 100,120 T180,120" stroke-dasharray="300" style="animation-delay: 0.5s"/>
+                                            <path class="flow-path" d="M20,140 Q60,100 100,140 T180,140" stroke-dasharray="300" style="animation-delay: 1s"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="face-subtitle" style="margin-bottom: 1rem;">Vision</span>
+                                <a href="#" class="cta-button">
+                                    Explore
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
                                     </svg>
-                                </div>
+                                </a>
                             </div>
-                            <span class="face-subtitle" style="margin-bottom: 1rem;">Vision</span>
-                            <a href="#" class="cta-button">
-                                Explore
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
 
-                        <!-- Face 2: Modern/Impact -->
-                        <div class="prism-face face-2">
-                            <span class="face-subtitle">Style</span>
-                            <h2 class="face-title">Modern</h2>
-                            <div class="visual-container">
-                                <div class="geometric-pattern">
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
-                                    <div class="geo-shape"></div>
+                            <!-- Face 2: Modern/Impact -->
+                            <div class="prism-face face-2">
+                                <span class="face-subtitle">Style</span>
+                                <h2 class="face-title">Modern</h2>
+                                <div class="visual-container">
+                                    <div class="geometric-pattern">
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                        <div class="geo-shape"></div>
+                                    </div>
                                 </div>
+                                <span class="face-subtitle" style="margin-bottom: 1rem;">Impact</span>
+                                <a href="#" class="cta-button">
+                                    Discover
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
                             </div>
-                            <span class="face-subtitle" style="margin-bottom: 1rem;">Impact</span>
-                            <a href="#" class="cta-button">
-                                Discover
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
 
-                        <!-- Face 3: Digital/Innovation -->
-                        <div class="prism-face face-3">
-                            <span class="face-subtitle">Future</span>
-                            <h2 class="face-title">Digital</h2>
-                            <div class="visual-container">
-                                <div class="particles-container">
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
-                                    <div class="particle"></div>
+                            <!-- Face 3: Digital/Innovation -->
+                            <div class="prism-face face-3">
+                                <span class="face-subtitle">Future</span>
+                                <h2 class="face-title">Digital</h2>
+                                <div class="visual-container">
+                                    <div class="particles-container">
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                        <div class="particle"></div>
+                                    </div>
                                 </div>
+                                <span class="face-subtitle" style="margin-bottom: 1rem;">Innovation</span>
+                                <a href="#" class="cta-button">
+                                    Learn More
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
                             </div>
-                            <span class="face-subtitle" style="margin-bottom: 1rem;">Innovation</span>
-                            <a href="#" class="cta-button">
-                                Learn More
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
                         </div>
                     </div>
 
@@ -673,78 +685,80 @@
         </div>
 
         <div class="prism-viewport" id="mobileViewport">
-            <div class="prism-scene" id="mobilePrism">
-                <!-- Face 1: Design/Vision -->
-                <div class="prism-face face-1">
-                    <span class="face-subtitle">Creative</span>
-                    <h2 class="face-title">Design</h2>
-                    <div class="visual-container">
-                        <div class="flowing-lines">
-                            <svg viewBox="0 0 200 200">
-                                <path class="flow-path" d="M20,100 Q60,60 100,100 T180,100" stroke-dasharray="300"/>
-                                <path class="flow-path" d="M20,120 Q60,80 100,120 T180,120" stroke-dasharray="300" style="animation-delay: 0.5s"/>
-                                <path class="flow-path" d="M20,140 Q60,100 100,140 T180,140" stroke-dasharray="300" style="animation-delay: 1s"/>
+            <div class="hinge-wrapper" id="mobileHingeWrapper">
+                <div class="prism-scene" id="mobilePrism">
+                    <!-- Face 1: Design/Vision -->
+                    <div class="prism-face face-1">
+                        <span class="face-subtitle">Creative</span>
+                        <h2 class="face-title">Design</h2>
+                        <div class="visual-container">
+                            <div class="flowing-lines">
+                                <svg viewBox="0 0 200 200">
+                                    <path class="flow-path" d="M20,100 Q60,60 100,100 T180,100" stroke-dasharray="300"/>
+                                    <path class="flow-path" d="M20,120 Q60,80 100,120 T180,120" stroke-dasharray="300" style="animation-delay: 0.5s"/>
+                                    <path class="flow-path" d="M20,140 Q60,100 100,140 T180,140" stroke-dasharray="300" style="animation-delay: 1s"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="face-subtitle" style="margin-bottom: 1rem;">Vision</span>
+                        <a href="#" class="cta-button">
+                            Explore
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                        </div>
+                        </a>
                     </div>
-                    <span class="face-subtitle" style="margin-bottom: 1rem;">Vision</span>
-                    <a href="#" class="cta-button">
-                        Explore
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
 
-                <!-- Face 2: Modern/Impact -->
-                <div class="prism-face face-2">
-                    <span class="face-subtitle">Style</span>
-                    <h2 class="face-title">Modern</h2>
-                    <div class="visual-container">
-                        <div class="geometric-pattern">
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
-                            <div class="geo-shape"></div>
+                    <!-- Face 2: Modern/Impact -->
+                    <div class="prism-face face-2">
+                        <span class="face-subtitle">Style</span>
+                        <h2 class="face-title">Modern</h2>
+                        <div class="visual-container">
+                            <div class="geometric-pattern">
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                                <div class="geo-shape"></div>
+                            </div>
                         </div>
+                        <span class="face-subtitle" style="margin-bottom: 1rem;">Impact</span>
+                        <a href="#" class="cta-button">
+                            Discover
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
-                    <span class="face-subtitle" style="margin-bottom: 1rem;">Impact</span>
-                    <a href="#" class="cta-button">
-                        Discover
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
 
-                <!-- Face 3: Digital/Innovation -->
-                <div class="prism-face face-3">
-                    <span class="face-subtitle">Future</span>
-                    <h2 class="face-title">Digital</h2>
-                    <div class="visual-container">
-                        <div class="particles-container">
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
+                    <!-- Face 3: Digital/Innovation -->
+                    <div class="prism-face face-3">
+                        <span class="face-subtitle">Future</span>
+                        <h2 class="face-title">Digital</h2>
+                        <div class="visual-container">
+                            <div class="particles-container">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
                         </div>
+                        <span class="face-subtitle" style="margin-bottom: 1rem;">Innovation</span>
+                        <a href="#" class="cta-button">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
-                    <span class="face-subtitle" style="margin-bottom: 1rem;">Innovation</span>
-                    <a href="#" class="cta-button">
-                        Learn More
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
@@ -766,45 +780,85 @@
     </div>
 
     <script>
-        class HingePrismController {
-            constructor(viewportId, prismId, dotsId) {
+        /**
+         * ThreePhaseHingePrismController
+         * 3-Phase Motion: Lift → Float → Land/Settle
+         * Infinite loop support with left-hinge rotation
+         */
+        class ThreePhaseHingePrismController {
+            constructor(viewportId, hingeWrapperId, prismId, dotsId) {
                 this.viewport = document.getElementById(viewportId);
+                this.hingeWrapper = document.getElementById(hingeWrapperId);
                 this.prism = document.getElementById(prismId);
                 this.dots = document.getElementById(dotsId);
                 this.faces = this.prism ? this.prism.querySelectorAll('.prism-face') : [];
 
                 if (!this.viewport || !this.prism) return;
 
+                // State
                 this.currentFace = 0;
                 this.totalFaces = 3;
+                this.faceAngle = 120;
+
+                // Rotation state (supports infinite loop - no clamping)
                 this.targetRotation = 0;
                 this.currentRotation = 0;
-                this.velocity = 0;
+
+                // 3-Phase motion state
+                this.targetY = 0;
+                this.currentY = 0;
+                this.targetZ = 0;
+                this.currentZ = 0;
+
+                // Animation phase: 'idle', 'lift', 'float', 'land', 'settle'
+                this.animationPhase = 'idle';
+
+                // Lerp factors
+                this.rotLerpFactor = 0.045;      // Slow rotation lerp
+                this.yLerpFactor = 0.12;          // Y movement lerp
+                this.zLerpFactor = 0.10;          // Z movement lerp
+
+                // Phase values
+                this.liftY = -14;                 // Phase A: lift up
+                this.liftZ = 50;                  // Phase A: forward
+                this.floatY = -18;                // Phase B: float higher
+                this.floatZ = 28;                 // Phase B: mid-forward
+                this.landZ = -6;                  // Phase C: sink back
+                this.settleY = 0;                 // Phase C2: settle
+                this.settleZ = 0;                 // Phase C2: settle
+
+                // Touch/drag state
                 this.isDragging = false;
                 this.startX = 0;
                 this.lastX = 0;
                 this.lastTime = 0;
-
-                // Z-depth for sink effect
-                this.targetZ = 0;
-                this.currentZ = 0;
-
-                // Animation state
-                this.isAnimating = false;
-                this.animationPhase = 'idle'; // 'rotating', 'sinking', 'settling', 'idle'
-
-                // Lerp settings - slower for "ふわっと" effect
-                this.lerpFactor = 0.06;
-                this.zLerpFactor = 0.1;
-                this.snapThreshold = 0.3;
+                this.velocity = 0;
 
                 this.init();
             }
 
             init() {
-                // Set initial face transforms
                 this.updateFaceTransforms();
+                this.bindEvents();
+                this.animate();
 
+                // Initial demo after 1.5s
+                setTimeout(() => {
+                    this.goToFace(1);
+                    setTimeout(() => {
+                        this.goToFace(0);
+                    }, 2500);
+                }, 1500);
+            }
+
+            updateFaceTransforms() {
+                this.faces.forEach((face, index) => {
+                    const angle = index * this.faceAngle;
+                    face.style.transform = `rotateY(${angle}deg)`;
+                });
+            }
+
+            bindEvents() {
                 // Touch events
                 this.viewport.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: true });
                 this.viewport.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: true });
@@ -827,169 +881,171 @@
                         dot.addEventListener('click', () => this.goToFace(index));
                     });
                 }
-
-                // Start animation loop
-                this.animate();
-            }
-
-            updateFaceTransforms() {
-                const faceAngle = 120;
-                this.faces.forEach((face, index) => {
-                    const angle = index * faceAngle;
-                    // Position faces in hinge configuration
-                    face.style.transform = `rotateY(${angle}deg)`;
-                    face.style.zIndex = index === this.currentFace ? 10 : 1;
-                });
             }
 
             onTouchStart(e) {
                 if (e.touches.length !== 1) return;
-                this.isDragging = true;
-                this.startX = e.touches[0].clientX;
-                this.lastX = this.startX;
-                this.lastTime = Date.now();
-                this.velocity = 0;
-                this.animationPhase = 'rotating';
-                // Lift up when starting to drag
-                this.targetZ = 14;
+                this.startDrag(e.touches[0].clientX);
             }
 
             onTouchMove(e) {
                 if (!this.isDragging || e.touches.length !== 1) return;
-                const currentX = e.touches[0].clientX;
-                const deltaX = currentX - this.lastX;
-                const currentTime = Date.now();
-                const deltaTime = currentTime - this.lastTime;
-
-                if (deltaTime > 0) {
-                    this.velocity = deltaX / deltaTime * 10;
-                }
-
-                // Right-to-left swipe = positive rotation (door opens)
-                this.targetRotation -= deltaX * 0.4;
-                this.lastX = currentX;
-                this.lastTime = currentTime;
+                this.updateDrag(e.touches[0].clientX);
             }
 
             onTouchEnd() {
-                if (!this.isDragging) return;
-                this.isDragging = false;
-                this.applyMomentumAndSnap();
+                this.endDrag();
             }
 
             onMouseDown(e) {
-                this.isDragging = true;
-                this.startX = e.clientX;
-                this.lastX = this.startX;
-                this.lastTime = Date.now();
-                this.velocity = 0;
+                this.startDrag(e.clientX);
                 this.viewport.style.cursor = 'grabbing';
-                this.animationPhase = 'rotating';
-                // Lift up when starting to drag
-                this.targetZ = 14;
             }
 
             onMouseMove(e) {
                 if (!this.isDragging) return;
-                const currentX = e.clientX;
-                const deltaX = currentX - this.lastX;
+                this.updateDrag(e.clientX);
+            }
+
+            onMouseUp() {
+                this.endDrag();
+                this.viewport.style.cursor = 'grab';
+            }
+
+            startDrag(x) {
+                this.isDragging = true;
+                this.startX = x;
+                this.lastX = x;
+                this.lastTime = Date.now();
+                this.velocity = 0;
+
+                // Phase A: Start lift
+                this.animationPhase = 'lift';
+                this.targetY = this.liftY;
+                this.targetZ = this.liftZ;
+            }
+
+            updateDrag(x) {
                 const currentTime = Date.now();
                 const deltaTime = currentTime - this.lastTime;
+                const deltaX = x - this.lastX;
 
                 if (deltaTime > 0) {
                     this.velocity = deltaX / deltaTime * 10;
                 }
 
-                // Right-to-left swipe = positive rotation (door opens)
+                // Right-to-left swipe = positive rotation
                 this.targetRotation -= deltaX * 0.4;
-                this.lastX = currentX;
+
+                this.lastX = x;
                 this.lastTime = currentTime;
             }
 
-            onMouseUp() {
+            endDrag() {
                 if (!this.isDragging) return;
                 this.isDragging = false;
-                this.viewport.style.cursor = 'grab';
                 this.applyMomentumAndSnap();
             }
 
             onWheel(e) {
                 e.preventDefault();
                 const delta = e.deltaY > 0 ? 1 : -1;
-                this.goToFace((this.currentFace + delta + this.totalFaces) % this.totalFaces);
+                this.next(delta);
             }
 
             onKeyDown(e) {
                 if (e.key === 'ArrowLeft') {
-                    this.goToFace((this.currentFace - 1 + this.totalFaces) % this.totalFaces);
+                    this.next(-1);
                 } else if (e.key === 'ArrowRight') {
-                    this.goToFace((this.currentFace + 1) % this.totalFaces);
+                    this.next(1);
                 }
             }
 
-            applyMomentumAndSnap() {
-                // Apply short momentum
-                this.targetRotation += this.velocity * 3;
-
-                // Snap to nearest face (120° increments)
-                const faceAngle = 120;
-                const nearestFace = Math.round(this.targetRotation / faceAngle);
-                this.targetRotation = nearestFace * faceAngle;
-
-                // Calculate current face (0, 1, or 2)
-                this.currentFace = (((-nearestFace % this.totalFaces) + this.totalFaces) % this.totalFaces);
-
-                // Start sink sequence
-                this.animationPhase = 'sinking';
-                this.targetZ = -6; // Sink down
-
-                // After sink, settle to 0
-                setTimeout(() => {
-                    this.animationPhase = 'settling';
-                    this.targetZ = 0;
-                    this.updateDots();
-                }, 300);
-
-                // Mark as idle after settling
-                setTimeout(() => {
-                    this.animationPhase = 'idle';
-                }, 600);
+            next(direction) {
+                // Infinite loop: no modulo on currentFace, just track for dots
+                const newFace = (this.currentFace + direction + this.totalFaces) % this.totalFaces;
+                this.goToFace(newFace, direction);
             }
 
-            goToFace(faceIndex) {
-                const faceAngle = 120;
-                const currentFaceFromRotation = Math.round(this.targetRotation / faceAngle);
+            applyMomentumAndSnap() {
+                // Apply momentum
+                this.targetRotation += this.velocity * 3;
+
+                // Snap to nearest face
+                const nearestFace = Math.round(this.targetRotation / this.faceAngle);
+                this.targetRotation = nearestFace * this.faceAngle;
+
+                // Calculate current face for dots (0, 1, or 2)
+                this.currentFace = (((-nearestFace % this.totalFaces) + this.totalFaces) % this.totalFaces);
+
+                // Start Phase B: Float
+                this.startFloatPhase();
+            }
+
+            goToFace(faceIndex, direction = null) {
+                const currentFaceFromRotation = Math.round(this.targetRotation / this.faceAngle);
                 const targetFaceRotation = -faceIndex;
 
-                // Calculate shortest path
+                // Calculate shortest path if no direction specified
                 let diff = targetFaceRotation - currentFaceFromRotation;
-                if (diff > 1) diff -= this.totalFaces;
-                if (diff < -1) diff += this.totalFaces;
+                if (direction === null) {
+                    if (diff > 1) diff -= this.totalFaces;
+                    if (diff < -1) diff += this.totalFaces;
+                } else {
+                    diff = direction;
+                }
 
-                // Start lift
-                this.animationPhase = 'rotating';
-                this.targetZ = 14;
+                // Phase A: Lift
+                this.animationPhase = 'lift';
+                this.targetY = this.liftY;
+                this.targetZ = this.liftZ;
 
-                this.targetRotation = (currentFaceFromRotation + diff) * faceAngle;
+                this.targetRotation = (currentFaceFromRotation + diff) * this.faceAngle;
                 this.currentFace = faceIndex;
 
-                // Sink sequence
+                // After lift duration, start float
                 setTimeout(() => {
-                    this.animationPhase = 'sinking';
-                    this.targetZ = -6;
-                }, 400);
+                    this.startFloatPhase();
+                }, 180);
+            }
 
-                // Settle
+            startFloatPhase() {
+                // Phase B: Float (0.2s hover)
+                this.animationPhase = 'float';
+                this.targetY = this.floatY;
+                this.targetZ = this.floatZ;
+
+                // After float duration, start land
                 setTimeout(() => {
-                    this.animationPhase = 'settling';
-                    this.targetZ = 0;
-                    this.updateDots();
-                }, 600);
+                    this.startLandPhase();
+                }, 200);
+            }
 
-                // Idle
+            startLandPhase() {
+                // Phase C: Land
+                this.animationPhase = 'land';
+                this.targetY = this.settleY;
+                this.targetZ = this.landZ;
+
+                // After land duration, settle
+                setTimeout(() => {
+                    this.startSettlePhase();
+                }, 350);
+            }
+
+            startSettlePhase() {
+                // Phase C2: Settle
+                this.animationPhase = 'settle';
+                this.targetY = this.settleY;
+                this.targetZ = this.settleZ;
+
+                // Update dots
+                this.updateDots();
+
+                // After settle, back to idle
                 setTimeout(() => {
                     this.animationPhase = 'idle';
-                }, 900);
+                }, 150);
             }
 
             updateDots() {
@@ -1002,13 +1058,21 @@
             animate() {
                 // Smooth lerp for rotation
                 const rotDiff = this.targetRotation - this.currentRotation;
-                if (Math.abs(rotDiff) > this.snapThreshold) {
-                    this.currentRotation += rotDiff * this.lerpFactor;
+                if (Math.abs(rotDiff) > 0.1) {
+                    this.currentRotation += rotDiff * this.rotLerpFactor;
                 } else {
                     this.currentRotation = this.targetRotation;
                 }
 
-                // Smooth lerp for Z depth
+                // Smooth lerp for Y (lift/float/land)
+                const yDiff = this.targetY - this.currentY;
+                if (Math.abs(yDiff) > 0.1) {
+                    this.currentY += yDiff * this.yLerpFactor;
+                } else {
+                    this.currentY = this.targetY;
+                }
+
+                // Smooth lerp for Z (depth)
                 const zDiff = this.targetZ - this.currentZ;
                 if (Math.abs(zDiff) > 0.1) {
                     this.currentZ += zDiff * this.zLerpFactor;
@@ -1016,15 +1080,13 @@
                     this.currentZ = this.targetZ;
                 }
 
-                // Apply transform to prism scene (hinge rotation + Z depth)
-                this.prism.style.transform = `translateZ(${this.currentZ}px) rotateY(${-this.currentRotation}deg)`;
+                // Apply transform to prism scene
+                this.prism.style.transform = `translateY(${this.currentY}px) translateZ(${this.currentZ}px) rotateY(${-this.currentRotation}deg)`;
 
                 // Update face z-index based on visibility
-                const faceAngle = 120;
                 this.faces.forEach((face, index) => {
-                    const angle = (index * faceAngle - this.currentRotation) % 360;
+                    const angle = (index * this.faceAngle - this.currentRotation) % 360;
                     const normalizedAngle = ((angle % 360) + 360) % 360;
-                    // Front-facing face gets higher z-index
                     const isFront = normalizedAngle < 60 || normalizedAngle > 300;
                     face.style.zIndex = isFront ? 10 : 1;
                 });
@@ -1035,8 +1097,8 @@
 
         // Initialize controllers
         document.addEventListener('DOMContentLoaded', () => {
-            new HingePrismController('pcViewport', 'pcPrism', 'pcDots');
-            new HingePrismController('mobileViewport', 'mobilePrism', 'mobileDots');
+            new ThreePhaseHingePrismController('pcViewport', 'pcHingeWrapper', 'pcPrism', 'pcDots');
+            new ThreePhaseHingePrismController('mobileViewport', 'mobileHingeWrapper', 'mobilePrism', 'mobileDots');
         });
     </script>
 </body>
