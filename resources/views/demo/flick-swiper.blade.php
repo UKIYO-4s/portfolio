@@ -157,13 +157,10 @@
             overflow: hidden;
         }
 
-        /* Left Hinge Adjustment */
+        /* Swiper Base */
         .swiper {
             width: 100%;
             height: 100%;
-            transform-origin: left center;
-            /* Left shift for visual hinge */
-            transform: translateX(-10%);
         }
 
         /* Override cube wrapper for left hinge effect */
