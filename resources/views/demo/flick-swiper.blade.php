@@ -590,30 +590,31 @@
             opacity: 0.6;
         }
 
-        /* 3-Phase Motion Animation Classes */
+        /* 3-Phase Motion - Applied to swiper container, not wrapper */
+        /* This avoids conflicts with Cube Effect's internal transforms */
+
+        .swiper {
+            transition: transform 300ms cubic-bezier(.2,.7,.2,1);
+        }
 
         /* Phase A: Lift (持ち上げ) */
-        .swiper.phase-lift .swiper-wrapper {
-            transform: translateZ(50px) translateY(-14px) !important;
-            transition: transform 180ms cubic-bezier(.2,.7,.2,1) !important;
+        .swiper.phase-lift {
+            transform: translateY(-14px) scale(1.02);
         }
 
         /* Phase B: Center Float (浮遊) */
-        .swiper.phase-float .swiper-wrapper {
-            transform: translateZ(28px) translateY(-18px) !important;
-            transition: transform 200ms cubic-bezier(.2,.7,.2,1) !important;
+        .swiper.phase-float {
+            transform: translateY(-18px) scale(1.01);
         }
 
         /* Phase C: Land (着地) */
-        .swiper.phase-land .swiper-wrapper {
-            transform: translateZ(-6px) translateY(0px) !important;
-            transition: transform 350ms cubic-bezier(.2,.7,.2,1) !important;
+        .swiper.phase-land {
+            transform: translateY(2px) scale(0.99);
         }
 
         /* Phase C2: Settle (収束) */
-        .swiper.phase-settle .swiper-wrapper {
-            transform: translateZ(0px) translateY(0px) !important;
-            transition: transform 150ms ease-out !important;
+        .swiper.phase-settle {
+            transform: translateY(0px) scale(1);
         }
     </style>
 </head>
