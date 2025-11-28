@@ -19,6 +19,7 @@
             --color-bg-secondary: #0a0a0a;
             --color-accent: #00CED1;
             --color-accent-glow: rgba(0, 206, 209, 0.4);
+            --color-accent-dim: rgba(0, 206, 209, 0.15);
             --color-text: #ffffff;
             --color-text-muted: rgba(255, 255, 255, 0.7);
             --font-display: 'Playfair Display', serif;
@@ -44,18 +45,49 @@
             overflow: hidden;
         }
 
-        /* Background glow effect */
+        /* Background glow effect - large blur */
         .mock-container::before {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 60%);
             pointer-events: none;
             animation: pulse 4s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        /* Background particles */
+        .bg-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: floatParticle 8s ease-in-out infinite;
+        }
+
+        .bg-particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .bg-particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 1s; }
+        .bg-particle:nth-child(3) { left: 80%; top: 30%; animation-delay: 2s; }
+        .bg-particle:nth-child(4) { left: 70%; top: 70%; animation-delay: 3s; }
+        .bg-particle:nth-child(5) { left: 40%; top: 80%; animation-delay: 4s; }
+        .bg-particle:nth-child(6) { left: 90%; top: 50%; animation-delay: 5s; }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-30px) scale(1.5); opacity: 0.6; }
         }
 
         @keyframes pulse {
@@ -76,6 +108,7 @@
                 0 0 0 6px #1a1a1a,
                 0 25px 50px rgba(0, 0, 0, 0.5),
                 0 0 100px var(--color-accent-glow);
+            z-index: 10;
         }
 
         .iphone-screen {
@@ -104,27 +137,32 @@
         .prism-viewport {
             width: 100%;
             height: 100%;
-            perspective: 1200px;
+            perspective: 1000px;
+            perspective-origin: center center;
             display: flex;
             align-items: center;
             justify-content: center;
             touch-action: pan-y;
             cursor: grab;
+            position: relative;
+            overflow: hidden;
         }
 
         .prism-viewport:active {
             cursor: grabbing;
         }
 
+        /* Scene container for hinge rotation */
         .prism-scene {
             width: 100%;
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Hinge at left edge */
+            transform-origin: left center;
         }
 
-        /* Triangle Prism Faces */
+        /* Triangle Prism Faces - Left Hinge */
         .prism-face {
             position: absolute;
             width: 100%;
@@ -136,24 +174,61 @@
             justify-content: center;
             padding: 60px 30px;
             overflow: hidden;
+            /* Left edge hinge */
+            transform-origin: left center;
+        }
+
+        /* Hinge glow - left edge */
+        .prism-face::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                var(--color-accent) 30%,
+                var(--color-accent) 70%,
+                transparent 100%
+            );
+            filter: blur(4px);
+            opacity: 0.6;
+            z-index: 10;
+        }
+
+        /* Right edge highlight - thickness effect */
+        .prism-face::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 30%,
+                rgba(255, 255, 255, 0.15) 70%,
+                transparent 100%
+            );
+            z-index: 10;
         }
 
         /* Face 1: Design/Vision */
         .face-1 {
             background: linear-gradient(180deg, #000 0%, #0a1520 100%);
-            transform: rotateY(0deg) translateZ(200px);
         }
 
         /* Face 2: Modern/Impact */
         .face-2 {
             background: linear-gradient(180deg, #000 0%, #0f0a1a 100%);
-            transform: rotateY(120deg) translateZ(200px);
         }
 
         /* Face 3: Digital/Innovation */
         .face-3 {
             background: linear-gradient(180deg, #000 0%, #0a1a15 100%);
-            transform: rotateY(240deg) translateZ(200px);
         }
 
         /* Typography */
@@ -477,6 +552,16 @@
 
     <!-- PC: iPhone Mock -->
     <div class="mock-container">
+        <!-- Background particles -->
+        <div class="bg-particles">
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+        </div>
+
         <div class="iphone-mock">
             <div class="iphone-screen">
                 <div class="dynamic-island"></div>
@@ -577,6 +662,16 @@
 
     <!-- Mobile: Full Screen -->
     <div class="mobile-fullscreen">
+        <!-- Background particles -->
+        <div class="bg-particles">
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+            <div class="bg-particle"></div>
+        </div>
+
         <div class="prism-viewport" id="mobileViewport">
             <div class="prism-scene" id="mobilePrism">
                 <!-- Face 1: Design/Vision -->
@@ -671,11 +766,12 @@
     </div>
 
     <script>
-        class PrismController {
+        class HingePrismController {
             constructor(viewportId, prismId, dotsId) {
                 this.viewport = document.getElementById(viewportId);
                 this.prism = document.getElementById(prismId);
                 this.dots = document.getElementById(dotsId);
+                this.faces = this.prism ? this.prism.querySelectorAll('.prism-face') : [];
 
                 if (!this.viewport || !this.prism) return;
 
@@ -689,15 +785,26 @@
                 this.lastX = 0;
                 this.lastTime = 0;
 
-                // Lerp settings for "ふわっと→ピタッ" effect
-                this.lerpFactor = 0.12;
-                this.snapThreshold = 0.5;
-                this.overshoot = 1.08;
+                // Z-depth for sink effect
+                this.targetZ = 0;
+                this.currentZ = 0;
+
+                // Animation state
+                this.isAnimating = false;
+                this.animationPhase = 'idle'; // 'rotating', 'sinking', 'settling', 'idle'
+
+                // Lerp settings - slower for "ふわっと" effect
+                this.lerpFactor = 0.06;
+                this.zLerpFactor = 0.1;
+                this.snapThreshold = 0.3;
 
                 this.init();
             }
 
             init() {
+                // Set initial face transforms
+                this.updateFaceTransforms();
+
                 // Touch events
                 this.viewport.addEventListener('touchstart', (e) => this.onTouchStart(e), { passive: true });
                 this.viewport.addEventListener('touchmove', (e) => this.onTouchMove(e), { passive: true });
@@ -725,6 +832,16 @@
                 this.animate();
             }
 
+            updateFaceTransforms() {
+                const faceAngle = 120;
+                this.faces.forEach((face, index) => {
+                    const angle = index * faceAngle;
+                    // Position faces in hinge configuration
+                    face.style.transform = `rotateY(${angle}deg)`;
+                    face.style.zIndex = index === this.currentFace ? 10 : 1;
+                });
+            }
+
             onTouchStart(e) {
                 if (e.touches.length !== 1) return;
                 this.isDragging = true;
@@ -732,6 +849,9 @@
                 this.lastX = this.startX;
                 this.lastTime = Date.now();
                 this.velocity = 0;
+                this.animationPhase = 'rotating';
+                // Lift up when starting to drag
+                this.targetZ = 14;
             }
 
             onTouchMove(e) {
@@ -742,15 +862,16 @@
                 const deltaTime = currentTime - this.lastTime;
 
                 if (deltaTime > 0) {
-                    this.velocity = deltaX / deltaTime * 15;
+                    this.velocity = deltaX / deltaTime * 10;
                 }
 
-                this.targetRotation -= deltaX * 0.3;
+                // Right-to-left swipe = positive rotation (door opens)
+                this.targetRotation -= deltaX * 0.4;
                 this.lastX = currentX;
                 this.lastTime = currentTime;
             }
 
-            onTouchEnd(e) {
+            onTouchEnd() {
                 if (!this.isDragging) return;
                 this.isDragging = false;
                 this.applyMomentumAndSnap();
@@ -763,6 +884,9 @@
                 this.lastTime = Date.now();
                 this.velocity = 0;
                 this.viewport.style.cursor = 'grabbing';
+                this.animationPhase = 'rotating';
+                // Lift up when starting to drag
+                this.targetZ = 14;
             }
 
             onMouseMove(e) {
@@ -773,15 +897,16 @@
                 const deltaTime = currentTime - this.lastTime;
 
                 if (deltaTime > 0) {
-                    this.velocity = deltaX / deltaTime * 15;
+                    this.velocity = deltaX / deltaTime * 10;
                 }
 
-                this.targetRotation -= deltaX * 0.3;
+                // Right-to-left swipe = positive rotation (door opens)
+                this.targetRotation -= deltaX * 0.4;
                 this.lastX = currentX;
                 this.lastTime = currentTime;
             }
 
-            onMouseUp(e) {
+            onMouseUp() {
                 if (!this.isDragging) return;
                 this.isDragging = false;
                 this.viewport.style.cursor = 'grab';
@@ -803,25 +928,32 @@
             }
 
             applyMomentumAndSnap() {
-                // Apply momentum
-                this.targetRotation += this.velocity * 5;
+                // Apply short momentum
+                this.targetRotation += this.velocity * 3;
 
                 // Snap to nearest face (120° increments)
                 const faceAngle = 120;
-                let nearestFace = Math.round(this.targetRotation / faceAngle);
+                const nearestFace = Math.round(this.targetRotation / faceAngle);
+                this.targetRotation = nearestFace * faceAngle;
 
-                // Apply overshoot for "ふわっと" effect
-                const overshootAmount = this.velocity * 2;
-                this.targetRotation = nearestFace * faceAngle + overshootAmount;
-
-                // Calculate current face
+                // Calculate current face (0, 1, or 2)
                 this.currentFace = (((-nearestFace % this.totalFaces) + this.totalFaces) % this.totalFaces);
 
-                // Final snap after brief delay
+                // Start sink sequence
+                this.animationPhase = 'sinking';
+                this.targetZ = -6; // Sink down
+
+                // After sink, settle to 0
                 setTimeout(() => {
-                    this.targetRotation = nearestFace * faceAngle;
+                    this.animationPhase = 'settling';
+                    this.targetZ = 0;
                     this.updateDots();
-                }, 100);
+                }, 300);
+
+                // Mark as idle after settling
+                setTimeout(() => {
+                    this.animationPhase = 'idle';
+                }, 600);
             }
 
             goToFace(faceIndex) {
@@ -834,9 +966,30 @@
                 if (diff > 1) diff -= this.totalFaces;
                 if (diff < -1) diff += this.totalFaces;
 
+                // Start lift
+                this.animationPhase = 'rotating';
+                this.targetZ = 14;
+
                 this.targetRotation = (currentFaceFromRotation + diff) * faceAngle;
                 this.currentFace = faceIndex;
-                this.updateDots();
+
+                // Sink sequence
+                setTimeout(() => {
+                    this.animationPhase = 'sinking';
+                    this.targetZ = -6;
+                }, 400);
+
+                // Settle
+                setTimeout(() => {
+                    this.animationPhase = 'settling';
+                    this.targetZ = 0;
+                    this.updateDots();
+                }, 600);
+
+                // Idle
+                setTimeout(() => {
+                    this.animationPhase = 'idle';
+                }, 900);
             }
 
             updateDots() {
@@ -847,19 +1000,34 @@
             }
 
             animate() {
-                // Smooth lerp with overshoot
-                const diff = this.targetRotation - this.currentRotation;
-
-                if (Math.abs(diff) > this.snapThreshold) {
-                    // Apply lerp with slight overshoot
-                    this.currentRotation += diff * this.lerpFactor * this.overshoot;
+                // Smooth lerp for rotation
+                const rotDiff = this.targetRotation - this.currentRotation;
+                if (Math.abs(rotDiff) > this.snapThreshold) {
+                    this.currentRotation += rotDiff * this.lerpFactor;
                 } else {
-                    // Snap precisely when close enough
                     this.currentRotation = this.targetRotation;
                 }
 
-                // Apply rotation
-                this.prism.style.transform = `rotateY(${-this.currentRotation}deg)`;
+                // Smooth lerp for Z depth
+                const zDiff = this.targetZ - this.currentZ;
+                if (Math.abs(zDiff) > 0.1) {
+                    this.currentZ += zDiff * this.zLerpFactor;
+                } else {
+                    this.currentZ = this.targetZ;
+                }
+
+                // Apply transform to prism scene (hinge rotation + Z depth)
+                this.prism.style.transform = `translateZ(${this.currentZ}px) rotateY(${-this.currentRotation}deg)`;
+
+                // Update face z-index based on visibility
+                const faceAngle = 120;
+                this.faces.forEach((face, index) => {
+                    const angle = (index * faceAngle - this.currentRotation) % 360;
+                    const normalizedAngle = ((angle % 360) + 360) % 360;
+                    // Front-facing face gets higher z-index
+                    const isFront = normalizedAngle < 60 || normalizedAngle > 300;
+                    face.style.zIndex = isFront ? 10 : 1;
+                });
 
                 requestAnimationFrame(() => this.animate());
             }
@@ -867,8 +1035,8 @@
 
         // Initialize controllers
         document.addEventListener('DOMContentLoaded', () => {
-            new PrismController('pcViewport', 'pcPrism', 'pcDots');
-            new PrismController('mobileViewport', 'mobilePrism', 'mobileDots');
+            new HingePrismController('pcViewport', 'pcPrism', 'pcDots');
+            new HingePrismController('mobileViewport', 'mobilePrism', 'mobileDots');
         });
     </script>
 </body>
