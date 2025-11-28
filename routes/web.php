@@ -164,11 +164,6 @@ Route::get('/demo/flick-swiper', function () {
     return view('demo.flick-swiper');
 })->name('demo.flick-swiper');
 
-// Flick LP Demo Routes (Three.js)
-Route::get('/demo/flick-three', function () {
-    return view('demo.flick-three');
-})->name('demo.flick-three');
-
 // Options Demo Routes
 Route::prefix('projects/demo/options')->name('demo.options.')->group(function () {
     Route::view('/sns', 'demo.options.sns')->name('sns');

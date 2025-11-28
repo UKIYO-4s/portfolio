@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Flick LP Demo - CSS 3D (3-Phase Motion)</title>
+    <title>Flick LP Demo - CSS 3D (Dynamic Hinge)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -133,11 +133,11 @@
             z-index: 100;
         }
 
-        /* Main Prism Container */
+        /* Main Prism Container - Enhanced perspective */
         .prism-viewport {
             width: 100%;
             height: 100%;
-            perspective: 1000px;
+            perspective: 2200px;
             perspective-origin: center center;
             display: flex;
             align-items: center;
@@ -158,21 +158,30 @@
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            /* Smooth transition for hinge movement */
             transition: transform 350ms cubic-bezier(.2,.7,.2,1);
         }
 
-        /* Scene container for hinge rotation */
+        /* Scene container - Dynamic hinge via JS */
         .prism-scene {
             width: 100%;
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            /* Hinge at left edge */
+            /* Default: left hinge, will be changed dynamically */
             transform-origin: left center;
         }
 
-        /* Triangle Prism Faces - Left Hinge */
+        /* Right hinge mode */
+        .prism-scene.hinge-right {
+            transform-origin: right center;
+        }
+
+        /* Left hinge mode */
+        .prism-scene.hinge-left {
+            transform-origin: left center;
+        }
+
+        /* Triangle Prism Faces */
         .prism-face {
             position: absolute;
             width: 100%;
@@ -184,17 +193,16 @@
             justify-content: center;
             padding: 60px 30px;
             overflow: hidden;
-            /* Left edge hinge */
-            transform-origin: left center;
+            transform-style: preserve-3d;
         }
 
-        /* Hinge glow - left edge */
+        /* Dynamic hinge glow - left edge */
         .prism-face::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
-            width: 3px;
+            width: 4px;
             height: 100%;
             background: linear-gradient(
                 180deg,
@@ -204,41 +212,60 @@
                 transparent 100%
             );
             filter: blur(4px);
-            opacity: 0.6;
+            opacity: 0.4;
             z-index: 10;
+            transition: opacity 200ms ease;
         }
 
-        /* Right edge highlight - thickness effect */
+        /* Dynamic hinge glow - right edge */
         .prism-face::after {
             content: '';
             position: absolute;
             right: 0;
             top: 0;
-            width: 2px;
+            width: 4px;
             height: 100%;
             background: linear-gradient(
                 180deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.15) 30%,
-                rgba(255, 255, 255, 0.15) 70%,
+                var(--color-accent) 30%,
+                var(--color-accent) 70%,
                 transparent 100%
             );
+            filter: blur(4px);
+            opacity: 0.4;
             z-index: 10;
+            transition: opacity 200ms ease;
         }
 
-        /* Face 1: Design/Vision */
+        /* Enhanced glow during rotation - left hinge */
+        .prism-scene.hinge-left.is-rotating .prism-face::before {
+            opacity: 0.9;
+            filter: blur(6px);
+        }
+
+        /* Enhanced glow during rotation - right hinge */
+        .prism-scene.hinge-right.is-rotating .prism-face::after {
+            opacity: 0.9;
+            filter: blur(6px);
+        }
+
+        /* Face backgrounds */
         .face-1 {
             background: linear-gradient(180deg, #000 0%, #0a1520 100%);
         }
 
-        /* Face 2: Modern/Impact */
         .face-2 {
             background: linear-gradient(180deg, #000 0%, #0f0a1a 100%);
         }
 
-        /* Face 3: Digital/Innovation */
         .face-3 {
             background: linear-gradient(180deg, #000 0%, #0a1a15 100%);
+        }
+
+        /* Pop shadow during lift */
+        .prism-scene.is-rotating .prism-face {
+            filter: drop-shadow(0 20px 40px rgba(0, 206, 209, 0.3));
         }
 
         /* Typography */
@@ -577,7 +604,7 @@
                 <div class="dynamic-island"></div>
                 <div class="prism-viewport" id="pcViewport">
                     <div class="hinge-wrapper" id="pcHingeWrapper">
-                        <div class="prism-scene" id="pcPrism">
+                        <div class="prism-scene hinge-left" id="pcPrism">
                             <!-- Face 1: Design/Vision -->
                             <div class="prism-face face-1">
                                 <span class="face-subtitle">Creative</span>
@@ -686,7 +713,7 @@
 
         <div class="prism-viewport" id="mobileViewport">
             <div class="hinge-wrapper" id="mobileHingeWrapper">
-                <div class="prism-scene" id="mobilePrism">
+                <div class="prism-scene hinge-left" id="mobilePrism">
                     <!-- Face 1: Design/Vision -->
                     <div class="prism-face face-1">
                         <span class="face-subtitle">Creative</span>
@@ -781,11 +808,11 @@
 
     <script>
         /**
-         * ThreePhaseHingePrismController
-         * 3-Phase Motion: Lift → Float → Land/Settle
-         * Infinite loop support with left-hinge rotation
+         * DynamicHingePrismController
+         * Dynamic hinge switching based on swipe direction
+         * 60° joint motion with 3-phase animation
          */
-        class ThreePhaseHingePrismController {
+        class DynamicHingePrismController {
             constructor(viewportId, hingeWrapperId, prismId, dotsId) {
                 this.viewport = document.getElementById(viewportId);
                 this.hingeWrapper = document.getElementById(hingeWrapperId);
@@ -800,32 +827,42 @@
                 this.totalFaces = 3;
                 this.faceAngle = 120;
 
-                // Rotation state (supports infinite loop - no clamping)
+                // Rotation state
                 this.targetRotation = 0;
                 this.currentRotation = 0;
+
+                // Joint angle state (60° → 0°)
+                this.jointAngle = 0;
+                this.targetJointAngle = 0;
 
                 // 3-Phase motion state
                 this.targetY = 0;
                 this.currentY = 0;
                 this.targetZ = 0;
                 this.currentZ = 0;
+                this.targetRotX = 0;
+                this.currentRotX = 0;
 
-                // Animation phase: 'idle', 'lift', 'float', 'land', 'settle'
+                // Swipe direction: 'left' (right→left) or 'right' (left→right)
+                this.swipeDirection = null;
+
+                // Animation phase
                 this.animationPhase = 'idle';
 
-                // Lerp factors
-                this.rotLerpFactor = 0.045;      // Slow rotation lerp
-                this.yLerpFactor = 0.12;          // Y movement lerp
-                this.zLerpFactor = 0.10;          // Z movement lerp
+                // Lerp factors (heavy/slow)
+                this.rotLerpFactor = 0.045;
+                this.jointLerpFactor = 0.08;
+                this.yLerpFactor = 0.16;
+                this.zLerpFactor = 0.18;
+                this.rotXLerpFactor = 0.12;
 
                 // Phase values
-                this.liftY = -14;                 // Phase A: lift up
-                this.liftZ = 50;                  // Phase A: forward
-                this.floatY = -18;                // Phase B: float higher
-                this.floatZ = 28;                 // Phase B: mid-forward
-                this.landZ = -6;                  // Phase C: sink back
-                this.settleY = 0;                 // Phase C2: settle
-                this.settleZ = 0;                 // Phase C2: settle
+                this.liftY = -12;
+                this.liftZ = 50;
+                this.liftRotX = -3;
+                this.floatY = -18;
+                this.floatZ = 28;
+                this.landZ = -6;
 
                 // Touch/drag state
                 this.isDragging = false;
@@ -833,6 +870,7 @@
                 this.lastX = 0;
                 this.lastTime = 0;
                 this.velocity = 0;
+                this.dragDelta = 0;
 
                 this.init();
             }
@@ -841,14 +879,6 @@
                 this.updateFaceTransforms();
                 this.bindEvents();
                 this.animate();
-
-                // Initial demo after 1.5s
-                setTimeout(() => {
-                    this.goToFace(1);
-                    setTimeout(() => {
-                        this.goToFace(0);
-                    }, 2500);
-                }, 1500);
             }
 
             updateFaceTransforms() {
@@ -856,6 +886,22 @@
                     const angle = index * this.faceAngle;
                     face.style.transform = `rotateY(${angle}deg)`;
                 });
+            }
+
+            setHingeDirection(direction) {
+                // direction: 'left' = swipe right→left, hinge on right
+                // direction: 'right' = swipe left→right, hinge on left
+                this.swipeDirection = direction;
+
+                if (direction === 'left') {
+                    // Right→Left swipe: hinge on right edge
+                    this.prism.classList.remove('hinge-left');
+                    this.prism.classList.add('hinge-right');
+                } else {
+                    // Left→Right swipe: hinge on left edge
+                    this.prism.classList.remove('hinge-right');
+                    this.prism.classList.add('hinge-left');
+                }
             }
 
             bindEvents() {
@@ -918,11 +964,7 @@
                 this.lastX = x;
                 this.lastTime = Date.now();
                 this.velocity = 0;
-
-                // Phase A: Start lift
-                this.animationPhase = 'lift';
-                this.targetY = this.liftY;
-                this.targetZ = this.liftZ;
+                this.dragDelta = 0;
             }
 
             updateDrag(x) {
@@ -934,8 +976,27 @@
                     this.velocity = deltaX / deltaTime * 10;
                 }
 
-                // Right-to-left swipe = positive rotation
-                this.targetRotation -= deltaX * 0.4;
+                this.dragDelta += deltaX;
+
+                // Detect swipe direction and set hinge
+                if (Math.abs(this.dragDelta) > 20 && !this.swipeDirection) {
+                    if (this.dragDelta < 0) {
+                        // Right→Left swipe: next page, hinge on right
+                        this.setHingeDirection('left');
+                        this.startLiftPhase();
+                    } else {
+                        // Left→Right swipe: previous page, hinge on left
+                        this.setHingeDirection('right');
+                        this.startLiftPhase();
+                    }
+                }
+
+                // Update rotation based on direction
+                if (this.swipeDirection === 'left') {
+                    this.targetRotation -= deltaX * 0.4;
+                } else if (this.swipeDirection === 'right') {
+                    this.targetRotation -= deltaX * 0.4;
+                }
 
                 this.lastX = x;
                 this.lastTime = currentTime;
@@ -950,21 +1011,40 @@
             onWheel(e) {
                 e.preventDefault();
                 const delta = e.deltaY > 0 ? 1 : -1;
-                this.next(delta);
+                this.navigateByDirection(delta);
             }
 
             onKeyDown(e) {
                 if (e.key === 'ArrowLeft') {
-                    this.next(-1);
+                    this.navigateByDirection(-1);
                 } else if (e.key === 'ArrowRight') {
-                    this.next(1);
+                    this.navigateByDirection(1);
                 }
             }
 
-            next(direction) {
-                // Infinite loop: no modulo on currentFace, just track for dots
+            navigateByDirection(direction) {
+                // direction: 1 = next (right→left swipe), -1 = prev (left→right swipe)
+                if (direction > 0) {
+                    this.setHingeDirection('left');
+                } else {
+                    this.setHingeDirection('right');
+                }
+
                 const newFace = (this.currentFace + direction + this.totalFaces) % this.totalFaces;
                 this.goToFace(newFace, direction);
+            }
+
+            startLiftPhase() {
+                // Phase A: Lift with 60° joint
+                this.animationPhase = 'lift';
+                this.prism.classList.add('is-rotating');
+
+                this.targetY = this.liftY;
+                this.targetZ = this.liftZ;
+                this.targetRotX = this.liftRotX;
+
+                // Set initial joint angle (60° for incoming face)
+                this.targetJointAngle = this.swipeDirection === 'left' ? -60 : 60;
             }
 
             applyMomentumAndSnap() {
@@ -975,10 +1055,10 @@
                 const nearestFace = Math.round(this.targetRotation / this.faceAngle);
                 this.targetRotation = nearestFace * this.faceAngle;
 
-                // Calculate current face for dots (0, 1, or 2)
+                // Calculate current face
                 this.currentFace = (((-nearestFace % this.totalFaces) + this.totalFaces) % this.totalFaces);
 
-                // Start Phase B: Float
+                // Start float phase
                 this.startFloatPhase();
             }
 
@@ -986,27 +1066,26 @@
                 const currentFaceFromRotation = Math.round(this.targetRotation / this.faceAngle);
                 const targetFaceRotation = -faceIndex;
 
-                // Calculate shortest path if no direction specified
                 let diff = targetFaceRotation - currentFaceFromRotation;
                 if (direction === null) {
                     if (diff > 1) diff -= this.totalFaces;
                     if (diff < -1) diff += this.totalFaces;
+                    // Set hinge based on calculated direction
+                    this.setHingeDirection(diff > 0 ? 'right' : 'left');
                 } else {
                     diff = direction;
                 }
 
                 // Phase A: Lift
-                this.animationPhase = 'lift';
-                this.targetY = this.liftY;
-                this.targetZ = this.liftZ;
+                this.startLiftPhase();
 
                 this.targetRotation = (currentFaceFromRotation + diff) * this.faceAngle;
                 this.currentFace = faceIndex;
 
-                // After lift duration, start float
+                // After lift, start float
                 setTimeout(() => {
                     this.startFloatPhase();
-                }, 180);
+                }, 200);
             }
 
             startFloatPhase() {
@@ -1014,8 +1093,11 @@
                 this.animationPhase = 'float';
                 this.targetY = this.floatY;
                 this.targetZ = this.floatZ;
+                this.targetRotX = 0;
 
-                // After float duration, start land
+                // Joint angle approaches 0
+                this.targetJointAngle = 0;
+
                 setTimeout(() => {
                     this.startLandPhase();
                 }, 200);
@@ -1024,10 +1106,10 @@
             startLandPhase() {
                 // Phase C: Land
                 this.animationPhase = 'land';
-                this.targetY = this.settleY;
+                this.targetY = 0;
                 this.targetZ = this.landZ;
+                this.prism.classList.remove('is-rotating');
 
-                // After land duration, settle
                 setTimeout(() => {
                     this.startSettlePhase();
                 }, 350);
@@ -1036,13 +1118,11 @@
             startSettlePhase() {
                 // Phase C2: Settle
                 this.animationPhase = 'settle';
-                this.targetY = this.settleY;
-                this.targetZ = this.settleZ;
+                this.targetZ = 0;
 
-                // Update dots
                 this.updateDots();
+                this.swipeDirection = null;
 
-                // After settle, back to idle
                 setTimeout(() => {
                     this.animationPhase = 'idle';
                 }, 150);
@@ -1064,7 +1144,15 @@
                     this.currentRotation = this.targetRotation;
                 }
 
-                // Smooth lerp for Y (lift/float/land)
+                // Smooth lerp for joint angle
+                const jointDiff = this.targetJointAngle - this.jointAngle;
+                if (Math.abs(jointDiff) > 0.1) {
+                    this.jointAngle += jointDiff * this.jointLerpFactor;
+                } else {
+                    this.jointAngle = this.targetJointAngle;
+                }
+
+                // Smooth lerp for Y
                 const yDiff = this.targetY - this.currentY;
                 if (Math.abs(yDiff) > 0.1) {
                     this.currentY += yDiff * this.yLerpFactor;
@@ -1072,7 +1160,7 @@
                     this.currentY = this.targetY;
                 }
 
-                // Smooth lerp for Z (depth)
+                // Smooth lerp for Z
                 const zDiff = this.targetZ - this.currentZ;
                 if (Math.abs(zDiff) > 0.1) {
                     this.currentZ += zDiff * this.zLerpFactor;
@@ -1080,8 +1168,21 @@
                     this.currentZ = this.targetZ;
                 }
 
+                // Smooth lerp for rotateX
+                const rotXDiff = this.targetRotX - this.currentRotX;
+                if (Math.abs(rotXDiff) > 0.01) {
+                    this.currentRotX += rotXDiff * this.rotXLerpFactor;
+                } else {
+                    this.currentRotX = this.targetRotX;
+                }
+
                 // Apply transform to prism scene
-                this.prism.style.transform = `translateY(${this.currentY}px) translateZ(${this.currentZ}px) rotateY(${-this.currentRotation}deg)`;
+                this.prism.style.transform = `
+                    translateY(${this.currentY}px)
+                    translateZ(${this.currentZ}px)
+                    rotateX(${this.currentRotX}deg)
+                    rotateY(${-this.currentRotation}deg)
+                `;
 
                 // Update face z-index based on visibility
                 this.faces.forEach((face, index) => {
@@ -1097,8 +1198,8 @@
 
         // Initialize controllers
         document.addEventListener('DOMContentLoaded', () => {
-            new ThreePhaseHingePrismController('pcViewport', 'pcHingeWrapper', 'pcPrism', 'pcDots');
-            new ThreePhaseHingePrismController('mobileViewport', 'mobileHingeWrapper', 'mobilePrism', 'mobileDots');
+            new DynamicHingePrismController('pcViewport', 'pcHingeWrapper', 'pcPrism', 'pcDots');
+            new DynamicHingePrismController('mobileViewport', 'mobileHingeWrapper', 'mobilePrism', 'mobileDots');
         });
     </script>
 </body>

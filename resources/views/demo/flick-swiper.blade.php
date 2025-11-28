@@ -879,8 +879,7 @@
             const swiperConfig = {
                 effect: 'cube',
                 grabCursor: true,
-                loop: true,                    // Infinite loop enabled
-                loopAdditionalSlides: 3,       // Safety margin for loop
+                loop: false,                   // Disabled to fix display issue
                 cubeEffect: {
                     shadow: true,
                     slideShadows: true,
@@ -892,11 +891,7 @@
                 resistance: true,
                 resistanceRatio: 0.75,         // Higher resistance for weight
                 allowTouchMove: true,
-                autoplay: {
-                    delay: 2600,               // 2600ms delay for breathing rhythm
-                    disableOnInteraction: true,
-                    pauseOnMouseEnter: true,
-                },
+                autoplay: false,  // Disabled to prevent display issues
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -928,18 +923,6 @@
                     init: function() {
                         this.motionController = new ThreePhaseMotionController(this);
                         this.paginationController = new PaginationController(this, '.pc-swiper .swiper-pagination');
-
-                        // Initial demo: slow rotation after 1.5s
-                        setTimeout(() => {
-                            if (!this.destroyed) {
-                                this.slideNext(2000);
-                                setTimeout(() => {
-                                    if (!this.destroyed) {
-                                        this.slidePrev(2000);
-                                    }
-                                }, 3000);
-                            }
-                        }, 1500);
                     },
                     slideChangeTransitionStart: function() {
                         this.motionController.onTransitionStart();
@@ -968,18 +951,6 @@
                     init: function() {
                         this.motionController = new ThreePhaseMotionController(this);
                         this.paginationController = new PaginationController(this, '.mobile-swiper .swiper-pagination');
-
-                        // Initial demo: slow rotation after 1.5s
-                        setTimeout(() => {
-                            if (!this.destroyed) {
-                                this.slideNext(2000);
-                                setTimeout(() => {
-                                    if (!this.destroyed) {
-                                        this.slidePrev(2000);
-                                    }
-                                }, 3000);
-                            }
-                        }, 1500);
                     },
                     slideChangeTransitionStart: function() {
                         this.motionController.onTransitionStart();
