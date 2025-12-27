@@ -200,6 +200,11 @@
                                 <td class="px-6 py-4 text-sm font-light text-white">80万円</td>
                                 <td class="px-6 py-4 text-sm font-light text-gray-100">支援者向け進捗共有、マイルストーン管理、通知機能</td>
                             </tr>
+                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.chatbot.index') }}'">
+                                <td class="px-6 py-4 text-sm font-light text-white">AIチャットボット</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">80万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-gray-100">24時間自動応答、3Dポリゴン球体UI、カスタム回答設定</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -17,16 +17,14 @@
 ### ご注文内容
 
 @foreach($order->items as $item)
-**{{ $item->product_name }}**  
-数量: {{ $item->quantity }}  
+**{{ $item->product_name }}**
+数量: {{ $item->quantity }}
 価格: ¥{{ number_format($item->price) }}
 
-@if($item->product && $item->product->product_type === 'download' && $item->download_link && $order->payment_status === 'paid')
-<x-mail::button :url="$item->download_link">
-ダウンロード
+@if($item->product && $item->product->product_type === 'download' && $order->payment_status === 'paid')
+<x-mail::button :url="\App\Http\Controllers\DownloadController::generateSignedDownloadUrl($order, $item->product)">
+ダウンロードページへ
 </x-mail::button>
-
-ダウンロード回数: {{ $item->download_count }}回
 @endif
 
 ---
@@ -35,16 +33,19 @@
 **合計金額:** ¥{{ number_format($order->total_amount) }}
 
 @if($order->payment_status === 'paid')
+@php
+$downloadableItems = $order->items->filter(fn($item) => $item->product && $item->product->product_type === 'download');
+@endphp
+@if($downloadableItems->count() > 0)
 ## ダウンロードについて
 
-デジタル商品のダウンロードは、上記のボタンまたは以下のリンクからアクセスできます。
+デジタル商品のダウンロードは、上記のボタンまたは以下のリンクからダウンロードページにアクセスできます。
+お使いのMacの種類（Apple Silicon / Intel）に合わせたファイルをダウンロードしてください。
 
-@foreach($order->items as $item)
-@if($item->product && $item->product->product_type === 'download' && $item->download_link)
-- [{{ $item->product_name }}]({{ $item->download_link }})
-@endif
+@foreach($downloadableItems as $item)
+- [{{ $item->product_name }} ダウンロードページ]({{ \App\Http\Controllers\DownloadController::generateSignedDownloadUrl($order, $item->product) }})
 @endforeach
-
+@endif
 @endif
 
 ## お問い合わせ

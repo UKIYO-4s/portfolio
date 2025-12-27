@@ -43,7 +43,18 @@ Route::post('/checkout/jpyc/check-status', [JpycCheckoutController::class, 'chec
 Route::get('/checkout/jpyc/success', [JpycCheckoutController::class, 'success'])->name('jpyc.success');
 Route::get('/checkout/jpyc/cancel', [JpycCheckoutController::class, 'cancel'])->name('jpyc.cancel');
 
-Route::get('/download/{order}/{product}', [\App\Http\Controllers\DownloadController::class, 'download'])->name('download');
+// Download Routes (署名付きURL)
+Route::get('/download/{order}/{product}', [\App\Http\Controllers\DownloadController::class, 'index'])
+    ->name('download.signed')
+    ->middleware('signed');
+Route::get('/download/{order}/{product}/{type}', [\App\Http\Controllers\DownloadController::class, 'downloadFile'])
+    ->name('download.file.signed')
+    ->middleware('signed');
+
+// 旧ルート（署名付きURLへリダイレクト）
+Route::get('/dl/{order}/{product}', function (App\Models\Order $order, App\Models\Product $product) {
+    return redirect(\App\Http\Controllers\DownloadController::generateSignedDownloadUrl($order, $product));
+})->name('download');
 
 // Stripe Webhook
 Route::post('/stripe/webhook', [WebhookController::class, 'handleStripeWebhook'])->name('stripe.webhook');
@@ -214,11 +225,68 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('orders', [AdminOrderController::class, 'index'])->name('orders.index');
         Route::get('orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
         Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
+        // 開発者用ダウンロードリンク生成
+        Route::post('generate-dev-link/{product}', [DashboardController::class, 'generateDevLink'])->name('generate-dev-link');
     });
 });
+
+// 開発者用ダウンロード（署名付きURL）
+Route::get('/dev-download/{product}', [\App\Http\Controllers\DownloadController::class, 'devDownload'])
+    ->name('admin.dev-download')
+    ->middleware('signed');
 
 // Video Creator Demo Route
 Route::get("/projects/demo/video-creator", function () {
     return view("demo.video-creator.index");
 })->name("demo.video-creator.index");
+
+// AI Chatbot Demo Route
+Route::get("/projects/demo/chatbot", function () {
+    return view("demo.chatbot.index");
+})->name("demo.chatbot.index");
+
+// Development Preview Routes (メール・ページプレビュー用)
+if (app()->environment('local')) {
+    Route::prefix('dev-preview')->group(function () {
+        // メールプレビュー
+        Route::get('/email/order-confirmation/{order?}', function ($orderId = null) {
+            $order = $orderId
+                ? App\Models\Order::with('items.product')->findOrFail($orderId)
+                : App\Models\Order::with('items.product')->latest()->first();
+
+            if (!$order) {
+                return 'No orders found. Please create a test order first.';
+            }
+
+            return new App\Mail\OrderConfirmation($order);
+        })->name('dev.email.order-confirmation');
+
+        // JPYC決済完了ページプレビュー
+        Route::get('/jpyc-success/{order?}', function ($orderId = null) {
+            $order = $orderId
+                ? App\Models\Order::with('items.product')->findOrFail($orderId)
+                : App\Models\Order::with('items.product')->latest()->first();
+
+            if (!$order) {
+                return 'No orders found. Please create a test order first.';
+            }
+
+            return view('checkout.jpyc.success', compact('order'));
+        })->name('dev.jpyc-success');
+
+        // ダウンロードページプレビュー（署名なしでアクセス可能）
+        Route::get('/download/{order}/{product}', function (App\Models\Order $order, App\Models\Product $product) {
+            $versionInfo = app(App\Http\Controllers\DownloadController::class)->getVersionInfo();
+            $expiresAt = now()->addDays(30);
+            return view('download.index', compact('order', 'product', 'versionInfo', 'expiresAt'));
+        })->name('dev.download');
+
+        // 注文一覧
+        Route::get('/orders', function () {
+            $orders = App\Models\Order::with('items.product')->latest()->get();
+            return view('dev-preview.orders', compact('orders'));
+        })->name('dev.orders');
+    });
+}
 

@@ -72,8 +72,8 @@
             <h3 class="text-lg font-light mb-4" data-ja="ダウンロード" data-en="Download Your Products">ダウンロード</h3>
             <div class="space-y-3">
                 @foreach($order->items as $item)
-                    @if($item->product && $item->product->file_path)
-                        <a href="{{ route('download', ['order' => $order->id, 'product' => $item->product->id]) }}"
+                    @if($item->product && $item->product->product_type === 'download')
+                        <a href="{{ \App\Http\Controllers\DownloadController::generateSignedDownloadUrl($order, $item->product) }}"
                            class="flex justify-between items-center p-4 bg-gray-800 hover:bg-gray-700 transition-colors">
                             <span class="flex items-center gap-3">
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,9 +81,7 @@
                                 </svg>
                                 <span>{{ $item->product_name }}</span>
                             </span>
-                            @if($item->product->file_size)
-                            <span class="text-xs text-gray-400">{{ number_format($item->product->file_size / 1024 / 1024, 2) }} MB</span>
-                            @endif
+                            <span class="text-xs text-blue-400" data-ja="ダウンロードページへ" data-en="Go to Download Page">ダウンロードページへ →</span>
                         </a>
                     @endif
                 @endforeach
