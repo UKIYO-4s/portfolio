@@ -216,3 +216,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
     });
 });
+
+// Video Creator Demo Route
+Route::get("/projects/demo/video-creator", function () {
+    return view("demo.video-creator.index");
+})->name("demo.video-creator.index");
+

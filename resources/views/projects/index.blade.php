@@ -222,14 +222,14 @@
                                 <td class="px-6 py-4 text-sm font-light text-white">6万円</td>
                                 <td class="px-6 py-4 text-sm font-light text-gray-100">画像投稿の一括管理、予約投稿、Instagram・Googleビジネス連携</td>
                             </tr>
-                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.reels') }}'">
+                            <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.video-creator.index') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">Instagram＆Shorts動画作成効率化アプリ</td>
-                                <td class="px-6 py-4 text-sm font-light text-white">10万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">13万円</td>
                                 <td class="px-6 py-4 text-sm font-light text-gray-100">ショート動画テンプレート、BGM・テキスト追加、Reels/Shorts一括投稿</td>
                             </tr>
                             <tr class="border-b border-gray-800 hover:bg-gray-900/30 transition-colors cursor-pointer" onclick="window.location.href='{{ route('demo.sns-tool.index') }}'">
                                 <td class="px-6 py-4 text-sm font-light text-white">2つセット</td>
-                                <td class="px-6 py-4 text-sm font-light text-white">13万円</td>
+                                <td class="px-6 py-4 text-sm font-light text-white">16万円</td>
                                 <td class="px-6 py-4 text-sm font-light text-gray-100">上記2つのアプリをセットでお得に導入</td>
                             </tr>
                         </tbody>

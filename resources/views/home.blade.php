@@ -90,7 +90,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         @foreach($featuredProducts as $product)
         <a href="{{ route('shop.show', $product) }}" class="group block">
-            <div class="aspect-[4/5] bg-gray-900 mb-6 overflow-hidden">
+            <div class="aspect-[3/2] bg-gray-900 mb-6 overflow-hidden">
                 @if($product->image)
                     <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 @endif
