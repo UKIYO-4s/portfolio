@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="max-w-3xl">
-    <h1 class="text-4xl font-thin tracking-wide mb-8">Edit Photo</h1>
+    <h1 class="text-4xl font-semibold tracking-normal font-display mb-8">Edit Photo</h1>
 
     <form action="{{ route('admin.photos.update', $photo) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf

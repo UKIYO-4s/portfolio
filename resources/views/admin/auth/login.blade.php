@@ -10,7 +10,7 @@
     <div class="min-h-full flex items-center justify-center px-6">
         <div class="w-full max-w-md">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-thin tracking-wide mb-2">Admin Login</h1>
+                <h1 class="text-4xl font-semibold tracking-normal font-display mb-2">Admin Login</h1>
                 <p class="text-gray-400 text-sm">Portfolio Management System</p>
             </div>
 

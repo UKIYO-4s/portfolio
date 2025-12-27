@@ -5,7 +5,7 @@
 @section('content')
 <div class="py-24 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
     <div class="flex justify-between items-center mb-16">
-        <h1 class="text-5xl md:text-6xl font-thin tracking-wide">チェックアウト</h1>
+        <h1 class="text-5xl md:text-6xl font-semibold tracking-normal font-display">チェックアウト</h1>
         <button onclick="toggleLanguage()" class="text-sm text-gray-400 hover:text-white border border-gray-700 px-3 py-1 rounded">
             <span id="lang-toggle">English</span>
         </button>

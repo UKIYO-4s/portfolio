@@ -16,7 +16,7 @@
         </svg>
     </div>
 
-    <h1 class="text-5xl font-thin tracking-wide mb-6" data-ja="決済がキャンセルされました" data-en="Payment Cancelled">決済がキャンセルされました</h1>
+    <h1 class="text-5xl font-semibold tracking-normal font-display mb-6" data-ja="決済がキャンセルされました" data-en="Payment Cancelled">決済がキャンセルされました</h1>
     <p class="text-xl text-gray-400 font-light mb-12" data-ja="お支払いはキャンセルされました。請求は発生していません。" data-en="Your payment was cancelled. No charges were made.">
         お支払いはキャンセルされました。請求は発生していません。
     </p>

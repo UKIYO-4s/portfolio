@@ -13,7 +13,7 @@
                 Back to Projects
             </a>
 
-            <h1 class="text-5xl md:text-6xl font-thin tracking-wide mb-6">{{ $project->title }}</h1>
+            <h1 class="text-5xl md:text-6xl font-semibold tracking-wide font-display mb-6">{{ $project->title }}</h1>
 
             @if($project->technologies)
                 <div class="flex flex-wrap gap-2 mb-8">

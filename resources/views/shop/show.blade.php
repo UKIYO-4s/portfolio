@@ -53,7 +53,7 @@
             </div>
 
             <div class="flex flex-col">
-                <h1 class="text-4xl md:text-5xl font-thin tracking-wide mb-6">{{ $product->name }}</h1>
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-normal font-display mb-6">{{ $product->name }}</h1>
 
                 <div class="text-3xl font-light mb-8">¥{{ number_format($product->price, 0) }}</div>
 

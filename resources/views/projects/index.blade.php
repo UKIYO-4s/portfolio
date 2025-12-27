@@ -7,7 +7,7 @@
     <!-- Pricing Section -->
     <div>
         <div class="mb-16">
-            <h2 class="text-4xl md:text-5xl font-thin tracking-wide mb-6">料金表 / Pricing</h2>
+            <h2 class="text-4xl md:text-5xl font-semibold tracking-normal font-display mb-6">料金表 / Pricing</h2>
             <p class="text-lg text-gray-400 font-light max-w-2xl">
                 各サービスの料金目安をご確認いただけます。詳細はお問い合わせください。<br>
                 <span class="text-gray-500">名前をクリックするとデモ画面に遷移します。</span>
@@ -41,7 +41,7 @@
             <div id="content-homepage" class="tab-content active">
                 <!-- Plans Table -->
                 <div class="mb-16">
-                    <h3 class="text-2xl font-light mb-8 text-gray-300">プラン</h3>
+                    <h3 class="text-2xl font-medium font-display mb-8 text-gray-300">プラン</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-800">
                             <thead>
@@ -104,7 +104,7 @@
 
                 <!-- Options Table -->
                 <div>
-                    <h3 class="text-2xl font-light mb-8 text-gray-300">オプション</h3>
+                    <h3 class="text-2xl font-medium font-display mb-8 text-gray-300">オプション</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full border border-gray-800">
                             <thead>

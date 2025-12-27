@@ -5,7 +5,7 @@
 @section('content')
 <div>
     <div class="flex justify-between items-center mb-8">
-        <h1 class="text-4xl font-thin tracking-wide">Orders</h1>
+        <h1 class="text-4xl font-semibold tracking-normal font-display">Orders</h1>
     </div>
 
     @if($orders->count() > 0)

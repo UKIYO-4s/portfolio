@@ -11,7 +11,7 @@
     </div>
 
     <div class="mb-8">
-        <h1 class="text-4xl font-thin tracking-wide">Order Details</h1>
+        <h1 class="text-4xl font-semibold tracking-normal font-display">Order Details</h1>
         <p class="text-gray-400 mt-2">{{ $order->order_number }}</p>
     </div>
 

@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-screen bg-black text-white py-20">
     <div class="max-w-4xl mx-auto px-6 sm:px-8">
-        <h1 class="text-4xl font-thin tracking-wide mb-12 text-center">特定商取引法に基づく表記</h1>
+        <h1 class="text-4xl font-semibold tracking-normal font-display mb-12 text-center">特定商取引法に基づく表記</h1>
 
         <div class="space-y-8 text-gray-300">
             <!-- 販売業者 -->

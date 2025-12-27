@@ -7,10 +7,10 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-80"></div>
     <div class="relative z-10 text-center px-6">
         <p class="text-sm md:text-base font-light text-gray-400 mb-4 tracking-widest">SD-create</p>
-        <h1 class="text-6xl md:text-8xl font-thin tracking-wide mb-6 animate-fade-in">
+        <h1 class="text-6xl md:text-8xl font-semibold tracking-wide mb-6 animate-fade-in font-display">
             Shoei Goto
         </h1>
-        <p class="text-xl md:text-2xl font-light text-gray-400 mb-12 tracking-wide">
+        <p class="text-xl md:text-2xl font-light text-gray-400 mb-12 tracking-normal">
             Digital Creator & Developer
         </p>
         <div class="flex justify-center gap-8">
@@ -31,23 +31,23 @@
 </div>
 
 @if($featuredProjects->count() > 0)
-<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-6xl mx-auto">
     <div class="flex justify-between items-center mb-16">
-        <h2 class="text-4xl font-thin tracking-wide">Selected Works</h2>
+        <h2 class="text-4xl font-medium tracking-normal font-display">Selected Works</h2>
         <a href="{{ route('projects.index') }}" class="text-gray-400 hover:text-white transition-colors text-sm tracking-wider">
             View All →
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         @foreach($featuredProjects as $project)
-        <a href="{{ route('projects.show', $project) }}" class="group block max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
+        <a href="{{ route('projects.show', $project) }}" class="group block">
+            <div class="aspect-[4/5] bg-gray-900 mb-6 overflow-hidden">
                 @if($project->thumbnail)
-                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
-            <h3 class="text-xl font-light mb-2 group-hover:text-gray-400 transition-colors">{{ $project->title }}</h3>
+            <h3 class="text-xl font-medium mb-2 group-hover:text-gray-400 transition-colors">{{ $project->title }}</h3>
             <p class="text-sm text-gray-400 font-light">{{ Str::limit($project->description, 80) }}</p>
         </a>
         @endforeach
@@ -56,20 +56,20 @@
 @endif
 
 @if($featuredPhotos->count() > 0)
-<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-6xl mx-auto">
     <div class="flex justify-between items-center mb-16">
-        <h2 class="text-4xl font-thin tracking-wide">Photography</h2>
+        <h2 class="text-4xl font-medium tracking-normal font-display">Photography</h2>
         <a href="{{ route('photos.index') }}" class="text-gray-400 hover:text-white transition-colors text-sm tracking-wider">
             View All →
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         @foreach($featuredPhotos as $photo)
-        <div class="max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 overflow-hidden group w-80 mx-auto">
+        <div class="group">
+            <div class="aspect-[3/2] bg-gray-900 overflow-hidden">
                 @if($photo->image_path)
-                    <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 relative z-10">
+                    <img src="{{ asset('storage/' . $photo->image_path) }}" alt="{{ $photo->title }}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
         </div>
@@ -79,24 +79,24 @@
 @endif
 
 @if($featuredProducts->count() > 0)
-<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+<section class="py-24 px-6 sm:px-8 lg:px-12 max-w-6xl mx-auto">
     <div class="flex justify-between items-center mb-16">
-        <h2 class="text-4xl font-thin tracking-wide">Digital Collection</h2>
+        <h2 class="text-4xl font-medium tracking-normal font-display">Digital Collection</h2>
         <a href="{{ route('shop.index') }}" class="text-gray-400 hover:text-white transition-colors text-sm tracking-wider">
             Explore Store →
         </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         @foreach($featuredProducts as $product)
-        <a href="{{ route('shop.show', $product) }}" class="group block max-w-xs mx-auto">
-            <div class="aspect-square bg-gray-900 mb-4 overflow-hidden w-80 mx-auto">
+        <a href="{{ route('shop.show', $product) }}" class="group block">
+            <div class="aspect-[4/5] bg-gray-900 mb-6 overflow-hidden">
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                 @endif
             </div>
-            <h3 class="text-xs font-light mb-1 group-hover:text-gray-400 transition-colors text-center line-clamp-2">{{ $product->name }}</h3>
-            <p class="text-xs text-gray-400 font-light text-center">¥{{ number_format($product->price, 0) }}</p>
+            <h3 class="text-lg font-medium mb-2 group-hover:text-gray-400 transition-colors">{{ $product->name }}</h3>
+            <p class="text-sm text-gray-400 font-light">¥{{ number_format($product->price, 0) }}</p>
         </a>
         @endforeach
     </div>
@@ -105,8 +105,8 @@
 
 <section class="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
     <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-5xl font-thin tracking-wide mb-8">Transform Ideas Into Reality</h2>
-        <p class="text-xl text-gray-400 font-light mb-12">
+        <h2 class="text-5xl font-semibold tracking-wide mb-8 font-display">Transform Ideas Into Reality</h2>
+        <p class="text-xl text-gray-400 font-light mb-12 tracking-normal">
             Ready to elevate your digital presence? Let's collaborate and build something remarkable.
         </p>
         <a href="mailto:contact@example.com" class="inline-block px-12 py-4 border border-white hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-wider">

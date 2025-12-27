@@ -16,7 +16,7 @@
         </svg>
     </div>
 
-    <h1 class="text-5xl font-thin tracking-wide mb-6" data-ja="ありがとうございます！" data-en="Thank You!">ありがとうございます！</h1>
+    <h1 class="text-5xl font-semibold tracking-normal font-display mb-6" data-ja="ありがとうございます！" data-en="Thank You!">ありがとうございます！</h1>
     <p class="text-xl text-gray-400 font-light mb-12" data-ja="JPYC決済が確認され、注文が完了しました。" data-en="Your JPYC payment has been verified and your order is complete.">
         JPYC決済が確認され、注文が完了しました。
     </p>

@@ -5,7 +5,7 @@
 @section('content')
 <div class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
     <div class="mb-16">
-        <h1 class="text-5xl md:text-6xl font-thin tracking-wide mb-6">Photography</h1>
+        <h1 class="text-5xl md:text-6xl font-semibold tracking-normal font-display mb-6">Photography</h1>
         <p class="text-xl text-gray-400 font-light max-w-2xl">
             Capturing moments through the lens.
         </p>

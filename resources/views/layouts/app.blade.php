@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full" data-font="c">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name', 'Corporate Site'))</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="h-full bg-black text-white antialiased">
@@ -12,7 +18,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
-                    <a href="{{ route('home') }}" class="text-xl font-light tracking-wider hover:text-gray-400 transition-colors">
+                    <a href="{{ route('home') }}" class="text-xl font-medium tracking-wide hover:text-gray-400 transition-colors">
                         SD-create
                     </a>
                 </div>
@@ -29,7 +35,7 @@
                     </a>
                 </div>
 
-                <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-6">
                     <a href="{{ route('cart.index') }}" class="relative hover:text-gray-400 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
@@ -73,13 +79,13 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-lg font-light mb-4">SD-create</h3>
+                    <h3 class="text-lg font-medium mb-4">SD-create</h3>
                     <p class="text-sm text-gray-400 font-light">
                         Shoei Goto - Digital Creator & Developer
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-light mb-4">Links</h3>
+                    <h3 class="text-lg font-medium mb-4">Links</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a href="{{ route('projects.index') }}" class="hover:text-white transition-colors">Price</a></li>
                         <li><a href="{{ route('photos.index') }}" class="hover:text-white transition-colors">Photography</a></li>
@@ -87,7 +93,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-light mb-4">Legal</h3>
+                    <h3 class="text-lg font-medium mb-4">Legal</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a href="{{ route('legal') }}" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
                         <li><a href="{{ route('terms') }}" class="hover:text-white transition-colors">Terms of Service</a></li>

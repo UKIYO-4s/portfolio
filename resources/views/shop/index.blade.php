@@ -6,7 +6,7 @@
 <div class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
     <div class="flex justify-between items-start mb-16">
         <div>
-            <h1 class="text-5xl md:text-6xl font-thin tracking-wide mb-6" data-ja="ショップ" data-en="Shop">ショップ</h1>
+            <h1 class="text-5xl md:text-6xl font-semibold tracking-normal font-display mb-6" data-ja="ショップ" data-en="Shop">ショップ</h1>
             <p class="text-xl text-gray-400 font-light max-w-2xl" data-ja="デジタル製品、リソース、クリエイティブツール。" data-en="Digital products, resources, and creative tools.">
                 デジタル製品、リソース、クリエイティブツール。
             </p>
@@ -47,7 +47,7 @@
                         @endif
                     </div>
 
-                    <h2 class="text-2xl font-light mb-3 group-hover:text-gray-400 transition-colors">
+                    <h2 class="text-2xl font-medium mb-3 group-hover:text-gray-400 transition-colors">
                         {{ $product->name }}
                     </h2>
                     <p class="text-gray-400 font-light mb-4 line-clamp-2">
