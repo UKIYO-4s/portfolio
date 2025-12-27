@@ -31,6 +31,9 @@
                             <a href="{{ route('admin.orders.index') }}" class="text-sm {{ request()->routeIs('admin.orders.*') ? 'text-white' : 'text-gray-400 hover:text-white' }} transition-colors" data-ja="注文" data-en="Orders">
                                 注文
                             </a>
+                            <a href="{{ route('admin.settings') }}" class="text-sm {{ request()->routeIs('admin.settings') ? 'text-white' : 'text-gray-400 hover:text-white' }} transition-colors" data-ja="設定" data-en="Settings">
+                                設定
+                            </a>
                         </div>
                     </div>
 

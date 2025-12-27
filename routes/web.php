@@ -228,6 +228,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // 開発者用ダウンロードリンク生成
         Route::post('generate-dev-link/{product}', [DashboardController::class, 'generateDevLink'])->name('generate-dev-link');
+
+        // 設定
+        Route::get('settings', [AuthController::class, 'settings'])->name('settings');
+        Route::post('settings/password', [AuthController::class, 'updatePassword'])->name('password.update');
     });
 });
 
