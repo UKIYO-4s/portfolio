@@ -41,4 +41,12 @@ return [
         'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
     ],
 
+    'polygon' => [
+        'rpc_url' => env('POLYGON_RPC_URL', 'https://polygon-rpc.com'),
+    ],
+
+    'jpyc' => [
+        'receiver_address' => env('JPYC_RECEIVER_ADDRESS'),
+    ],
+
 ];

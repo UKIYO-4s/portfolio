@@ -17,8 +17,8 @@
     </div>
 
     <h1 class="text-5xl font-thin tracking-wide mb-6" data-ja="ありがとうございます！" data-en="Thank You!">ありがとうございます！</h1>
-    <p class="text-xl text-gray-400 font-light mb-12" data-ja="ご注文が正常に完了しました。" data-en="Your order has been completed successfully.">
-        ご注文が正常に完了しました。
+    <p class="text-xl text-gray-400 font-light mb-12" data-ja="JPYC決済が確認され、注文が完了しました。" data-en="Your JPYC payment has been verified and your order is complete.">
+        JPYC決済が確認され、注文が完了しました。
     </p>
 
     <div class="bg-gray-900/50 border border-gray-800 p-8 mb-12 text-left">
@@ -35,8 +35,25 @@
             </div>
             <div class="flex justify-between text-sm">
                 <span class="text-gray-400" data-ja="合計金額" data-en="Total Amount">合計金額</span>
-                <span>¥{{ number_format($order->total_amount, 0) }}</span>
+                <span>{{ number_format($order->total_amount, 0) }} JPYC</span>
             </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-400" data-ja="支払い方法" data-en="Payment Method">支払い方法</span>
+                <span class="text-purple-400">JPYC (Polygon)</span>
+            </div>
+            @if($order->tx_hash)
+            <div class="flex justify-between text-sm items-center">
+                <span class="text-gray-400" data-ja="トランザクション" data-en="Transaction">トランザクション</span>
+                <a href="https://polygonscan.com/tx/{{ $order->tx_hash }}"
+                   target="_blank"
+                   class="text-blue-400 hover:text-blue-300 font-mono text-xs">
+                    {{ substr($order->tx_hash, 0, 10) }}...{{ substr($order->tx_hash, -8) }}
+                    <svg class="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                </a>
+            </div>
+            @endif
         </div>
 
         <div class="border-t border-gray-800 pt-6">
@@ -45,7 +62,7 @@
                 @foreach($order->items as $item)
                     <div class="flex justify-between items-center text-sm">
                         <span>{{ $item->product_name }} (x{{ $item->quantity }})</span>
-                        <span>¥{{ number_format($item->price * $item->quantity, 0) }}</span>
+                        <span>{{ number_format($item->price * $item->quantity, 0) }} JPYC</span>
                     </div>
                 @endforeach
             </div>
@@ -64,7 +81,9 @@
                                 </svg>
                                 <span>{{ $item->product_name }}</span>
                             </span>
+                            @if($item->product->file_size)
                             <span class="text-xs text-gray-400">{{ number_format($item->product->file_size / 1024 / 1024, 2) }} MB</span>
+                            @endif
                         </a>
                     @endif
                 @endforeach
@@ -73,8 +92,8 @@
     </div>
 
     <div class="mb-12 p-6 bg-blue-900/20 border border-blue-800">
-        <p class="text-blue-400" data-ja="ダウンロードリンク付きの確認メールを送信しました" data-en="A confirmation email with download links has been sent to">
-            ダウンロードリンク付きの確認メールを <strong>{{ $order->email }}</strong> に送信しました
+        <p class="text-blue-400" data-ja="ダウンロードリンク付きの確認メールを {{ $order->email }} に送信しました。" data-en="A confirmation email with download links has been sent to {{ $order->email }}">
+            ダウンロードリンク付きの確認メールを <strong>{{ $order->email }}</strong> に送信しました。
         </p>
     </div>
 

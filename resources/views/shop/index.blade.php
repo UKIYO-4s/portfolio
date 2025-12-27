@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'Shop - Digital Products')
+@section('title', 'ショップ')
 
 @section('content')
 <div class="py-24 px-6 sm:px-8 lg:px-12 max-w-7xl mx-auto">
-    <div class="mb-16">
-        <h1 class="text-5xl md:text-6xl font-thin tracking-wide mb-6">Shop</h1>
-        <p class="text-xl text-gray-400 font-light max-w-2xl">
-            Digital products, resources, and creative tools.
-        </p>
+    <div class="flex justify-between items-start mb-16">
+        <div>
+            <h1 class="text-5xl md:text-6xl font-thin tracking-wide mb-6" data-ja="ショップ" data-en="Shop">ショップ</h1>
+            <p class="text-xl text-gray-400 font-light max-w-2xl" data-ja="デジタル製品、リソース、クリエイティブツール。" data-en="Digital products, resources, and creative tools.">
+                デジタル製品、リソース、クリエイティブツール。
+            </p>
+        </div>
+        <button onclick="toggleLanguage()" class="text-sm text-gray-400 hover:text-white border border-gray-700 px-3 py-1 rounded">
+            <span id="lang-toggle">English</span>
+        </button>
     </div>
 
     @if(session('success'))
@@ -55,8 +60,9 @@
                     <form action="{{ route('cart.add', $product) }}" method="POST">
                         @csrf
                         <button type="submit"
-                                class="px-6 py-2 bg-[#1e3a5f] text-white hover:bg-[#2a4a73] transition-colors text-sm tracking-wider">
-                            Add to Cart
+                                class="px-6 py-2 bg-[#1e3a5f] text-white hover:bg-[#2a4a73] transition-colors text-sm tracking-wider"
+                                data-ja="カートに追加" data-en="Add to Cart">
+                            カートに追加
                         </button>
                     </form>
                 </div>
@@ -65,8 +71,23 @@
         </div>
     @else
         <div class="text-center py-24">
-            <p class="text-gray-400 text-lg">No products available at the moment.</p>
+            <p class="text-gray-400 text-lg" data-ja="現在、商品はありません。" data-en="No products available at the moment.">現在、商品はありません。</p>
         </div>
     @endif
 </div>
+
+<script>
+let currentLang = 'ja';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ja' ? 'en' : 'ja';
+    document.getElementById('lang-toggle').textContent = currentLang === 'ja' ? 'English' : '日本語';
+
+    document.querySelectorAll('[data-ja]').forEach(el => {
+        if (el.hasAttribute('data-' + currentLang)) {
+            el.textContent = el.getAttribute('data-' + currentLang);
+        }
+    });
+}
+</script>
 @endsection

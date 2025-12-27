@@ -1,16 +1,21 @@
 @extends('layouts.app')
 
-@section('title', $product->name . ' - Shop')
+@section('title', $product->name)
 
 @section('content')
 <div class="py-24 px-6 sm:px-8 lg:px-12">
     <div class="max-w-6xl mx-auto">
-        <a href="{{ route('shop.index') }}" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors mb-8">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            Back to Shop
-        </a>
+        <div class="flex justify-between items-center mb-8">
+            <a href="{{ route('shop.index') }}" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span data-ja="ショップに戻る" data-en="Back to Shop">ショップに戻る</span>
+            </a>
+            <button onclick="toggleLanguage()" class="text-sm text-gray-400 hover:text-white border border-gray-700 px-3 py-1 rounded">
+                <span id="lang-toggle">English</span>
+            </button>
+        </div>
 
         @if(session('success'))
             <div class="mb-8 p-4 bg-green-900/20 border border-green-800 text-green-400">
@@ -60,16 +65,16 @@
 
                 @if($product->file_name)
                     <div class="mb-8 p-6 border border-gray-800 bg-gray-900/50">
-                        <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-4">What's included</h3>
+                        <h3 class="text-sm uppercase tracking-wider text-gray-400 mb-4" data-ja="含まれるもの" data-en="What's included">含まれるもの</h3>
                         <div class="flex items-center text-sm">
                             <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                             </svg>
-                            <span>Digital download: {{ $product->file_name }}</span>
+                            <span data-ja="デジタルダウンロード: {{ $product->file_name }}" data-en="Digital download: {{ $product->file_name }}">デジタルダウンロード: {{ $product->file_name }}</span>
                         </div>
                         @if($product->file_size)
                             <div class="mt-2 text-sm text-gray-500">
-                                File size: {{ number_format($product->file_size / 1024 / 1024, 2) }} MB
+                                <span data-ja="ファイルサイズ:" data-en="File size:">ファイルサイズ:</span> {{ number_format($product->file_size / 1024 / 1024, 2) }} MB
                             </div>
                         @endif
                     </div>
@@ -78,16 +83,32 @@
                 <form action="{{ route('cart.add', $product) }}" method="POST" class="mt-auto">
                     @csrf
                     <button type="submit"
-                            class="w-full px-8 py-4 bg-[#1e3a5f] text-white hover:bg-[#2a4a73] transition-colors text-sm tracking-wider font-medium">
-                        Add to Cart
+                            class="w-full px-8 py-4 bg-[#1e3a5f] text-white hover:bg-[#2a4a73] transition-colors text-sm tracking-wider font-medium"
+                            data-ja="カートに追加" data-en="Add to Cart">
+                        カートに追加
                     </button>
                 </form>
 
-                <div class="mt-6 text-center text-sm text-gray-400">
-                    Instant download after purchase
+                <div class="mt-6 text-center text-sm text-gray-400" data-ja="購入後すぐにダウンロード可能" data-en="Instant download after purchase">
+                    購入後すぐにダウンロード可能
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+let currentLang = 'ja';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ja' ? 'en' : 'ja';
+    document.getElementById('lang-toggle').textContent = currentLang === 'ja' ? 'English' : '日本語';
+
+    document.querySelectorAll('[data-ja]').forEach(el => {
+        if (el.hasAttribute('data-' + currentLang)) {
+            el.textContent = el.getAttribute('data-' + currentLang);
+        }
+    });
+}
+</script>
 @endsection

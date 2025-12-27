@@ -31,6 +31,18 @@ Route::post('/checkout/process', [CheckoutController::class, 'process'])
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
+// JPYC Checkout
+use App\Http\Controllers\JpycCheckoutController;
+
+Route::get('/checkout/jpyc', [JpycCheckoutController::class, 'index'])->name('jpyc.index');
+Route::post('/checkout/jpyc/process', [JpycCheckoutController::class, 'process'])
+    ->middleware('throttle.email')
+    ->name('jpyc.process');
+Route::post('/checkout/jpyc/verify', [JpycCheckoutController::class, 'verify'])->name('jpyc.verify');
+Route::post('/checkout/jpyc/check-status', [JpycCheckoutController::class, 'checkStatus'])->name('jpyc.checkStatus');
+Route::get('/checkout/jpyc/success', [JpycCheckoutController::class, 'success'])->name('jpyc.success');
+Route::get('/checkout/jpyc/cancel', [JpycCheckoutController::class, 'cancel'])->name('jpyc.cancel');
+
 Route::get('/download/{order}/{product}', [\App\Http\Controllers\DownloadController::class, 'download'])->name('download');
 
 // Stripe Webhook

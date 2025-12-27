@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'チェックアウト')
+@section('title', 'JPYC決済')
 
 @section('content')
 <div class="py-24 px-6 sm:px-8 lg:px-12 max-w-4xl mx-auto">
     <div class="flex justify-between items-center mb-16">
-        <h1 class="text-5xl md:text-6xl font-thin tracking-wide">チェックアウト</h1>
+        <h1 class="text-5xl md:text-6xl font-thin tracking-wide">JPYC決済</h1>
         <button onclick="toggleLanguage()" class="text-sm text-gray-400 hover:text-white border border-gray-700 px-3 py-1 rounded">
             <span id="lang-toggle">English</span>
         </button>
@@ -29,7 +29,7 @@
                             <p class="text-sm text-gray-400" data-ja="数量: {{ $item->quantity }}" data-en="Qty: {{ $item->quantity }}">数量: {{ $item->quantity }}</p>
                         </div>
                         <div class="text-right">
-                            <div class="text-lg">¥{{ number_format($item->price * $item->quantity, 0) }}</div>
+                            <div class="text-lg">{{ number_format($item->price * $item->quantity, 0) }} JPYC</div>
                         </div>
                     </div>
                 @endforeach
@@ -38,15 +38,21 @@
             <div class="border-t border-gray-800 pt-6">
                 <div class="flex justify-between items-center text-2xl font-light">
                     <span data-ja="合計" data-en="Total">合計</span>
-                    <span>¥{{ number_format($cart->total, 0) }}</span>
+                    <span>{{ number_format($cart->total, 0) }} JPYC</span>
                 </div>
+                <p class="text-sm text-gray-500 mt-2">1 JPYC = 1 JPY</p>
+            </div>
+
+            <div class="mt-8 p-4 bg-purple-900/20 border border-purple-800 rounded">
+                <h3 class="text-purple-400 font-medium mb-2">JPYC決済</h3>
+                <p class="text-sm text-gray-400">Polygon Network</p>
             </div>
         </div>
 
         <div>
             <h2 class="text-2xl font-light mb-8" data-ja="お客様情報" data-en="Customer Information">お客様情報</h2>
 
-            <form action="{{ route('checkout.process') }}" method="POST" class="space-y-6">
+            <form action="{{ route('jpyc.process') }}" method="POST" class="space-y-6">
                 @csrf
 
                 <div>
@@ -79,25 +85,25 @@
                 <div class="pt-6">
                     <button type="submit"
                             class="w-full px-8 py-4 bg-[#1e3a5f] text-white hover:bg-[#2a4a73] transition-colors text-sm tracking-wider font-medium"
-                            data-ja="お支払いへ進む" data-en="Continue to Payment">
-                        お支払いへ進む
+                            data-ja="JPYC決済に進む" data-en="Continue to JPYC Payment">
+                        JPYC決済に進む
                     </button>
                 </div>
 
                 <div class="text-center text-sm text-gray-400 space-y-2">
-                    <p data-ja="Stripeによる安全な決済" data-en="Secure payment powered by Stripe">Stripeによる安全な決済</p>
+                    <p data-ja="Polygonネットワーク上のJPYCで支払い" data-en="Pay with JPYC on Polygon Network">Polygonネットワーク上のJPYCで支払い</p>
                     <div class="flex justify-center items-center gap-3">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                         </svg>
-                        <span data-ja="SSL暗号化" data-en="SSL Encrypted">SSL暗号化</span>
+                        <span data-ja="ブロックチェーンで保護" data-en="Blockchain Secured">ブロックチェーンで保護</span>
                     </div>
                 </div>
             </form>
 
             <div class="mt-8 text-center">
-                <a href="{{ route('jpyc.index') }}" class="text-purple-400 hover:text-purple-300 text-sm" data-ja="JPYC（Polygon）で支払う" data-en="Or pay with JPYC (Polygon)">
-                    JPYC（Polygon）で支払う
+                <a href="{{ route('checkout.index') }}" class="text-gray-500 hover:text-white text-sm" data-ja="クレジットカード（Stripe）で支払う" data-en="Or pay with credit card (Stripe)">
+                    クレジットカード（Stripe）で支払う
                 </a>
             </div>
         </div>
