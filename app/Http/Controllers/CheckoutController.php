@@ -84,7 +84,7 @@ class CheckoutController extends Controller
                         'name' => $item->product->name,
                         'description' => $item->product->description,
                     ],
-                    'unit_amount' => $item->price,
+                    'unit_amount' => (int) $item->price,
                 ],
                 'quantity' => $item->quantity,
             ];
