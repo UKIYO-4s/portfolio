@@ -49,4 +49,8 @@ return [
         'receiver_address' => env('JPYC_RECEIVER_ADDRESS'),
     ],
 
+    'internal_api' => [
+        'key' => env('INTERNAL_API_KEY'),
+    ],
+
 ];

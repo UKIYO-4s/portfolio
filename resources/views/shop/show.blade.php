@@ -58,7 +58,7 @@
                 <div class="text-3xl font-light mb-8">¥{{ number_format($product->price, 0) }}</div>
 
                 <div class="prose prose-invert max-w-none mb-12">
-                    <p class="text-lg text-gray-400 font-light leading-relaxed">
+                    <p class="text-lg text-gray-300 leading-relaxed">
                         {{ $product->description }}
                     </p>
                 </div>
